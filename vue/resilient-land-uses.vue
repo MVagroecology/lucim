@@ -500,8 +500,8 @@ module.exports = {
       <div class="row no-gutters my-2">
         <div class="col-2">
           <div class="row no-gutters">
-            <div class="col-10 mt-1">
-              <router-link class="btn btn-back" to="/" tag="button">Back to <b>homepage</b></router-link>
+            <div class="col-10">
+              <router-link class="btn btn-back my-1" to="/" tag="button">Back to <b>homepage</b></router-link>
             </div>
             <div class="col-2 mt-2">
               <i class="fas fa-chevron-right"></i>

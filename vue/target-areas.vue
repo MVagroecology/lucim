@@ -443,10 +443,20 @@ module.exports = {
 
 <template>
   <div class="target-regions text-center">
-    <h2 class="target-regions-title">
-      European <b>target areas</b> for Agroforestry and Mixed systems
-      <router-link class="btn btn-back" to="/" tag="button">Back to <b>homepage</b></router-link>
-    </h2>
+    <div class="row no-gutters">
+        <div class="col-2 text-left">
+            <router-link class="btn btn-back" to="/" tag="button">
+            <span class="d-none d-sm-block">Back to <b>homepage</b></span>
+            <i class="fa fa-home d-sm-none"></i>
+            </router-link>
+        </div>
+        <div class="col-8">
+            <h3 class="target-regions-title text-center">
+            European <b>target areas</b> for Agroforestry and Mixed systems
+            </h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
     <div class="row no-gutters">
       <div class="col-3 text-left">
         <div><p class="map-title">Target areas</p></div>

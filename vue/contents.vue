@@ -95,7 +95,7 @@ module.exports = {
         </div>
         <div class="w-100"></div>
         <div class="button col-12">
-          <button class="btn west text-center" @click="goToTargetRegions()">What are the target regions for agroforestry and integrated crop/livestock systems?</button>
+          <router-link to="/target-areas" tag="button" class="btn west text-center">What are the target regions for agroforestry and integrated crop/livestock systems?</router-link>
         </div>
         <div class="col-12">
           <div class="background row align-items-center">
@@ -123,7 +123,7 @@ module.exports = {
         </div>
         <div class="w-100"></div>
         <div class="button col-12">
-          <button class="btn north text-center" @click="goToRegion()">Which pathway of land-use change to take?</button>
+          <router-link to="/resilient-land-uses" tag="button" class="btn west text-center">Which pathway of land-use change to take?</router-link>
         </div>
         <div class="col-12">
           <div class="background row">
