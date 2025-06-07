@@ -1,0 +1,283 @@
+NUTS_ID,LEVL_CODE,CNTR_CODE,NAME_LATN,NUTS_NAME,URB_VALUE,URB_CLASS,AGE_VALUE,AGE_CLASS,ECS_VALUE,ECS_CLASS,UNR_VALUE,UNR_CLASS,TRN_VALUE,TRN_CLASS,ORG_VALUE,ORG_CLASS
+DE12,"2",DE,Karlsruhe,Karlsruhe,1.00000000000,Predominantly urban,1.16071428571,High,103187.73696100000,Medium to Large,3.10000000000,Low,0.14211886305,Medium to low,8.84353741497,High
+CH05,"2",CH,Ostschweiz,Ostschweiz,2.00000000000,Intermediate,2.55223880597,Very high,121386.85592400000,Medium to Large,3.10000000000,Low,0.03106332139,Very low,20.48517520220,Very high
+CZ02,"2",CZ,Střední Čechy,Střední Čechy,1.00000000000,Predominantly urban,1.04166666667,High,238037.07859100000,Very Large,1.20000000000,Very low,0.73239436620,Very high,10.02710027100,High
+CH01,"2",CH,Région lémanique,Région lémanique,2.00000000000,Intermediate,1.52631578947,Very high,158553.95909100000,Large,6.90000000000,High,0.03053435115,Very low,8.11965811966,Medium to high
+BE24,"2",BE,Prov. Vlaams-Brabant,Prov. Vlaams-Brabant,1.00000000000,Predominantly urban,0.43055555556,Medium to low,158960.33333299999,Large,3.60000000000,Medium to low,0.26168224299,Medium to high,3.33333333333,Medium to low
+BG33,"2",BG,Severoiztochen,Североизточен,2.00000000000,Intermediate,0.64434180139,Medium to high,47679.45198780000,Medium to Small,5.60000000000,Medium to high,0.16702355460,Medium to low,4.58715596330,Medium to low
+CZ03,"2",CZ,Jihozápad,Jihozápad,3.00000000000,Predominantly rural,1.11702127660,High,178604.93893100001,Large,1.70000000000,Very low,0.71241830065,Very high,23.66412213740,Very high
+CY00,"2",CY,Kýpros,Κύπρος,2.00000000000,Intermediate,0.10942441493,Very low,25749.19618210000,Small,6.80000000000,High,0.01098574822,Very low,3.67107195301,Medium to low
+CZ01,"2",CZ,Praha,Praha,1.00000000000,Predominantly urban,0.00000000000,No data,344714.58333300002,Very Large,1.60000000000,Very low,0.50000000000,High,8.33333333333,Medium to high
+BG34,"2",BG,Yugoiztochen,Югоизточен,2.00000000000,Intermediate,0.70242914980,Medium to high,42264.12908500000,Small,4.50000000000,Medium to high,0.13975155280,Medium to low,4.62962962963,Medium to low
+AT11,"2",AT,Burgenland,Burgenland,3.00000000000,Predominantly rural,1.94642857143,Very high,74610.53888890000,Medium to Small,4.30000000000,Medium to low,0.33995037221,High,23.51851851850,Very high
+DE14,"2",DE,Tübingen,Tübingen,3.00000000000,Predominantly rural,1.38532110092,High,117404.24951300000,Medium to Large,2.10000000000,Very low,0.12747252747,Medium to low,13.74269005850,Very high
+AT22,"2",AT,Steiermark,Steiermark,3.00000000000,Predominantly rural,3.17391304348,Very high,53253.14692790000,Medium to Small,3.70000000000,Medium to low,0.24570160843,Medium to high,19.10062333040,Very high
+BE25,"2",BE,Prov. West-Vlaanderen,Prov. West-Vlaanderen,1.00000000000,Predominantly urban,0.53977272727,Medium to high,278228.02509399998,Very Large,2.70000000000,Very low,0.34175084175,High,1.50564617315,Low
+BE22,"2",BE,Prov. Limburg (BE),Prov. Limburg (BE),2.00000000000,Intermediate,0.51562500000,Medium to high,252374.08098599999,Very Large,3.50000000000,Low,0.29090909091,Medium to high,2.46478873239,Medium to low
+BE23,"2",BE,Prov. Oost-Vlaanderen,Prov. Oost-Vlaanderen,1.00000000000,Predominantly urban,0.37195121951,Medium to low,204107.85880399999,Large,2.00000000000,Very low,0.27215189873,Medium to high,1.82724252492,Low
+BG41,"2",BG,Yugozapaden,Югозападен,2.00000000000,Intermediate,0.45858343337,Medium to high,12055.67725290000,Very Small,3.20000000000,Low,0.05002084202,Low,1.46883684002,Low
+CZ06,"2",CZ,Jihovýchod,Jihovýchod,2.00000000000,Intermediate,0.59615384615,Medium to high,183938.64243099999,Large,1.70000000000,Very low,0.40771812081,High,7.98569725864,Medium to high
+CH07,"2",CH,Ticino,Ticino,2.00000000000,Intermediate,1.00000000000,High,76986.52830190002,Medium to Small,6.50000000000,High,0.02439024390,Very low,11.71171171170,High
+ES53,"2",ES,Illes Balears,Illes Balears,2.00000000000,Intermediate,0.15938864629,Low,23275.39421160000,Small,10.90000000000,Very high,0.06369426752,Low,6.18762475050,Medium to high
+AT33,"2",AT,Tirol,Tirol,2.00000000000,Intermediate,2.50515463918,Very high,30757.68936570000,Small,3.20000000000,Low,0.18191841235,Medium to low,21.82835820900,Very high
+AT12,"2",AT,Niederösterreich,Niederösterreich,2.00000000000,Intermediate,3.22167487685,Very high,70703.44386509999,Medium to Small,3.90000000000,Medium to low,0.42757936508,High,21.06360792490,Very high
+DE13,"2",DE,Freiburg,Freiburg,2.00000000000,Intermediate,1.09375000000,High,72508.26188490000,Medium to Small,2.30000000000,Very low,0.08499095841,Low,11.75979983320,High
+DE21,"2",DE,Oberbayern,Oberbayern,1.00000000000,Predominantly urban,1.83568075117,Very high,94672.42477880001,Medium to Large,2.20000000000,Very low,0.09757281553,Low,14.03353927630,Very high
+CH06,"2",CH,Zentralschweiz,Zentralschweiz,2.00000000000,Intermediate,3.50000000000,Very high,107273.70632000000,Medium to Large,2.40000000000,Very low,0.03565891473,Very low,10.71849234390,High
+BG32,"2",BG,Severen tsentralen,Северен централен,3.00000000000,Predominantly rural,0.64961636829,Medium to high,52117.81989250000,Medium to Small,6.00000000000,Medium to high,0.20177562550,Medium to high,4.16666666667,Medium to low
+AT34,"2",AT,Vorarlberg,Vorarlberg,1.00000000000,Predominantly urban,1.96969696970,Very high,47266.14634150000,Medium to Small,3.20000000000,Low,0.14741035857,Medium to low,18.11846689900,Very high
+BE10,"2",BE,Région de Bruxelles-Capitale/ Brussels Hoofdstedelijk Gewest,Région de Bruxelles-Capitale/ Brussels Hoofdstedelijk Gewest,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,11.40000000000,Very high,0.20000000000,Medium to high,33.33333333330,Very high
+BE21,"2",BE,Prov. Antwerpen,Prov. Antwerpen,1.00000000000,Predominantly urban,0.82539682540,Medium to high,378826.40108400001,Very Large,4.00000000000,Medium to low,0.29020979021,Medium to high,2.43902439024,Medium to low
+BE33,"2",BE,Prov. Liège,Prov. Liège,2.00000000000,Intermediate,0.66176470588,Medium to high,189111.03870999999,Large,8.30000000000,High,0.26530612245,Medium to high,14.51612903230,Very high
+CH02,"2",CH,Espace Mittelland,Espace Mittelland,2.00000000000,Intermediate,2.57894736842,Very high,128895.04274000000,Medium to Large,3.90000000000,Medium to low,0.03014705882,Very low,10.26252983290,High
+CH03,"2",CH,Nordwestschweiz,Nordwestschweiz,1.00000000000,Predominantly urban,1.44117647059,Very high,126493.81818200000,Medium to Large,4.30000000000,Medium to low,0.04430379747,Very low,8.68544600939,Medium to high
+BG42,"2",BG,Yuzhen tsentralen,Южен централен,3.00000000000,Predominantly rural,0.41097818438,Medium to low,16188.81539540000,Very Small,3.00000000000,Low,0.05818271849,Low,2.33972859148,Low
+AT31,"2",AT,Oberösterreich,Oberösterreich,3.00000000000,Predominantly rural,5.95876288660,Very high,77555.61630480000,Medium to Small,2.90000000000,Low,0.42875237492,High,20.11519716440,Very high
+CH04,"2",CH,Zürich,Zürich,1.00000000000,Predominantly urban,1.34285714286,High,142310.72981399999,Medium to Large,3.90000000000,Medium to low,0.03284671533,Very low,10.31518624640,High
+CZ05,"2",CZ,Severovýchod,Severovýchod,3.00000000000,Predominantly rural,0.89655172414,Medium to high,215129.90990999999,Very Large,2.20000000000,Very low,0.58362989324,Very high,16.21621621620,Very high
+AT32,"2",AT,Salzburg,Salzburg,3.00000000000,Predominantly rural,4.75675675676,Very high,41761.08551720000,Small,3.00000000000,Low,0.27192982456,Medium to high,51.86206896550,Very high
+AT21,"2",AT,Kärnten,Kärnten,3.00000000000,Predominantly rural,2.98780487805,Very high,35396.02040820000,Small,4.50000000000,Medium to high,0.24727272727,Medium to high,18.56171039840,Very high
+BE31,"2",BE,Prov. Brabant Wallon,Prov. Brabant Wallon,2.00000000000,Intermediate,0.00000000000,No data,213855.78640800001,Large,5.50000000000,Medium to high,0.30769230769,Medium to high,8.73786407767,Medium to high
+CZ08,"2",CZ,Moravskoslezsko,Moravskoslezsko,2.00000000000,Intermediate,1.17142857143,High,131157.71134000001,Medium to Large,4.00000000000,Medium to low,0.45522388060,High,20.10309278350,Very high
+AT13,"2",AT,Wien,Wien,1.00000000000,Predominantly urban,0.00000000000,No data,239524.04347800001,Very Large,9.20000000000,Very high,0.76923076923,Very high,17.39130434780,Very high
+BE32,"2",BE,Prov. Hainaut,Prov. Hainaut,1.00000000000,Predominantly urban,0.62195121951,Medium to high,186787.96419400000,Large,10.50000000000,Very high,0.30666666667,Medium to high,5.37084398977,Medium to high
+ES61,"2",ES,Andalucía,Andalucía,1.00000000000,Predominantly urban,0.22269476126,Low,41838.84311970001,Small,19.00000000000,Very high,0.02866364405,Very low,5.54310473629,Medium to high
+ES62,"2",ES,Región de Murcia,Región de Murcia,2.00000000000,Intermediate,0.19492385787,Low,101870.38871000000,Medium to Large,13.30000000000,Very high,0.04507160910,Very low,12.17741935480,High
+ES63,"2",ES,Ciudad de Ceuta,Ciudad de Ceuta,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,28.40000000000,Very high,0.00000000000,No data,0.00000000000,No data
+ES64,"2",ES,Ciudad de Melilla,Ciudad de Melilla,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,21.60000000000,Very high,0.00000000000,No data,0.00000000000,No data
+DEF0,"2",DE,Schleswig-Holstein,Schleswig-Holstein,2.00000000000,Intermediate,1.15172413793,High,236981.51763700001,Very Large,2.90000000000,Low,0.44774346793,High,5.82444626743,Medium to high
+FI1B,"2",FI,Helsinki-Uusimaa,Helsinki-Uusimaa,1.00000000000,Predominantly urban,0.81818181818,Medium to high,57710.82781460000,Medium to Small,6.70000000000,High,0.18972332016,Medium to low,12.91390728480,Very high
+ES11,"2",ES,Galicia,Galicia,2.00000000000,Intermediate,0.13699007718,Very low,31549.09317430000,Small,11.00000000000,Very high,0.02891040502,Very low,0.83499005964,Very low
+FR10,"2",FR,Ile-de-France,Ile-de-France,1.00000000000,Predominantly urban,1.15151515152,High,199929.60981299999,Large,7.50000000000,High,1.03333333333,Very high,10.28037383180,High
+DE30,"2",DE,Berlin,Berlin,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,4.80000000000,Medium to high,0.33333333333,High,20.00000000000,Very high
+EL53,"2",EL,Dytiki Makedonia,Δυτική Μακεδονία,3.00000000000,Predominantly rural,0.44817927171,Medium to high,22088.94213260000,Very Small,17.70000000000,Very high,0.00785854617,Very low,6.56270305393,Medium to high
+DEA1,"2",DE,Düsseldorf,Düsseldorf,1.00000000000,Predominantly urban,1.05084745763,High,316934.06016599998,Very Large,3.80000000000,Medium to low,0.53503184713,Very high,2.90456431535,Medium to low
+EL64,"2",EL,Sterea Elláda,Στερεά Ελλάδα,3.00000000000,Predominantly rural,0.14216549296,Very low,11300.29437710000,Very Small,13.80000000000,Very high,0.00517273231,Very low,1.50679897097,Low
+DEG0,"2",DE,Thüringen,Thüringen,3.00000000000,Predominantly rural,1.23529411765,High,371872.76010800002,Very Large,3.00000000000,Low,0.44357976654,High,9.97304582210,High
+ITG2,"2",IT,Sardegna,Sardegna,3.00000000000,Predominantly rural,0.44465408805,Medium to high,53189.77533600000,Medium to Small,11.50000000000,Very high,0.08395004625,Low,4.86406117247,Medium to high
+ITH1,"2",IT,Provincia Autonoma di Bolzano/Bozen,Provincia Autonoma di Bolzano/Bozen,3.00000000000,Predominantly rural,0.60706401766,Medium to high,37633.87199180000,Small,2.30000000000,Very low,0.06663025669,Low,12.68731268730,Very high
+DK01,"2",DK,Hovedstaden,Hovedstaden,1.00000000000,Predominantly urban,0.20588235294,Low,118548.51141599999,Medium to Large,4.70000000000,Medium to high,0.07920792079,Low,12.32876712330,Very high
+FI20,"2",FI,Åland,Åland,3.00000000000,Predominantly rural,0.00000000000,No data,82123.97222220000,Medium to Small,0.00000000000,No data,0.09090909091,Low,30.55555555560,Very high
+ES13,"2",ES,Cantabria,Cantabria,2.00000000000,Intermediate,0.73780487805,Medium to high,36482.98169930000,Small,9.40000000000,Very high,0.02960969044,Very low,1.96078431373,Low
+EL54,"2",EL,Ipeiros,Ήπειρος,3.00000000000,Predominantly rural,0.12615955473,Very low,23346.36024040000,Small,13.30000000000,Very high,0.00517911092,Very low,1.11635895234,Low
+DEA2,"2",DE,Köln,Köln,1.00000000000,Predominantly urban,0.74390243902,Medium to high,175008.89097700000,Large,3.20000000000,Low,0.39895013123,High,9.39849624060,High
+DE25,"2",DE,Mittelfranken,Mittelfranken,1.00000000000,Predominantly urban,1.90000000000,Very high,99908.19441070000,Medium to Large,2.80000000000,Low,0.15427769986,Medium to low,7.53341433779,Medium to high
+DED2,"2",DE,Dresden,Dresden,1.00000000000,Predominantly urban,1.22222222222,High,285850.03187300003,Very Large,3.30000000000,Low,0.37158469945,High,11.55378486060,High
+DE50,"2",DE,Bremen,Bremen,1.00000000000,Predominantly urban,0.00000000000,No data,134965.38461499999,Medium to Large,5.40000000000,Medium to high,0.08333333333,Low,15.38461538460,Very high
+DE60,"2",DE,Hamburg,Hamburg,1.00000000000,Predominantly urban,0.00000000000,No data,252278.18644100000,Very Large,4.10000000000,Medium to low,0.09259259259,Low,6.77966101695,Medium to high
+ES42,"2",ES,Castilla-La Mancha,Castilla-La Mancha,3.00000000000,Predominantly rural,0.14964086193,Very low,46389.87323940000,Medium to Small,14.30000000000,Very high,0.02992427698,Very low,6.87394809106,Medium to high
+EL43,"2",EL,Kriti,Κρήτη,2.00000000000,Intermediate,0.17273351648,Low,10936.26035340000,Very Small,12.10000000000,Very high,0.00624406135,Very low,2.33373802779,Low
+DEC0,"2",DE,Saarland,Saarland,1.00000000000,Predominantly urban,1.06666666667,High,90791.94495410001,Medium to Large,3.70000000000,Medium to low,0.11111111111,Medium to low,13.76146788990,Very high
+DEA4,"2",DE,Detmold,Detmold,2.00000000000,Intermediate,1.17241379310,High,155571.45844900000,Large,2.70000000000,Very low,0.38314176245,High,5.81717451524,Medium to high
+ES43,"2",ES,Extremadura,Extremadura,3.00000000000,Predominantly rural,0.19820828667,Low,43124.81191660001,Small,17.30000000000,Very high,0.04486345904,Very low,4.77598008712,Medium to low
+FI1C,"2",FI,Etelä-Suomi,Etelä-Suomi,1.00000000000,Predominantly urban,0.94652406417,Medium to high,74922.15143120002,Medium to Small,7.50000000000,High,0.15351812367,Medium to low,8.77192982456,High
+FI1D,"2",FI,Pohjois- ja Itä-Suomi,Pohjois- ja Itä-Suomi,3.00000000000,Predominantly rural,1.00000000000,High,71119.95505619999,Medium to Small,6.70000000000,High,0.11415168100,Medium to low,11.51685393260,High
+EL65,"2",EL,Peloponnisos,Πελοπόννησος,3.00000000000,Predominantly rural,0.15839243499,Low,12120.07992770000,Very Small,12.60000000000,Very high,0.00601398601,Very low,2.07117041979,Low
+EL30,"2",EL,Attiki,Aττική,1.00000000000,Predominantly urban,0.11306042885,Very low,12957.14748780000,Very Small,10.00000000000,Very high,0.01479046836,Very low,1.05263157895,Very low
+DE72,"2",DE,Gießen,Gießen,2.00000000000,Intermediate,1.02000000000,High,78008.89033939999,Medium to Small,2.70000000000,Very low,0.14328358209,Medium to low,19.32114882510,Very high
+DEE0,"2",DE,Sachsen-Anhalt,Sachsen-Anhalt,2.00000000000,Intermediate,1.00000000000,High,496856.89400899998,Very Large,4.00000000000,Medium to low,0.83544303798,Very high,13.59447004610,Very high
+ES41,"2",ES,Castilla y León,Castilla y León,2.00000000000,Intermediate,0.20390455532,Low,69135.01213620002,Medium to Small,9.80000000000,Very high,0.04609885369,Very low,1.60245080712,Low
+DED5,"2",DE,Leipzig,Leipzig,1.00000000000,Predominantly urban,1.16666666667,High,372425.17886200000,Very Large,3.50000000000,Low,0.51851851852,Very high,12.19512195120,High
+ES22,"2",ES,Comunidad Foral de Navarra,Comunidad Foral de Navarra,2.00000000000,Intermediate,0.17760617761,Low,70290.64965199999,Medium to Small,9.60000000000,Very high,0.07030603805,Low,3.86697602475,Medium to low
+DED4,"2",DE,Chemnitz,Chemnitz,2.00000000000,Intermediate,1.23684210526,High,252074.19927499999,Very Large,2.40000000000,Very low,0.30188679245,Medium to high,10.50724637680,High
+ES12,"2",ES,Principado de Asturias,Principado de Asturias,2.00000000000,Intermediate,0.46620046620,Medium to high,25225.28842500000,Small,12.60000000000,Very high,0.02396373057,Very low,2.90955091714,Medium to low
+BE34,"2",BE,Prov. Luxembourg (BE),Prov. Luxembourg (BE),3.00000000000,Predominantly rural,0.76086956522,Medium to high,166391.19658100000,Large,4.80000000000,Medium to high,0.21243523316,Medium to high,23.07692307690,Very high
+DK02,"2",DK,Sjælland,Sjælland,3.00000000000,Predominantly rural,0.22340425532,Low,199476.16068400000,Large,3.90000000000,Medium to low,0.09328358209,Low,8.71794871795,Medium to high
+ES52,"2",ES,Comunitat Valenciana,Comunitat Valenciana,1.00000000000,Predominantly urban,0.09224945208,Very low,25511.01196890000,Small,13.20000000000,Very high,0.03788819876,Very low,2.75284260922,Medium to low
+ES21,"2",ES,País Vasco,País Vasco,1.00000000000,Predominantly urban,0.34808259587,Medium to low,40047.58510640000,Small,8.60000000000,High,0.08045977011,Low,3.72340425532,Medium to low
+ES24,"2",ES,Aragón,Aragón,1.00000000000,Predominantly urban,0.23052362708,Low,82825.35085630002,Medium to Small,9.40000000000,Very high,0.09507684293,Low,2.49762131304,Medium to low
+ES30,"2",ES,Comunidad de Madrid,Comunidad de Madrid,1.00000000000,Predominantly urban,0.13424657534,Very low,25804.58397930000,Small,11.20000000000,Very high,0.04736129905,Low,3.35917312661,Medium to low
+DE22,"2",DE,Niederbayern,Niederbayern,3.00000000000,Predominantly rural,1.85039370079,Very high,114017.66178500000,Medium to Large,1.80000000000,Very low,0.13002364066,Medium to low,7.39191073919,Medium to high
+BG31,"2",BG,Severozapaden,Северозападен,3.00000000000,Predominantly rural,0.45576923077,Medium to high,50218.39527250000,Medium to Small,6.90000000000,High,0.09253945481,Low,2.75771503611,Medium to low
+FI19,"2",FI,Länsi-Suomi,Länsi-Suomi,3.00000000000,Predominantly rural,0.95709570957,High,71486.05587890002,Medium to Small,6.20000000000,High,0.12581913499,Medium to low,9.37136204889,High
+BE35,"2",BE,Prov. Namur,Prov. Namur,3.00000000000,Predominantly rural,0.65957446809,Medium to high,207118.95708200001,Large,7.20000000000,High,0.29444444444,Medium to high,13.73390557940,Very high
+DEB3,"2",DE,Rheinhessen-Pfalz,Rheinhessen-Pfalz,2.00000000000,Intermediate,0.77570093458,Medium to high,207570.43524100000,Large,3.60000000000,Medium to low,0.32335329341,High,9.18674698795,High
+DE11,"2",DE,Stuttgart,Stuttgart,1.00000000000,Predominantly urban,1.29655172414,High,115882.74014500000,Medium to Large,2.80000000000,Low,0.18493803623,Medium to low,9.97586484312,High
+CZ04,"2",CZ,Severozápad,Severozápad,2.00000000000,Intermediate,0.82051282051,Medium to high,192596.40816299999,Large,3.30000000000,Low,0.72566371681,Very high,26.53061224490,Very high
+ES51,"2",ES,Cataluña,Cataluña,1.00000000000,Predominantly urban,0.19733333333,Low,95693.21284340000,Medium to Large,9.70000000000,Very high,0.09940000000,Low,7.74968164453,Medium to high
+ES23,"2",ES,La Rioja,La Rioja,2.00000000000,Intermediate,0.27445652174,Medium to low,48003.83333330000,Medium to Small,9.50000000000,Very high,0.07676969093,Low,2.31481481481,Low
+CZ07,"2",CZ,Střední Morava,Střední Morava,3.00000000000,Predominantly rural,1.09090909091,High,175139.68789800000,Large,2.70000000000,Very low,0.50961538462,Very high,19.74522292990,Very high
+FRB0,"2",FR,Centre — Val de Loire,Centre — Val de Loire,3.00000000000,Predominantly rural,1.50000000000,Very high,178908.39062500000,Large,6.40000000000,High,0.88976377953,Very high,7.86458333333,Medium to high
+RO21,"2",RO,Nord-Est,Nord-Est,3.00000000000,Predominantly rural,0.27980949884,Medium to low,3167.01158516000,Very Small,6.60000000000,High,0.00564722641,Very low,0.53794266442,Very low
+SE11,"2",SE,Stockholm,Stockholm,1.00000000000,Predominantly urban,0.00000000000,No data,69250.28571430000,Medium to Small,6.90000000000,High,0.25333333333,Medium to high,7.40740740741,Medium to high
+SE12,"2",SE,Östra Mellansverige,Östra Mellansverige,2.00000000000,Intermediate,0.32808398950,Medium to low,103867.08518200000,Medium to Large,9.40000000000,Very high,0.35456730769,High,11.71251109140,High
+ITH4,"2",IT,Friuli-Venezia Giulia,Friuli-Venezia Giulia,2.00000000000,Intermediate,0.19291338583,Low,78615.08129580000,Medium to Small,5.30000000000,Medium to high,0.11444141689,Medium to low,6.28048780488,Medium to high
+PT17,"2",PT,Área Metropolitana de Lisboa,Área Metropolitana de Lisboa,1.00000000000,Predominantly urban,0.15081967213,Very low,48247.01225110000,Medium to Small,7.30000000000,High,0.04983922830,Low,1.53139356815,Low
+PT16,"2",PT,Centro (PT),Centro (PT),3.00000000000,Predominantly rural,0.09367945824,Very low,18781.40454960000,Very Small,5.20000000000,Medium to high,0.02060238444,Very low,1.06568295932,Very low
+PL22,"2",PL,Śląskie,Śląskie,1.00000000000,Predominantly urban,1.05324675325,High,14249.90787420000,Very Small,2.20000000000,Very low,0.24389567148,Medium to high,0.22286605750,Very low
+SE21,"2",SE,Småland med öarna,Småland med öarna,3.00000000000,Predominantly rural,0.37755102041,Medium to low,112686.31243200001,Medium to Large,6.10000000000,Medium to high,0.31766381766,High,8.64864864865,Medium to high
+LU00,"2",LU,Luxembourg,Luxembourg,2.00000000000,Intermediate,0.92105263158,Medium to high,172314.44148899999,Large,4.60000000000,Medium to high,1.13636363636,Very high,5.85106382979,Medium to high
+PL61,"2",PL,Kujawsko-pomorskie,Kujawsko-pomorskie,2.00000000000,Intermediate,2.91141732283,Very high,34165.88355240000,Small,3.90000000000,Medium to low,0.69204448246,Very high,0.62342038753,Very low
+PL41,"2",PL,Wielkopolskie,Wielkopolskie,3.00000000000,Predominantly rural,2.32621199671,Very high,37885.22309890000,Small,2.00000000000,Very low,0.62964532994,Very high,0.58079056866,Very low
+LV00,"2",LV,Latvija,Latvija,2.00000000000,Intermediate,0.32475728155,Medium to low,19660.72948680000,Very Small,6.80000000000,High,0.42109600330,High,5.43635836474,Medium to high
+PL62,"2",PL,Warmińsko-mazurskie,Warmińsko-mazurskie,3.00000000000,Predominantly rural,1.91000000000,Very high,37950.08593750000,Small,3.40000000000,Low,0.43535620053,High,7.67463235294,Medium to high
+FRI2,"2",FR,Limousin,Limousin,3.00000000000,Predominantly rural,1.42647058824,Very high,90046.24127910000,Medium to Large,6.80000000000,High,0.58435582822,Very high,9.59302325581,High
+PL42,"2",PL,Zachodniopomorskie,Zachodniopomorskie,2.00000000000,Intermediate,1.34027777778,High,41344.98528380000,Small,2.30000000000,Very low,0.47037609480,High,7.70847932726,Medium to high
+PL51,"2",PL,Dolnośląskie,Dolnośląskie,1.00000000000,Predominantly urban,1.04180790960,High,22619.08958410000,Very Small,3.60000000000,Medium to low,0.34606330107,High,1.32141469102,Low
+PL52,"2",PL,Opolskie,Opolskie,3.00000000000,Predominantly rural,2.18560606061,Very high,30567.16547900000,Small,2.70000000000,Very low,0.41117318436,High,0.23752969121,Very low
+PL71,"2",PL,Łódzkie,Łódzkie,2.00000000000,Intermediate,1.86542591267,Very high,17300.86754290000,Very Small,3.40000000000,Low,0.36864852237,High,0.43481967772,Very low
+LT02,"2",LT,Vidurio ir vakarų Lietuvos regionas,Vidurio ir vakarų Lietuvos regionas,0.00000000000,No data,0.35898130588,Medium to low,18246.92738450000,Very Small,6.60000000000,High,0.15447641887,Medium to low,1.43673186775,Low
+FRI3,"2",FR,Poitou-Charentes,Poitou-Charentes,3.00000000000,Predominantly rural,1.44067796610,Very high,191638.10852300000,Large,7.10000000000,High,0.67613132209,Very high,9.47591318158,High
+PT18,"2",PT,Alentejo,Alentejo,3.00000000000,Predominantly rural,0.19476268412,Low,63325.25482720000,Medium to Small,4.90000000000,Medium to high,0.09729579035,Low,2.23577235772,Low
+SI04,"2",SI,Zahodna Slovenija,Zahodna Slovenija,1.00000000000,Predominantly urban,0.19976498237,Low,15894.10042230000,Very Small,3.80000000000,Medium to low,0.33375078272,High,5.77193805725,Medium to high
+PL63,"2",PL,Pomorskie,Pomorskie,2.00000000000,Intermediate,1.90528634361,Very high,31104.28382310000,Small,1.90000000000,Very low,0.50178926441,High,1.32345156167,Low
+PL43,"2",PL,Lubuskie,Lubuskie,2.00000000000,Intermediate,1.03351955307,High,30853.61724660000,Small,2.00000000000,Very low,0.42426417803,High,4.84114977307,Medium to high
+PT15,"2",PT,Algarve,Algarve,3.00000000000,Predominantly rural,0.08236808237,Very low,29205.49569980000,Small,6.00000000000,Medium to high,0.02240000000,Very low,0.62548866302,Very low
+NL12,"2",NL,Friesland (NL),Friesland (NL),2.00000000000,Intermediate,0.53086419753,Medium to high,408544.93349199998,Very Large,3.80000000000,Medium to low,2.29687500000,Very high,3.80047505938,Medium to low
+NL13,"2",NL,Drenthe,Drenthe,2.00000000000,Intermediate,0.52631578947,Medium to high,457769.91304299998,Very Large,2.90000000000,Low,2.20930232558,Very high,3.26086956522,Medium to low
+PL92,"2",PL,Mazowiecki regionalny,Mazowiecki regionalny,1.00000000000,Predominantly urban,1.92793682132,Very high,24019.29353260000,Small,3.70000000000,Medium to low,0.41491784610,High,0.95910866069,Very low
+RO31,"2",RO,Sud-Muntenia,Sud-Muntenia,3.00000000000,Predominantly rural,0.22253929641,Low,4121.16803970000,Very Small,7.90000000000,High,0.00698383301,Very low,0.35826500115,Very low
+ITI1,"2",IT,Toscana,Toscana,2.00000000000,Intermediate,0.17707058344,Low,47935.31740550000,Medium to Small,6.00000000000,Medium to high,0.07934534908,Low,10.37392138060,High
+ITI2,"2",IT,Umbria,Umbria,2.00000000000,Intermediate,0.18958818959,Low,38349.22086120001,Small,7.10000000000,High,0.06907502977,Low,7.08456973294,Medium to high
+NL11,"2",NL,Groningen,Groningen,2.00000000000,Intermediate,0.48148148148,Medium to high,433193.86507900001,Very Large,4.60000000000,Medium to high,2.27272727273,Very high,3.96825396825,Medium to low
+ITH5,"2",IT,Emilia-Romagna,Emilia-Romagna,2.00000000000,Intermediate,0.17714044707,Low,123465.39324999999,Medium to Large,5.00000000000,Medium to high,0.12857744108,Medium to low,10.51162790700,High
+NL41,"2",NL,Noord-Brabant,Noord-Brabant,1.00000000000,Predominantly urban,0.42696629214,Medium to low,514609.89647799998,Very Large,3.00000000000,Low,1.63943661972,Very high,1.81430096051,Low
+NL42,"2",NL,Limburg (NL),Limburg (NL),1.00000000000,Predominantly urban,0.34567901235,Medium to low,549314.26849299995,Very Large,3.60000000000,Medium to low,1.80769230769,Very high,1.91780821918,Low
+FRD2,"2",FR,Haute-Normandie,Haute-Normandie,2.00000000000,Intermediate,1.33644859813,High,209603.95994999999,Large,7.90000000000,High,0.81179138322,Very high,5.88235294118,Medium to high
+DE40,"2",DE,Brandenburg,Brandenburg,0.00000000000,No data,1.04819277108,High,367997.65064700000,Very Large,3.30000000000,Low,0.53693181818,Very high,15.15711645100,Very high
+EE00,"2",EE,Eesti,Eesti,3.00000000000,Predominantly rural,0.67687074830,Medium to high,74135.08443269999,Medium to Small,5.60000000000,Medium to high,0.47662337662,High,17.06244503080,Very high
+ITG1,"2",IT,Sicilia,Sicilia,1.00000000000,Predominantly urban,0.21540428252,Low,29869.82624890000,Small,16.60000000000,Very high,0.07022556391,Low,7.94130037916,Medium to high
+RO22,"2",RO,Sud-Est,Sud-Est,3.00000000000,Predominantly rural,0.26837978418,Low,6271.45556378000,Very Small,7.30000000000,High,0.00984730446,Very low,0.46596309325,Very low
+PL72,"2",PL,Świętokrzyskie,Świętokrzyskie,3.00000000000,Predominantly rural,1.32821341956,High,10822.01465340000,Very Small,3.80000000000,Medium to low,0.19406057042,Medium to high,0.72588582677,Very low
+EL51,"2",EL,"Anatoliki Makedonia, Thraki","Aνατολική Μακεδονία, Θράκη",3.00000000000,Predominantly rural,0.38054968288,Medium to low,19098.68349890000,Very Small,14.70000000000,Very high,0.00975473802,Very low,4.85651214128,Medium to high
+DE26,"2",DE,Unterfranken,Unterfranken,3.00000000000,Predominantly rural,1.69230769231,Very high,91492.11323160000,Medium to Large,2.20000000000,Very low,0.12769010043,Medium to low,14.23125794160,Very high
+NL22,"2",NL,Gelderland,Gelderland,1.00000000000,Predominantly urban,0.39234449761,Medium to low,355532.68022600003,Very Large,3.50000000000,Low,1.33509234828,Very high,3.61581920904,Medium to low
+DK03,"2",DK,Syddanmark,Syddanmark,3.00000000000,Predominantly rural,0.34121621622,Medium to low,324071.14258599997,Very Large,4.50000000000,Medium to high,0.09119170984,Low,10.26615969580,High
+DE93,"2",DE,Lüneburg,Lüneburg,2.00000000000,Intermediate,1.00806451613,High,287796.60465100000,Very Large,2.50000000000,Very low,0.22400990099,Medium to high,7.48230535895,Medium to high
+PT11,"2",PT,Norte,Norte,2.00000000000,Intermediate,0.11683848797,Very low,13261.57328960000,Very Small,6.00000000000,Medium to high,0.01969345100,Very low,1.38471349185,Low
+DE94,"2",DE,Weser-Ems,Weser-Ems,2.00000000000,Intermediate,1.19745222930,High,388461.21176500001,Very Large,2.60000000000,Very low,0.17769230769,Medium to low,3.13725490196,Medium to low
+EL41,"2",EL,Voreio Aigaio,Βόρειο Αιγαίο,3.00000000000,Predominantly rural,0.24052132701,Low,9504.08006963000,Very Small,11.50000000000,Very high,0.00612691466,Very low,4.48020878643,Medium to low
+EL62,"2",EL,Ionia Nisia,Ιόνια Νησιά,3.00000000000,Predominantly rural,0.07755946225,Very low,5606.11221450000,Very Small,12.90000000000,Very high,0.00348953141,Very low,1.48957298908,Low
+RO12,"2",RO,Centru,Centru,3.00000000000,Predominantly rural,0.21793915896,Low,4530.74431675000,Very Small,5.40000000000,Medium to high,0.00851858889,Very low,0.76927907561,Very low
+EL63,"2",EL,Dytiki Elláda,Δυτική Ελλάδα,3.00000000000,Predominantly rural,0.15698303861,Low,12495.13104340000,Very Small,12.60000000000,Very high,0.00391190959,Very low,2.25108225108,Low
+EL61,"2",EL,Thessalia,Θεσσαλία,3.00000000000,Predominantly rural,0.20251572327,Low,19154.70563810000,Very Small,16.30000000000,Very high,0.00904079383,Very low,2.38199300699,Low
+DEA5,"2",DE,Arnsberg,Arnsberg,1.00000000000,Predominantly urban,1.27941176471,High,123498.59422800000,Medium to Large,3.90000000000,Medium to low,0.37296037296,High,11.88455008490,High
+PL82,"2",PL,Podkarpackie,Podkarpackie,3.00000000000,Predominantly rural,0.75141242938,Medium to high,6538.20970944000,Very Small,4.80000000000,Medium to high,0.18082045818,Medium to low,0.86603518268,Very low
+DE24,"2",DE,Oberfranken,Oberfranken,3.00000000000,Predominantly rural,1.96666666667,Very high,80178.59695290000,Medium to Small,2.90000000000,Low,0.11230769231,Medium to low,11.77285318560,High
+DEB2,"2",DE,Trier,Trier,3.00000000000,Predominantly rural,0.73529411765,Medium to high,99243.00244500001,Medium to Large,2.00000000000,Very low,0.21726190476,Medium to high,9.04645476773,High
+PL81,"2",PL,Lubelskie,Lubelskie,3.00000000000,Predominantly rural,1.71138014528,Very high,13189.91223000000,Very Small,4.70000000000,Medium to high,0.31469493446,Medium to high,1.16221866929,Low
+ITI4,"2",IT,Lazio,Lazio,1.00000000000,Predominantly urban,0.22033321999,Low,47352.92545650000,Medium to Small,7.70000000000,High,0.06099903939,Low,9.00045228403,High
+DE91,"2",DE,Braunschweig,Braunschweig,2.00000000000,Intermediate,0.96153846154,High,179515.14425400001,Large,3.20000000000,Low,0.39455782313,High,5.86797066015,Medium to high
+EL52,"2",EL,Kentriki Makedonia,Κεντρική Μακεδονία,2.00000000000,Intermediate,0.37639198218,Medium to low,21738.47202440000,Very Small,14.70000000000,Very high,0.01161423111,Very low,1.87445510026,Low
+EL42,"2",EL,Notio Aigaio,Νότιο Αιγαίο,3.00000000000,Predominantly rural,0.15147058824,Very low,8783.36180905000,Very Small,10.70000000000,Very high,0.00505050505,Very low,0.75329566855,Very low
+DE80,"2",DE,Mecklenburg-Vorpommern,Mecklenburg-Vorpommern,3.00000000000,Predominantly rural,1.14062500000,High,466594.58368200000,Very Large,3.80000000000,Medium to low,0.75457875458,Very high,20.71129707110,Very high
+DK04,"2",DK,Midtjylland,Midtjylland,3.00000000000,Predominantly rural,0.24157303371,Low,286599.17259799998,Very Large,4.10000000000,Medium to low,0.07766059444,Low,9.34163701068,High
+ITH3,"2",IT,Veneto,Veneto,2.00000000000,Intermediate,0.18035384209,Low,82752.85324640000,Medium to Small,4.20000000000,Medium to low,0.09471598415,Low,4.28812334377,Medium to low
+RO11,"2",RO,Nord-Vest,Nord-Vest,3.00000000000,Predominantly rural,0.28490645491,Medium to low,3745.72687672000,Very Small,3.10000000000,Low,0.00686301245,Very low,0.80124588092,Very low
+NL34,"2",NL,Zeeland,Zeeland,2.00000000000,Intermediate,0.33823529412,Medium to low,343636.52707600000,Very Large,2.60000000000,Very low,1.37606837607,Very high,2.52707581227,Medium to low
+DK05,"2",DK,Nordjylland,Nordjylland,3.00000000000,Predominantly rural,0.25619834711,Low,280243.79698200000,Very Large,4.80000000000,Medium to high,0.05805515239,Low,10.42524005490,High
+DE23,"2",DE,Oberpfalz,Oberpfalz,3.00000000000,Predominantly rural,2.19277108434,Very high,91655.85280150000,Medium to Large,2.50000000000,Very low,0.09812108560,Low,9.40170940171,High
+DEA3,"2",DE,Münster,Münster,2.00000000000,Intermediate,1.73118279570,Very high,226750.30241500001,Very Large,3.40000000000,Low,0.62480376766,Very high,1.93236714976,Low
+PL21,"2",PL,Małopolskie,Małopolskie,1.00000000000,Predominantly urban,1.10283517540,High,7287.52068462000,Very Small,2.40000000000,Very low,0.21623754563,Medium to high,0.51074179165,Very low
+ITH2,"2",IT,Provincia Autonoma di Trento,Provincia Autonoma di Trento,2.00000000000,Intermediate,0.41935483871,Medium to low,34562.69928570000,Small,3.80000000000,Medium to low,0.11464968153,Medium to low,10.32303370790,High
+DE27,"2",DE,Schwaben,Schwaben,3.00000000000,Predominantly rural,1.79844961240,Very high,111163.82340100000,Medium to Large,2.40000000000,Very low,0.09285714286,Low,14.52192667150,Very high
+DE71,"2",DE,Darmstadt,Darmstadt,1.00000000000,Predominantly urban,0.83783783784,Medium to high,123253.39271299999,Medium to Large,4.00000000000,Medium to low,0.20833333333,Medium to high,9.91902834008,High
+DE73,"2",DE,Kassel,Kassel,3.00000000000,Predominantly rural,1.52238805970,Very high,94629.05660380000,Medium to Large,2.40000000000,Very low,0.23495145631,Medium to high,13.83647798740,Very high
+DE92,"2",DE,Hannover,Hannover,1.00000000000,Predominantly urban,0.88750000000,Medium to high,251182.39538700000,Very Large,3.10000000000,Low,0.41822429907,High,4.77759472817,Medium to low
+FRD1,"2",FR,Basse-Normandie,Basse-Normandie,3.00000000000,Predominantly rural,1.04347826087,High,154017.23100699999,Large,6.20000000000,High,0.60995024876,Very high,9.45027794935,High
+DEB1,"2",DE,Koblenz,Koblenz,2.00000000000,Intermediate,0.83132530121,Medium to high,87811.45951040000,Medium to Small,2.80000000000,Low,0.19015659955,Medium to low,11.48775894540,High
+UKG1,"2",UK,"Herefordshire, Worcestershire and Warwickshire","Herefordshire, Worcestershire and Warwickshire",2.00000000000,Intermediate,0.09765625000,Very low,144941.75883300000,Medium to Large,2.90000000000,Low,0.24236641221,Medium to high,1.66163141994,Low
+UKL2,"2",UK,East Wales,East Wales,1.00000000000,Predominantly urban,0.13719512195,Very low,95618.53664599999,Medium to Large,3.20000000000,Low,0.16835994195,Medium to low,2.60545905707,Medium to low
+UKM5,"2",UK,North Eastern Scotland,North Eastern Scotland,2.00000000000,Intermediate,0.10791366907,Very low,116290.50000000000,Medium to Large,3.20000000000,Low,0.25067385445,Medium to high,0.43103448276,Very low
+UKM6,"2",UK,Highlands and Islands,Highlands and Islands,3.00000000000,Predominantly rural,0.15424164524,Low,35729.21004570000,Small,2.20000000000,Very low,0.15567282322,Medium to low,0.68441064639,Very low
+UKF3,"2",UK,Lincolnshire,Lincolnshire,2.00000000000,Intermediate,0.11666666667,Very low,328061.79265100003,Very Large,3.60000000000,Medium to low,0.32752613240,High,0.81743869210,Very low
+UKK3,"2",UK,Cornwall and Isles of Scilly,Cornwall and Isles of Scilly,2.00000000000,Intermediate,0.13333333333,Very low,132253.01210699999,Medium to Large,2.10000000000,Very low,0.19364161850,Medium to high,2.65486725664,Medium to low
+SK03,"2",SK,Stredné Slovensko,Stredné Slovensko,3.00000000000,Predominantly rural,1.11864406780,High,61733.86124400000,Medium to Small,6.60000000000,High,0.08854166667,Low,3.03030303030,Medium to low
+UKM8,"2",UK,West Central Scotland,West Central Scotland,0.00000000000,No data,0.00000000000,No data,0.00000000000,No data,4.50000000000,Medium to high,0.00000000000,No data,0.00000000000,No data
+FRE2,"2",FR,Picardie,Picardie,3.00000000000,Predominantly rural,1.50746268657,Very high,248145.61834099999,Very Large,9.10000000000,Very high,1.15630885122,Very high,4.97816593886,Medium to high
+SK04,"2",SK,Východné Slovensko,Východné Slovensko,3.00000000000,Predominantly rural,1.13684210526,High,85778.81764710000,Medium to Small,10.20000000000,Very high,0.11353711790,Medium to low,4.50980392157,Medium to low
+UKM9,"2",UK,Southern Scotland,Southern Scotland,0.00000000000,No data,0.00000000000,No data,0.00000000000,No data,3.10000000000,Low,0.00000000000,No data,0.00000000000,No data
+ITF5,"2",IT,Basilicata,Basilicata,3.00000000000,Predominantly rural,0.25000000000,Low,26237.45901150000,Small,7.10000000000,High,0.07235798159,Low,7.98108187999,Medium to high
+ITF6,"2",IT,Calabria,Calabria,3.00000000000,Predominantly rural,0.18866192334,Low,22329.61492510000,Very Small,14.60000000000,Very high,0.05042386877,Low,11.14716349170,High
+SK02,"2",SK,Západné Slovensko,Západné Slovensko,3.00000000000,Predominantly rural,0.76470588235,Medium to high,141607.39324300000,Medium to Large,4.00000000000,Medium to low,0.16692913386,Medium to low,1.89189189189,Low
+FRK2,"2",FR,Rhône-Alpes,Rhône-Alpes,1.00000000000,Predominantly urban,1.80243161094,Very high,116874.05644299999,Medium to Large,6.60000000000,High,0.56531406337,Very high,16.61341853040,Very high
+FRM0,"2",FR,Corse,Corse,3.00000000000,Predominantly rural,1.68421052632,Very high,115938.02120100000,Medium to Large,6.00000000000,Medium to high,0.55801104972,Very high,16.96113074200,Very high
+FRF1,"2",FR,Alsace,Alsace,2.00000000000,Intermediate,1.29661016949,High,141729.22413799999,Medium to Large,6.70000000000,High,0.37381703470,High,12.29885057470,High
+SE23,"2",SE,Västsverige,Västsverige,2.00000000000,Intermediate,0.30861723447,Medium to low,90037.93939390000,Medium to Small,6.30000000000,High,0.25022026432,Medium to high,10.14799154330,High
+FRE1,"2",FR,Nord-Pas de Calais,Nord-Pas de Calais,1.00000000000,Predominantly urban,1.82727272727,Very high,237801.86330900001,Very Large,8.70000000000,High,0.98926654741,Very high,5.21582733813,Medium to high
+UKJ1,"2",UK,"Berkshire, Buckinghamshire and Oxfordshire","Berkshire, Buckinghamshire and Oxfordshire",1.00000000000,Predominantly urban,0.10294117647,Very low,171341.75200000001,Large,2.80000000000,Low,0.32042253521,High,1.63934426230,Low
+HU22,"2",HU,Nyugat-Dunántúl,Nyugat-Dunántúl,3.00000000000,Predominantly rural,0.27178153446,Low,38876.11541970000,Small,2.40000000000,Very low,0.09704852426,Low,1.23175182482,Low
+ITC3,"2",IT,Liguria,Liguria,1.00000000000,Predominantly urban,0.29436325679,Medium to low,38582.71828790001,Small,6.90000000000,High,0.07262103506,Low,4.27350427350,Medium to low
+UKM7,"2",UK,Eastern Scotland,Eastern Scotland,1.00000000000,Predominantly urban,0.17486338798,Low,193738.93644100000,Large,3.40000000000,Low,0.39370078740,High,1.69491525424,Low
+HR02,"2",HR,Panonska Hrvatska,Panonska Hrvatska,3.00000000000,Predominantly rural,0.56004756243,Medium to high,20605.91217150000,Very Small,10.90000000000,Very high,0.03267273701,Very low,5.75626620570,Medium to high
+PL84,"2",PL,Podlaskie,Podlaskie,3.00000000000,Predominantly rural,2.29308176101,Very high,25413.68925900000,Small,2.50000000000,Very low,0.45601503759,High,3.72662798195,Medium to low
+FRJ2,"2",FR,Midi-Pyrénées,Midi-Pyrénées,2.00000000000,Intermediate,1.06423611111,High,91228.30605560000,Medium to Large,6.20000000000,High,0.53132832080,Very high,16.20294599020,Very high
+MT00,"2",MT,Malta,Malta,1.00000000000,Predominantly urban,0.28571428571,Medium to low,11241.07058820000,Very Small,2.90000000000,Low,0.01460823373,Very low,0.26143790850,Very low
+NL23,"2",NL,Flevoland,Flevoland,1.00000000000,Predominantly urban,0.00000000000,No data,796880.12121200003,Very Large,3.30000000000,Low,8.16666666667,Very high,13.93939393940,Very high
+NL31,"2",NL,Utrecht,Utrecht,1.00000000000,Predominantly urban,0.41176470588,Medium to low,292133.91079800000,Very Large,3.30000000000,Low,1.09803921569,Very high,5.16431924883,Medium to high
+NL32,"2",NL,Noord-Holland,Noord-Holland,1.00000000000,Predominantly urban,0.40000000000,Medium to low,527762.02034900000,Very Large,3.60000000000,Medium to low,1.89075630252,Very high,3.48837209302,Medium to low
+HU31,"2",HU,Észak-Magyarország,Észak-Magyarország,3.00000000000,Predominantly rural,0.32082324455,Medium to low,23598.30711160000,Small,6.20000000000,High,0.12071269488,Medium to low,2.38379022646,Low
+RO32,"2",RO,Bucureşti-Ilfov,Bucureşti-Ilfov,1.00000000000,Predominantly urban,0.17433751743,Low,4013.89204875000,Very Small,2.70000000000,Very low,0.01292596945,Very low,0.23215322113,Very low
+ITC2,"2",IT,Valle d’Aosta/Vallée d’Aoste,Valle d’Aosta/Vallée d’Aoste,2.00000000000,Intermediate,0.54054054054,Medium to high,22897.69879520000,Small,5.30000000000,Medium to high,0.10222222222,Low,2.80000000000,Medium to low
+NL33,"2",NL,Zuid-Holland,Zuid-Holland,1.00000000000,Predominantly urban,0.50000000000,Medium to high,859895.55053799995,Very Large,3.90000000000,Medium to low,1.08520179372,Very high,1.93548387097,Low
+ITF1,"2",IT,Abruzzo,Abruzzo,3.00000000000,Predominantly rural,0.15556660040,Low,30175.17354070000,Small,9.40000000000,Very high,0.05268153773,Low,5.03144654088,Medium to high
+HR03,"2",HR,Jadranska Hrvatska,Jadranska Hrvatska,3.00000000000,Predominantly rural,0.22156334232,Low,7012.09439252000,Very Small,6.80000000000,High,0.01783590963,Very low,2.98995561785,Medium to low
+IE06,"2",IE,Eastern and Midland,Eastern and Midland,0.00000000000,No data,0.44246575343,Medium to high,66846.61130140000,Medium to Small,4.70000000000,Medium to high,0.34349827388,High,1.41267123288,Low
+UKG2,"2",UK,Shropshire and Staffordshire,Shropshire and Staffordshire,1.00000000000,Predominantly urban,0.08333333333,Very low,178829.41640900000,Large,3.30000000000,Low,0.22117202268,Medium to high,0.98176718093,Very low
+ITF2,"2",IT,Molise,Molise,3.00000000000,Predominantly rural,0.20000000000,Low,27956.76195710000,Small,10.50000000000,Very high,0.05449275362,Low,3.01700493692,Medium to low
+PL91,"2",PL,Warszawski stołeczny,Warszawski stołeczny,1.00000000000,Predominantly urban,0.81574239714,Medium to high,14828.40752140000,Very Small,1.90000000000,Very low,0.30000000000,Medium to high,1.09215017065,Very low
+FRG0,"2",FR,Pays de la Loire,Pays de la Loire,2.00000000000,Intermediate,3.05084745763,Very high,241461.91826199999,Very Large,6.10000000000,Medium to high,0.95101088647,Very high,14.23444976080,Very high
+RO41,"2",RO,Sud-Vest Oltenia,Sud-Vest Oltenia,3.00000000000,Predominantly rural,0.24606195158,Low,3118.07890506000,Very Small,8.80000000000,Very high,0.00642892585,Very low,0.39227454931,Very low
+ITC4,"2",IT,Lombardia,Lombardia,1.00000000000,Predominantly urban,0.32744978698,Medium to low,200653.97905100000,Large,4.80000000000,Medium to high,0.14097560976,Medium to low,5.33162721263,Medium to high
+ITF3,"2",IT,Campania,Campania,1.00000000000,Predominantly urban,0.28449408673,Medium to low,32331.38958410000,Small,17.10000000000,Very high,0.05367607885,Low,7.28418399496,Medium to high
+ITC1,"2",IT,Piemonte,Piemonte,1.00000000000,Predominantly urban,0.35290697674,Medium to low,83334.43972870000,Medium to Small,6.50000000000,High,0.10305751550,Medium to low,5.57059961315,Medium to high
+HU23,"2",HU,Dél-Dunántúl,Dél-Dunántúl,3.00000000000,Predominantly rural,0.29732620321,Medium to low,36780.14328030000,Small,4.70000000000,Medium to high,0.11060855263,Medium to low,1.48093298778,Low
+UKH3,"2",UK,Essex,Essex,1.00000000000,Predominantly urban,0.10126582279,Very low,193053.85116300001,Large,3.20000000000,Low,0.37579617834,High,0.92165898618,Very low
+RO42,"2",RO,Vest,Vest,3.00000000000,Predominantly rural,0.28704066954,Medium to low,6933.28707402000,Very Small,3.70000000000,Medium to low,0.01212938005,Very low,0.73482270553,Very low
+FRF2,"2",FR,Champagne-Ardenne,Champagne-Ardenne,3.00000000000,Predominantly rural,1.29152542373,High,214602.41444299999,Very Large,8.00000000000,High,0.62677636500,Very high,5.38178472861,Medium to high
+HU12,"2",HU,Pest,Pest,0.00000000000,No data,0.27643784787,Medium to low,24954.99934900000,Small,2.20000000000,Very low,0.09949892627,Low,1.04166666667,Very low
+UKL1,"2",UK,West Wales and The Valleys,West Wales and The Valleys,2.00000000000,Intermediate,0.12459546926,Very low,78815.96835440000,Medium to Small,4.00000000000,Medium to low,0.15422077922,Medium to low,2.45959241040,Medium to low
+FRL0,"2",FR,Provence-Alpes-Côte d’Azur,Provence-Alpes-Côte d’Azur,1.00000000000,Predominantly urban,0.86285714286,Medium to high,160760.69743000000,Large,6.70000000000,High,0.36414342630,High,21.67056074770,Very high
+FRI1,"2",FR,Aquitaine,Aquitaine,1.00000000000,Predominantly urban,1.00803212851,High,178765.52292399999,Large,6.90000000000,High,0.55822088956,Very high,13.62616223150,Very high
+FRF3,"2",FR,Lorraine,Lorraine,2.00000000000,Intermediate,2.48101265823,Very high,166798.22308500001,Large,6.90000000000,High,0.85979381443,Very high,12.20865704770,High
+FRC2,"2",FR,Franche-Comté,Franche-Comté,3.00000000000,Predominantly rural,3.25000000000,Very high,163825.86123700000,Large,5.90000000000,Medium to high,0.97910447761,Very high,13.12217194570,Very high
+HU11,"2",HU,Budapest,Budapest,1.00000000000,Predominantly urban,0.36666666667,Medium to low,16429.31111110000,Very Small,2.30000000000,Very low,0.17532467533,Medium to low,0.00000000000,No data
+ITI3,"2",IT,Marche,Marche,3.00000000000,Predominantly rural,0.17350746269,Low,35544.01574570000,Small,6.20000000000,High,0.06417957635,Low,10.94674556210,High
+FRK1,"2",FR,Auvergne,Auvergne,3.00000000000,Predominantly rural,1.72020725389,Very high,92445.71866139999,Medium to Large,7.10000000000,High,0.60272727273,Very high,8.84855360182,High
+FRC1,"2",FR,Bourgogne,Bourgogne,3.00000000000,Predominantly rural,2.04166666667,Very high,213778.12453299999,Large,6.60000000000,High,0.88615023474,Very high,11.39476961390,High
+LT01,"2",LT,Sostinės regionas,Sostinės regionas,0.00000000000,No data,0.35135135135,Medium to low,11552.14570740000,Very Small,4.50000000000,Medium to high,0.11223118280,Medium to low,3.26481257557,Medium to low
+NL21,"2",NL,Overijssel,Overijssel,1.00000000000,Predominantly urban,0.39215686275,Medium to low,319160.39849599998,Very Large,3.30000000000,Low,1.77083333333,Very high,2.40601503759,Medium to low
+FRJ1,"2",FR,Languedoc-Roussillon,Languedoc-Roussillon,3.00000000000,Predominantly rural,0.82851239669,Medium to high,100534.46831300000,Medium to Large,9.00000000000,Very high,0.35451505017,High,18.72427983540,Very high
+SE33,"2",SE,Övre Norrland,Övre Norrland,3.00000000000,Predominantly rural,0.29104477612,Medium to low,46457.17796610000,Medium to Small,5.10000000000,Medium to high,0.15686274510,Medium to low,4.23728813559,Medium to low
+UKN0,"2",UK,Northern Ireland,Northern Ireland,2.00000000000,Intermediate,0.41066666667,Medium to low,87983.99713700000,Medium to Small,2.70000000000,Low,0.08860195904,Low,0.49059689289,Very low
+ITF4,"2",IT,Puglia,Puglia,2.00000000000,Intermediate,0.14691189827,Very low,22782.87512410000,Very Small,12.10000000000,Very high,0.04934210526,Low,5.66264430862,Medium to high
+IE04,"2",IE,Northern and Western,Northern and Western,0.00000000000,No data,0.40021401819,Medium to low,26756.11704420000,Small,4.20000000000,Medium to low,0.20598438855,Medium to high,1.15045838576,Low
+IE05,"2",IE,Southern,Southern,0.00000000000,No data,0.48512110727,Medium to high,74224.61706700000,Medium to Small,4.30000000000,Medium to high,0.36305562949,High,1.36665365092,Low
+UKC1,"2",UK,Tees Valley and Durham,Tees Valley and Durham,1.00000000000,Predominantly urban,0.11538461539,Very low,111249.97297300000,Medium to Large,5.60000000000,Medium to high,0.17989417989,Medium to low,0.46511627907,Very low
+UKH2,"2",UK,Bedfordshire and Hertfordshire,Bedfordshire and Hertfordshire,1.00000000000,Predominantly urban,0.08823529412,Very low,153853.78915699999,Large,2.70000000000,Very low,0.31746031746,Medium to high,0.63694267516,Very low
+UKE3,"2",UK,South Yorkshire,South Yorkshire,1.00000000000,Predominantly urban,0.09677419355,Very low,145922.91954000000,Medium to Large,5.10000000000,Medium to high,0.22535211268,Medium to high,0.00000000000,No data
+SK01,"2",SK,Bratislavský kraj,Bratislavský kraj,1.00000000000,Predominantly urban,0.53846153846,Medium to high,139359.10465100000,Medium to Large,2.30000000000,Very low,0.11688311688,Medium to low,2.32558139535,Low
+UKJ3,"2",UK,Hampshire and Isle of Wight,Hampshire and Isle of Wight,1.00000000000,Predominantly urban,0.06122448980,Very low,179431.87084900000,Large,3.20000000000,Low,0.24884792627,Medium to high,0.81300813008,Very low
+HU21,"2",HU,Közép-Dunántúl,Közép-Dunántúl,3.00000000000,Predominantly rural,0.29678362573,Medium to low,38001.36593840000,Small,1.70000000000,Very low,0.12200557103,Medium to low,1.63853028798,Low
+SI03,"2",SI,Vzhodna Slovenija,Vzhodna Slovenija,3.00000000000,Predominantly rural,0.24150548876,Low,15940.27477040000,Very Small,4.20000000000,Medium to low,0.43253079507,High,4.67070549150,Medium to low
+UKC2,"2",UK,Northumberland and Tyne and Wear,Northumberland and Tyne and Wear,1.00000000000,Predominantly urban,0.15068493151,Very low,149386.12133900000,Medium to Large,5.60000000000,Medium to high,0.29347826087,Medium to high,2.32558139535,Low
+SE31,"2",SE,Norra Mellansverige,Norra Mellansverige,3.00000000000,Predominantly rural,0.27983539095,Medium to low,49676.73214290000,Medium to Small,7.60000000000,High,0.20825852783,Medium to high,11.16071428570,High
+FRH0,"2",FR,Bretagne,Bretagne,3.00000000000,Predominantly rural,3.34751773050,Very high,293091.91673200001,Very Large,5.90000000000,Medium to high,1.19194515853,Very high,12.11884284600,High
+UKG3,"2",UK,West Midlands,West Midlands,1.00000000000,Predominantly urban,0.10000000000,Very low,103835.22727300000,Medium to Large,5.90000000000,Medium to high,0.15789473684,Medium to low,0.00000000000,Very low
+UKD6,"2",UK,Cheshire,Cheshire,1.00000000000,Predominantly urban,0.10843373494,Very low,205769.15414999999,Large,3.20000000000,Low,0.29230769231,Medium to high,0.72463768116,Very low
+UKD7,"2",UK,Merseyside,Merseyside,1.00000000000,Predominantly urban,0.28571428571,Medium to low,191284.14285700000,Large,3.80000000000,Medium to low,0.23529411765,Medium to high,3.70370370370,Medium to low
+UKH1,"2",UK,East Anglia,East Anglia,2.00000000000,Intermediate,0.09364548495,Very low,274933.80337799998,Very Large,2.90000000000,Low,0.36798679868,High,0.86633663366,Very low
+SE32,"2",SE,Mellersta Norrland,Mellersta Norrland,3.00000000000,Predominantly rural,0.30769230769,Medium to low,43571.31089740000,Small,6.50000000000,High,0.16356877323,Medium to low,8.97435897436,High
+UKI7,"2",UK,Outer London — West and North West,Outer London — West and North West,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,5.10000000000,Medium to high,0.25000000000,Medium to high,0.00000000000,Very low
+UKI3,"2",UK,Inner London — West,Inner London — West,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,3.80000000000,Medium to low,0.00000000000,No data,0.00000000000,Very low
+UKI4,"2",UK,Inner London — East,Inner London — East,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,4.00000000000,Medium to low,0.00000000000,No data,0.00000000000,No data
+UKI5,"2",UK,Outer London — East and North East,Outer London — East and North East,1.00000000000,Predominantly urban,0.00000000000,No data,0.00000000000,No data,4.40000000000,Medium to high,0.50000000000,High,0.00000000000,No data
+UKD1,"2",UK,Cumbria,Cumbria,2.00000000000,Intermediate,0.14393939394,Very low,164489.93390199999,Large,2.00000000000,Very low,0.16957605985,Medium to low,0.78895463511,Very low
+UKD3,"2",UK,Greater Manchester,Greater Manchester,1.00000000000,Predominantly urban,0.00000000000,No data,63608.23376620000,Medium to Small,5.10000000000,Medium to high,0.14925373134,Medium to low,1.21951219512,Low
+UKD4,"2",UK,Lancashire,Lancashire,1.00000000000,Predominantly urban,0.14141414141,Very low,152062.11661800000,Large,3.70000000000,Medium to low,0.19512195122,Medium to high,0.57142857143,Very low
+UKE4,"2",UK,West Yorkshire,West Yorkshire,1.00000000000,Predominantly urban,0.12307692308,Very low,75323.10795450000,Medium to Small,4.60000000000,Medium to high,0.16556291391,Medium to low,0.54054054054,Very low
+HU32,"2",HU,Észak-Alföld,Észak-Alföld,3.00000000000,Predominantly rural,0.28736695974,Medium to low,27871.78780450000,Small,6.30000000000,High,0.08938746439,Low,2.07618113454,Low
+HU33,"2",HU,Dél-Alföld,Dél-Alföld,3.00000000000,Predominantly rural,0.26163873371,Low,29352.96504200000,Small,4.00000000000,Medium to low,0.08575077541,Low,1.46218487395,Low
+UKE2,"2",UK,North Yorkshire,North Yorkshire,2.00000000000,Intermediate,0.13537117904,Very low,184987.92496599999,Large,2.70000000000,Very low,0.27478260870,Medium to high,0.86580086580,Very low
+UKF1,"2",UK,Derbyshire and Nottinghamshire,Derbyshire and Nottinghamshire,1.00000000000,Predominantly urban,0.12781954887,Very low,151629.77475200000,Large,3.90000000000,Medium to low,0.17784256560,Medium to low,0.70588235294,Very low
+UKJ4,"2",UK,Kent,Kent,1.00000000000,Predominantly urban,0.12500000000,Very low,173309.75824200001,Large,3.90000000000,Medium to low,0.33823529412,High,1.09489051095,Low
+UKI6,"2",UK,Outer London — South,Outer London — South,1.00000000000,Predominantly urban,0.00000000000,No data,409563.20000000001,Very Large,4.10000000000,Medium to low,0.25000000000,Medium to high,0.00000000000,No data
+UKF2,"2",UK,"Leicestershire, Rutland and Northamptonshire","Leicestershire, Rutland and Northamptonshire",1.00000000000,Predominantly urban,0.11643835616,Very low,173581.08785499999,Large,4.20000000000,Medium to low,0.24437299035,Medium to high,1.02827763496,Very low
+UKK4,"2",UK,Devon,Devon,2.00000000000,Intermediate,0.11295681063,Very low,112319.16666700000,Medium to Large,3.00000000000,Low,0.16870748299,Medium to low,3.32936979786,Medium to low
+UKK1,"2",UK,"Gloucestershire, Wiltshire and Bristol/Bath area","Gloucestershire, Wiltshire and Bristol/Bath area",1.00000000000,Predominantly urban,0.08750000000,Very low,153327.51159200000,Large,2.70000000000,Low,0.23473282443,Medium to high,3.73983739837,Medium to low
+UKK2,"2",UK,Dorset and Somerset,Dorset and Somerset,1.00000000000,Predominantly urban,0.12931034483,Very low,156435.87111099999,Large,2.10000000000,Very low,0.21621621622,Medium to high,3.15315315315,Medium to low
+SE22,"2",SE,Sydsverige,Sydsverige,2.00000000000,Intermediate,0.37370242215,Medium to low,157486.06235800000,Large,9.20000000000,Very high,0.47491638796,High,5.10204081633,Medium to high
+UKE1,"2",UK,East Yorkshire and Northern Lincolnshire,East Yorkshire and Northern Lincolnshire,2.00000000000,Intermediate,0.06666666667,Very low,291765.34210499999,Very Large,4.60000000000,Medium to high,0.35714285714,High,0.40650406504,Very low
+UKJ2,"2",UK,"Surrey, East and West Sussex","Surrey, East and West Sussex",1.00000000000,Predominantly urban,0.06547619048,Very low,83339.83495150000,Medium to Small,2.60000000000,Very low,0.22985074627,Medium to high,2.71604938272,Medium to low
+HR06,"2",HR,Sjeverna Hrvatska,Sjeverna Hrvatska,0.00000000000,No data,0.31194539249,Medium to low,12184.10920100000,Very Small,4.20000000000,Medium to low,0.01899827288,Very low,1.59806295400,Low
+HR05,"2",HR,Grad Zagreb,Grad Zagreb,1.00000000000,Predominantly urban,0.27380952381,Low,10398.40909090000,Very Small,5.60000000000,Medium to high,0.03125000000,Very low,2.02020202020,Low

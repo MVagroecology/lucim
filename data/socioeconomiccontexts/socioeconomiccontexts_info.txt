@@ -1,0 +1,140 @@
+“CONTEXT_MAPS”	“context_1.shp”	This map represents the socioeconomic conditions described in context 1. Another table is attached with more explanations. Field “SUM_CLASSE” contains the number of socioeconomic conditions met, only showing those regions that met 4 or more conditions, out of 6.
+
+“CONTEXT_MAPS”	“context_2.shp”	This map represents the socioeconomic conditions described in context 2.  Another table is attached with more explanations. Field “SUM_CLASSE” contains the number of socioeconomic conditions met, only showing those regions that met 4 or more conditions, out of 6.
+
+“CONTEXT_MAPS”	“context_3.shp”	This map represents the socioeconomic conditions described in context 3.  Another table is attached with more explanations. Field “SUM_CLASSE” contains the number of socioeconomic conditions met, only showing those regions that met 4 or more conditions, out of 6.
+
+“INDIVIDUAL_MAPS”	“age_ratio_final.shp”	This map represents the ratio of young farm managers (<40 y.o) to elderly farm managers (>65 y.o.). Field “class” contains the final class assigned to the region.
+
+“INDIVIDUAL_MAPS”	“degurba_final.shp”	This map represents the degree of urbanisation. Field “DEGURBA_CL” contains the final class assigned to the region.
+
+“INDIVIDUAL_MAPS”	“economic_size_final.shp”	This map represents the mean economic size of farms for each region. Field “class” contains the final class assigned to the region.
+
+“INDIVIDUAL_MAPS”	“organic_farming_final.shp”	This map represents the percentage of farms organically managed in proportion to the total farms. Field “class” contains the final class assigned to the region.
+
+“INDIVIDUAL_MAPS”	“training_final.shp”	This map is the combination of education-related variables (organic farming and ratio of farm managers with full training to farm managers with basic knowledge and practical experience only). Field “class” contains the final class assigned to the region.
+
+“INDIVIDUAL_MAPS”	“unemployment_rate_final.shp”	This map represents the unemployment rate for each region. Field “class” contains the final class assigned to the region.
+
+“STACK_MAP”	“stacked_indicators”	This map contains all the socioeconomic indicators in a single shapefile. Description of fields
+	“URB_CLASS” = Degree of urbanisation class (predominantly rural, intermediate, predominantly urban, no data)
+	“URB_VALUE” = Degree of urbanisation code (1,2,3)
+	“AGE_CLASS” = Ratio of young (<40 y.o) to elderly farmers (>65 y.o.) class (very low, low, medium to low, medium to high, high, very high, no data)
+	“AGE_VALUE” = Ratio of young (<40 y.o) to elderly farmers (>65 y.o.) value
+	“ECS_CLASS” = Mean economic size of farms class (very low, low, medium to low, medium to high, high, very high, no data)
+	“ECS_VALUE” = Mean economic size of farms (euros)
+	“UNR_CLASS” = Unemployment rate classes (very low, low, medium to low, medium to high, high, very high, nodata) 
+	“UNR_VALUE” = Unemployment rate values (percentages)
+	“TRN_CLASS” = Ratio of farm managers with full training to farm managers with basic knowledge and practical experience only classes (very low, low, medium to low, medium to high, high, very high, no data) 
+	“TRN_VALUE” = Ratio of farm managers with full training to farm managers with basic knowledge and practical experience only values
+	“ORG_CLASS” = Percentage of organic farms in proportion to total farms classes (very low, low, medium to low, medium to high, high, very high, no data)
+	“ORG_VALUE” = Percentage of organic farms in proportion to total farms values
+
+Classes and thresholds for each indicator
+
+Degree of urbanisation 
+
+URB_CLASS	URB_VALUE	NUTS 2	NUTS 2 (%)	Context
+Predominantly rural	3	96	34.0%	C3
+Intermediate	2	78	27.7%	C2
+Predominantly urban	1	98	34.8%	C1
+No data	-	10	3.5%	-
+Total	282	100.0%	
+
+
+Ratio of young to elderly farmers 
+
+AGE_CLASS	AGE_VALUE	NUTS 2	NUTS 2 (%)	Context
+Very low	0.061 - 0.151	44	15.6%	C3
+Low	0.154 - 0.274	43	15.2%	C3
+Medium to low	0.274 - 0.431	44	15.6%	C2
+Medium to high	0.442 - 0.947	44	15.6%	C2
+High	0.957 - 1.385	43	15.2%	C1
+Very high	1.426 - 5.959	44	15.6%	C1
+No data	-	20	7.1%	-
+Total 	 	282	100.0%	 
+
+
+Mean economic size of farms (euros)
+
+ECS_CLASS	ECS_VALUE (€)	NUTS 2	NUTS 2 (%)	Context
+Very small	3,118 - 22,783	45	16.0%	C3
+Small	22,898 - 43,571	46	16.3%	C3
+Medium to small	46,390 - 90,038	45	16.0%	C2
+Medium to large	90,046 - 149,386	45	16.0%	C2
+Large	151,630 - 213,856	46	16.3%	C1
+Very large	214,602 - 859,896	45	16.0%	C1
+No data	-	10	3.5%	-
+Total	282	100.0%	
+
+
+Share of organic farming (%)
+
+ORG_CLASS	ORG_VALUE (%)	NUTS 2	NUTS 2 (%)	Context
+Very low	0.00 - 1.09	46	16.3%	C3
+Low	1.09 - 2.38	45	16.0%	C3
+Medium to low	2.41 - 4.78	45	16.0%	C2
+Medium to high	4.84 - 8.74	46	16.3%	C2
+High	8.77 - 12.30	46	16.3%	C1
+Very high	12.33 - 51.86	45	16.0%	C1
+No data	-	9	3.2%	-
+Total	282	100.0%	 
+
+
+Ratio of farm managers with full training to farm managers with basic knowledge and practical experience only 
+
+TRN_CLASS	TRN_VALUE	NUTS 2	NUTS 2 (%)	Context
+Very low	0.003 - 0.046	46	16.3%	C3
+Low	0.047 - 0.102	46	16.3%	C3
+Medium to low	0.103 - 0.190	46	16.3%	C2
+Medium to high	0.194 - 0.317	46	16.3%	C2
+High	0.318 - 0.502	46	16.3%	C1
+Very high	0.510 - 8.167	46	16.3%	C1
+No data		6	2.1%	-
+Total 	282	100.0%	 
+ 
+
+Unemployment rate (%)
+
+UNR_CLASS	UNR_VALUE	NUTS 2	NUTS 2 (%)	Context
+Very low	1.2 - 2.7	47	16.7%	C1
+Low	2.7 - 3.5	47	16.7%	C1
+Medium to low	3.6 - 4.3	46	16.3%	C2
+Medium to high	4.3 - 6.1	47	16.7%	C2
+High	6.2 - 8.7	47	16.7%	C3
+Very high	8.8 - 28.4	47	16.7%	C3
+No data		1	0.4%	-
+Total 	282	100.0%
+
+
+Socioeconomic contexts
+
+
+Context	Sum of classes	Socioeconmic conditions
+
+C1	Very high and high share/ratio of: organic farming holdings + farmers with full training + young farmers +
+Very large and large economic size +
+Very low and low unemployment rates +
+Urban	More organic farming,
+More educated farmers,
+Younger farmers,
+Larger farms,
+Lower unemployment rates,
+Predominantly urban regions.
+Low level of policy support
+
+C2	Medium-high and medium-low share/ratio of: organic farming holdings + farmers with full training + young farmers +
+Medium-large and medium-small size farms +
+Medium-high and medium-low unemployment rates +
+Intermediate regions	This an intermediate context. Regions would need a medium level of policy support. 
+
+C3	Very low and low share/ratio of: organic farming holdings + farmers with full training + young farmers +
+Small and very small  size farms +
+Very high and high unemployment rates +
+Rural	Less organic farming,
+Less educated farmers,
+Older farmers,
+Smaller farms,
+Higher unemployment rates,
+Predominantly rural regions.
+High level of policy support

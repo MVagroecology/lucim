@@ -1,0 +1,846 @@
+:root {
+  --north: #9e598e;
+  --north-alpha: #9e598e70;
+  --west: #ec7a50;
+  --west-alpha: #ec7a5070;
+  --west-alpha2: #ec7a5050;
+  --south: #81ba65;
+  --south-alpha: #81ba6570;
+  --alpha-green: #649a3638;
+  --text: #38312e;
+  --text-light: #817976;
+
+  --header: #7e906a;
+
+  --crops: #e3bc2a;
+  --livestock: #9794ae;
+  --orchards: #b99718;
+  --forestry: #649b35;
+  --crops-alpha: #e3bc2a70;
+  --livestock-alpha: #9794ae70;
+  --orchards-alpha: #b9971870;
+  --forestry-alpha: #649b3570;
+
+  --precipitation-alpha: #79addc30;
+  --precipitation: #79addc;
+  --wind-alpha: #7698b330;
+  --wind: #7698b3;
+  --temperature-alpha: #c56b5230;
+  --temperature: #c56b52;
+
+  --case-studies: #377771;
+  --land-uses: #832383;
+
+  --tooltip: #d2e2c3;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+}
+html {
+  font-size: 14px;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background-color: whitesmoke;
+  overflow-y: scroll; /* Show scrollbars */
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.text-smaller {
+  font-size: 85%;
+}
+
+#app {
+  padding-bottom: 60px;
+}
+
+p.note {
+  padding-left: 1rem;
+  font-size: 0.6rem;
+  width: 30rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.region {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.region .badges {
+  padding-top: 50px;
+}
+
+.region .badge,
+.card .badge {
+  font-size: 100%;
+  color: white;
+}
+.north {
+  background-color: var(--north);
+}
+.selected .badge.north {
+  box-shadow: 0px 0px 0px 8px var(--north-alpha);
+}
+.west {
+  background-color: var(--west);
+}
+h2.west,
+h2.north {
+  padding: 0.25em 0.4em;
+  border-radius: 0.25rem;
+  color: white;
+}
+#intro .btn {
+  color: white;
+}
+.selected .badge.west {
+  box-shadow: 0px 0px 0px 8px var(--west-alpha);
+}
+.badge.south {
+  background-color: var(--south);
+}
+.selected .badge.south {
+  box-shadow: 0px 0px 0px 8px var(--south-alpha);
+}
+.bg-crops {
+  background-color: var(--crops);
+}
+.bg-crops-light {
+  background-color: var(--crops-alpha);
+}
+.selected:has(.bg-crops) {
+  box-shadow: 0px 0px 0px 8px var(--crops-alpha);
+}
+.bg-livestock {
+  background-color: var(--livestock);
+}
+.bg-livestock-light {
+  background-color: var(--livestock-alpha);
+}
+.selected:has(.bg-livestock) {
+  box-shadow: 0px 0px 0px 8px var(--livestock-alpha);
+}
+.bg-orchards {
+  background-color: var(--orchards);
+}
+.bg-orchards-light {
+  background-color: var(--orchards-alpha);
+}
+.selected:has(.bg-orchards) {
+  box-shadow: 0px 0px 0px 8px var(--orchards-alpha);
+}
+.bg-forestry {
+  background-color: var(--forestry);
+}
+.bg-forestry-light {
+  background-color: var(--forestry-alpha);
+}
+.selected:has(.bg-forestry) {
+  box-shadow: 0px 0px 0px 8px var(--forestry-alpha);
+}
+
+.temperature .badge,
+.bg-temperature {
+  background-color: var(--temperature);
+}
+.temperature .selected {
+  box-shadow: 0px 0px 0px 8px var(--temperature-alpha);
+}
+.wind .badge,
+.bg-wind {
+  background-color: var(--wind);
+}
+.wind .selected {
+  box-shadow: 0px 0px 0px 8px var(--wind-alpha);
+}
+.precipitation .badge,
+.bg-precipitation {
+  background-color: var(--precipitation);
+}
+.precipitation .selected {
+  box-shadow: 0px 0px 0px 8px var(--precipitation-alpha);
+}
+.temperature .impact-consequences {
+  background-color: var(--temperature-alpha);
+}
+.wind .impact-consequences {
+  background-color: var(--wind-alpha);
+}
+.precipitation .impact-consequences {
+  background-color: var(--precipitation-alpha);
+}
+
+.header {
+  background-color: var(--header);
+  color: white;
+  height: 70px;
+}
+.header p {
+  margin: 0 !important;
+  padding: 13px 0;
+}
+
+.header .logo {
+  max-height: 40px;
+  width: 100%;
+}
+
+.container.page .title .logo {
+  max-height: 40px;
+}
+
+.header-logo {
+  border: 5px solid var(--header);
+  height: 70px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+.header-text {
+  height: 70px;
+}
+.header-text h3 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+.header-text #google_translate_element {
+  margin-top: 13px;
+}
+
+h1 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+h1.smooth {
+  color: var(--text-light);
+}
+
+h2 {
+  /*font-weight: bold;*/
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  background-color: var(--alpha-green);
+  margin: 1rem 0;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center center;
+}
+.baseline .carousel-item {
+  height: 300px;
+}
+
+.baseline .card:hover {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.impact-title {
+  font-style: italic;
+  color: gray;
+  text-align: justify;
+  padding-left: 1.25rem;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.impact-title i {
+  padding-right: 0.3rem;
+}
+
+.impact-projection {
+  font-weight: bold;
+}
+
+.impacts .card-title i {
+  padding-left: 0.5rem;
+}
+
+.impacts .card-text {
+  font-size: 90%;
+}
+
+.land-uses .nav-link {
+  color: gray;
+}
+#proposed-resilient-land-uses {
+  margin-bottom: 10px;
+}
+
+.land-uses .nav-link p {
+  margin: 0;
+}
+.land-uses .land-use-title {
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.land-uses .land-use-title-row {
+  margin-bottom: 1rem;
+}
+
+.land-uses .nav-link.active,
+.land-uses .land-use-title,
+.land-uses .case-study-cards .land-use-title {
+  background-color: var(--land-uses);
+}
+
+.land-uses .nav-link.active h5,
+.land-uses .land-use-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.land-uses .land-use-img {
+  height: 10rem;
+}
+
+.land-uses .card-img,
+.land-uses .case-study-cards .card-img {
+  height: 9rem;
+  object-fit: cover;
+  object-position: center;
+}
+.land-uses .case-study-cards .card-img {
+  height: 5rem;
+}
+
+.case-studies {
+  margin-top: 20px;
+}
+
+.case-studies img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-studies .case-study-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: var(--case-studies);
+}
+
+.case-studies .land-use-title {
+  color: white;
+  font-weight: bold;
+  background-color: var(--land-uses);
+}
+
+.case-studies .case-study-title-row {
+  padding-top: 20px;
+}
+
+.case-study-cards {
+  margin-bottom: 1rem;
+}
+
+.case-study-cards .case-study-title {
+  background-color: var(--case-studies);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0;
+  border-radius: 0.25rem;
+}
+
+.bg-land-use {
+  background-color: var(--land-uses);
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  border-radius: 0.25rem;
+}
+
+.case-study-cards .card-body {
+  padding: 0.5rem;
+}
+
+.case-study-cards .card-img-bottom {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.section-title {
+  height: 10rem;
+  line-height: 10rem;
+}
+.section-title h2 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+#intro .img-icon {
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+#intro img {
+  height: 100%;
+}
+
+.target-regions img {
+  height: 30rem;
+}
+
+.target-regions-title,
+.lpis-sustainability-compass-title,
+.tree-deserts-title {
+  margin: 1rem 0;
+}
+
+#ipcc-regions {
+  height: 20rem;
+}
+
+.fixed-bottom,
+.sticky-top {
+  font-size: 0.8rem;
+  height: 60px;
+  border-top: 1px solid #dee2e6;
+  background-color: white;
+}
+.fixed-bottom {
+  height: 40px;
+}
+.fixed-bottom > div {
+  margin-top: 12px;
+}
+.fixed-bottom p,
+.sticky-top p {
+  margin: 0;
+}
+.sticky-top .land-use {
+  font-size: 0.6rem;
+}
+.sticky-top .badge {
+  color: white;
+}
+
+.fixed-bottom .small {
+  font-size: 60%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.fixed-bottom img.developer-logo {
+  height: 24px;
+  margin-top: 5px;
+}
+
+.fixed-bottom img.eu-logo {
+  height: 24px;
+  margin-top: 5px;
+}
+
+@media (max-width: 992px) {
+  .fixed-bottom img.eu-logo {
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .fixed-bottom .bottom-text p {
+    font-size: 0.6rem;
+  }
+}
+.target-regions .map-item p {
+  margin: 0px;
+  font-size: 0.9rem;
+}
+.target-regions .map-item {
+  padding: 5px;
+  border-radius: 0.25rem;
+}
+
+.target-regions .map-item.show {
+  color: white;
+  background-color: var(--crops);
+}
+
+.intro-title,
+.intro-image {
+  background-color: var(--crops-alpha);
+}
+.intro-title,
+#intro-text,
+#intro-who {
+  padding: 2rem 2rem !important;
+}
+.intro-image .carousel-item {
+  height: 200px;
+}
+
+#intro-text .app-title {
+  background-color: var(--crops-alpha);
+  color: var(--text);
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#intro-who {
+  background-color: var(--precipitation-alpha);
+}
+
+#intro-who .who-title {
+  font-size: 110%;
+  margin-top: 1.5rem;
+  margin-bottom: 5px;
+}
+
+#target-areas-section {
+  background-color: var(--west-alpha);
+}
+#land-uses-section {
+  background-color: var(--north-alpha);
+}
+#target-areas-section h2,
+#target-areas-section .button,
+#land-uses-section h2,
+#land-uses-section .button {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#target-areas-section h2 .title {
+  background-color: var(--west-alpha);
+}
+#land-uses-section h2 .title {
+  background-color: var(--north-alpha);
+}
+#intro-who .highlight {
+  background-color: var(--precipitation-alpha);
+}
+#target-areas-section h2 .title,
+#land-uses-section h2 .title,
+.highlight {
+  color: var(--text);
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#target-areas-section .background,
+#land-uses-section .background {
+  background-color: rgb(255, 255, 255, 0.3);
+  padding: 2rem 2rem !important;
+}
+#target-areas-section .img-scheme img {
+  max-height: 300px;
+}
+#target-areas-section .highlight {
+  background-color: var(--west-alpha);
+}
+#land-uses-section .highlight {
+  background-color: var(--north-alpha);
+}
+#land-uses-section .background .badge {
+  color: white;
+  margin: 0px;
+}
+.intro-submenu {
+  background-color: var(--crops);
+}
+.intro-submenu .card {
+  min-height: 200px;
+}
+.intro-submenu .row > div {
+  /*border-right: solid 1px var(--text);*/
+  height: 100%;
+}
+.intro-submenu .row div:last-child {
+  border: none;
+}
+.intro-submenu a,
+.resilience-column a {
+  color: var(--text);
+}
+.intro-submenu a:hover,
+.resilience-column a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+.intro-submenu p {
+  margin: 0px;
+}
+.intro-submenu .row div.bg-hover {
+  margin-top: 5px;
+}
+.intro-submenu .row div.bg-hover:hover {
+  background-color: rgb(255, 255, 255, 0.3);
+}
+.intro-submenu .btn {
+  padding: 0.25rem 0.55rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.intro-submenu .logo {
+  width: auto;
+  height: 20px !important;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  filter: invert(30%);
+}
+#intro-agromix h2 {
+  padding-bottom: 2rem;
+}
+#intro-agromix {
+  background-color: white;
+  padding: 2rem 2rem !important;
+}
+#intro-agromix .highlight {
+  background-color: lightgrey;
+}
+
+.estat-vis-tooltip-bar,
+estat-vis-tooltip-text,
+#gvizLegend *,
+#tooltip_eurostat * {
+  font-family: "Poppins", sans-serif !important;
+  color: var(--text) !important;
+  font-size: 0.8rem !important;
+}
+
+.estat-vis-tooltip-bar {
+  font-weight: bold;
+}
+#grid {
+  margin: auto;
+}
+
+.target-regions i {
+  padding-right: 10px;
+}
+
+.target-regions p {
+  margin: 0;
+}
+
+.target-regions .map-title {
+  font-weight: bold;
+}
+
+.tree-deserts .iframe-container {
+  height: calc(100vh - 300px);
+  width: 700px;
+  margin: 0 auto;
+}
+.tree-deserts iframe {
+  height: 100%;
+  width: 80%;
+  max-width: 850px;
+  max-height: 900px;
+}
+
+#map,
+#grid {
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.map-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.map-caption .card-body {
+  font-size: 0.8rem;
+}
+
+.map-title.card {
+  padding: 7px;
+  font-weight: bold;
+  width: 600px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.detailed-info {
+  font-size: 0.9rem;
+  text-align: justify;
+}
+.detailed-info p {
+  margin-bottom: 10px;
+}
+
+.tooltip.show,
+.tooltip-inner {
+  max-width: 500px;
+  opacity: 1;
+}
+.tooltip .arrow::before {
+  border-top-color: var(--tooltip);
+  border-bottom-color: var(--tooltip);
+}
+.tooltip .tooltip-inner {
+  color: var(--text);
+  background-color: var(--tooltip);
+}
+.tooltip p {
+  margin: 0;
+}
+.evidence-base i,
+.resilience-column i {
+  padding-left: 5px;
+}
+.component-title,
+.component-text {
+  align-items: center;
+  display: flex;
+}
+.component-text p {
+  margin-bottom: 0px;
+}
+.component-title p {
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+.component-title i {
+  background-color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding-top: 5px;
+}
+.component-title.bg-crops i {
+  color: var(--crops);
+}
+.component-title.bg-livestock i {
+  color: var(--livestock);
+}
+.component-title.bg-forestry i {
+  color: var(--forestry);
+}
+
+.no-land-use {
+  margin: 0 15rem;
+}
+.no-land-use p {
+  margin: 0;
+}
+
+/* OPEN LAYERS STYLING*/
+#map {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#search-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: white;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.insights .card .tip {
+  font-size: 70%;
+  font-style: italic;
+  padding-top: 2px;
+}
+.map-elements .legend-element {
+  line-height: 40%;
+  font-size: 80%;
+}
+.feature-element .feature-layer {
+  font-style: italic;
+  margin-top: 10px;
+  
+}
+.feature-element .feature-properties {
+  font-size: 80%
+}
+.map-elements .legend-element.selected {
+  background-color: yellow;
+}
+.map-elements .legend .square {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+}
+.map-elements .legend p {
+  display: inline-block;
+  margin: 0;
+}
+.feature-element p {
+  margin: 0;
+}
+.map-elements .legend .spinner-border {
+  height: 15px;
+  width: 15px;
+  vertical-align: middle;
+  margin-left: 5px;
+  border-width: 0.15rem;
+}
+.btn-copernicus {
+  background-color: white;
+  border: 1px solid black;
+}
+#basemaps {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+  padding: 5px;
+  font-size: 80%;
+}
+#basemaps label {
+  margin: 0;
+  padding-left: 5px;
+}
+#basemaps img,
+.copernicus-img {
+  height: 22px;
+  width: auto;
+}
+.stamp {
+  position:absolute;
+  top: 5px;
+  right: 5px;
+}
+#zoom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem;
+  padding: 5px;
+  font-size: 80%;
+}
+
+@media (min-width: 576px) { 
+  html {
+    font-size: 14px;
+  }
+
+  .header-text h3 {
+    margin-top: 18px;
+  }
+
+  #map {
+    height: calc(100vh - 70px - 40px);
+  }
+}
