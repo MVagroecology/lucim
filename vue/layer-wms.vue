@@ -6,7 +6,8 @@ module.exports = {
 		return {
             layer: null,
             featureIndex: {},
-            TDCPointGridLayer: null
+            TDCPointGridLayer: null,
+            MAX_TCD_POINTS: 100
 		}
 	},
     created() {
@@ -20,6 +21,11 @@ module.exports = {
                 return // ignore
             } else if (_this.layerProps.baselayer) {
                 _this.show = false
+            }
+        })
+        VueBus.$on('toggleLayer', function(id, toShow) {
+            if (_this.layerProps.id == id) {
+                _this.show = toShow
             }
         })
 
@@ -151,6 +157,8 @@ module.exports = {
             if (!distance) {
                 distance = 10
             }
+            var smallestNewDistance = distance
+
             const _this = this;
 
             const geojsonFormat = new ol.format.GeoJSON();
@@ -192,6 +200,7 @@ module.exports = {
     
                 for (var match of matches) {
                     var feature = match.feature
+                    var newDistance = null
                     
                     const geojson = geojsonFormat.writeFeatureObject(feature, {
                         featureProjection: 'EPSG:3857',
@@ -202,10 +211,27 @@ module.exports = {
                     if (!geometry) continue;
 
                     const bbox = turf.bbox(geojson);
-                    const points = turf.pointGrid(bbox, distance, {
+                    var points = turf.pointGrid(bbox, distance, {
                         mask: geojson,
                         units: 'meters'
                     });
+
+                    // console.log(points.features.length)
+
+                    if (points.features.length > this.MAX_TCD_POINTS) {
+                        const area = turf.area(geojson); // in square meters
+                        const desiredPointCount = 100;
+                        const cellArea = area / desiredPointCount;
+                        newDistance = Math.floor(Math.sqrt(cellArea)); // meters
+                        smallestNewDistance = Math.min(smallestNewDistance, newDistance)
+
+                        /*alert('Too many sample points at a ' + distance + 'm x ' + distance + 'm for parcel ' + layer.getIdentifier(feature) + '. Re-doing grid with ' + desiredPointCount + ' points, with a grid spacing of ' + newDistance + 'm x ' + newDistance + 'm.')*/
+
+                        points = turf.pointGrid(bbox, newDistance, {
+                            mask: geojson,
+                            units: 'meters'
+                        });
+                    }
                     
                     const matchPointPromises = points.features.map(pt => {
                         const olFeature = geojsonFormat.readFeature(pt, {
@@ -258,7 +284,9 @@ module.exports = {
                     this.$set(this.layers[id], 'avgTCD', finalAvg);
                 }
             });
-
+            
+            VueBus.$emit('updatedGridSpacing', newDistance == null ? distance : newDistance)
+            
             // Fit view
             if (pointGridSource.getFeatures().length > 0) {
                 const extent = pointGridSource.getExtent();
@@ -306,6 +334,6 @@ module.exports = {
             :disabled="layerProps.disabled"
             :value="layerProps.id"
             v-model="show">
-        <label class="form-check-label">{{ layerProps.name_en }} <img src="img/copernicus_logo.jpg"></label>
+        <label class="form-check-label">{{ layerProps.name_en }} <img src="img/copernicus_logo.png"></label>
     </div>
 </template>

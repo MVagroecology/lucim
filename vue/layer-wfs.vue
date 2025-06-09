@@ -21,6 +21,11 @@ module.exports = {
                 _this.show = false
             }
         })
+        VueBus.$on('toggleLayer', function(id, toShow) {
+            if (_this.layerProps.id == id) {
+                _this.show = toShow
+            }
+        })
 
         VueBus.$on('goToParcel', function(searchValue) {
             if (_this.layerProps.id == 'lpis_pt_parcelas_2024') {
@@ -145,7 +150,7 @@ module.exports = {
                 },
                 {
                     layerFilter: function (layer) {
-                        return layer.get('my_layer_id') === _this.layerProps.id;
+                        return layer.get('my_layer_id') === _this.layerProps.id && layer.getVisible()
                     }
                 })
 

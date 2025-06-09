@@ -21,6 +21,11 @@ module.exports = {
                 _this.show = false
             }
         })
+        VueBus.$on('toggleLayer', function(id, toShow) {
+            if (_this.layerProps.id == id) {
+                _this.show = toShow
+            }
+        })
     },
     computed: {
         show: {

@@ -16,7 +16,13 @@ module.exports = {
     this.layers = MAP_LAYERS
   },
   mounted() {
+    var _this = this
     this.setupMap()
+
+    VueBus.$on('updatedGridSpacing', function(newGridSpacing) {
+      _this.gridSpacing = newGridSpacing
+      _this.runnedGridSpacing = newGridSpacing
+    })
   },
   computed: {
     toggledLayers() {
@@ -53,6 +59,10 @@ module.exports = {
       this.TCDDetails = !this.TCDDetails
       VueBus.$emit('toggleTDCPointGridLayer', this.TCDDetails)
     },
+    openTCDDetails() {
+      this.TCDDetails = true
+      VueBus.$emit('toggleTDCPointGridLayer', this.TCDDetails)
+    },
     showViewer() {
       this.panel = 'viewer'
       this.$nextTick(() => {
@@ -60,15 +70,15 @@ module.exports = {
       });
     },
     setupMap() {
-      /*var initCenter = [
-          1624504.61312545,
-          6444797.361193953
-      ] // cz */
-
       var initCenter = [
+          1624638.377924949,
+          6443029.754914843
+      ] // cz
+
+      /* var initCenter = [
           -775225.1824175175,
           5139227.89655404
-      ] // prada
+      ] // prada */
 
       this.map = new ol.Map({
         target: 'map',
@@ -131,11 +141,70 @@ module.exports = {
       VueBus.$emit('goToParcel', searchValue)
     },
     calculateAvg(gridSpacing) {
-      this.runnedGridSpacing = gridSpacing
       VueBus.$emit('calculateAvg', gridSpacing)
     },
     clearCalculateAvg() {
       VueBus.$emit('clearCalculateAvg')
+    },
+    demo() {
+      var _this = this
+
+      VueBus.$emit('clearCalculateAvg')
+
+      this.map.getView().animate({
+        center: [
+            1624638.377924949,
+            6443029.754914843
+        ],
+        zoom: 14,
+        duration: 100 // in ms
+      });
+
+      Object.values(this.layers).forEach(layer => {
+        if (layer.baselayer) {
+          return
+        }
+        _this.$set(layer, 'selectedFeatures', []);
+        VueBus.$emit('toggleLayer', layer.id, layer.id === 'lpis_cz_referenceparcel')
+      });
+
+      var source = this.layers.lpis_cz_referenceparcel.source
+
+      var runDemo = function() {
+        console.log('featuresloadend')
+          var layerProps = _this.layers.lpis_cz_referenceparcel
+          var layer = _this.map.getLayers().getArray().find(layer => layer.get('my_layer_id') === 'lpis_cz_referenceparcel')
+          var allFeatures = layer.getSource().getFeatures()
+          console.log(allFeatures.length)
+          var finalFeatures = []
+          allFeatures.filter(function(feature) {
+            return [ '731105601/6', '731105601/2', '731105601/4' ].includes(feature.get('referenceParcelId'))
+          }).forEach(function(feature) {
+            finalFeatures.push({
+                        layerId: layerProps.id,
+                        layerName: layerProps.name_en,
+                        legendId: layerProps.getLegendId(feature),
+                        feature: feature,
+                        info: layerProps.infoFn(feature)
+                    })
+          })
+          console.log(finalFeatures.length)
+          _this.$set(_this.layers.lpis_cz_referenceparcel, 'selectedFeatures', finalFeatures)
+          layer.changed()
+          _this.$nextTick(function() {
+              console.log('_this.$nextTick')
+              VueBus.$emit('toggleLayer', 'tree_cover_density_2021', true)
+              _this.openTCDDetails()
+              _this.calculateAvg(_this.gridSpacing)
+            })
+      }
+      if (source.getFeatures().length > 0) {
+        console.log('loaded')
+        runDemo()
+      } else {
+        console.log('not loaded')
+        source.once('featuresloadend', runDemo)
+      }
     }
   } // end methods
 }
@@ -156,6 +225,8 @@ module.exports = {
         </h3>
       </div>
       <div class="col-2 text-center">
+          <p @click="demo()" class="btn btn-back btn-copernicus pointer">Demonstration</p>
+
           <p v-if="panel == 'viewer'" @click="showAbout()" class="btn btn-back btn-copernicus pointer"><span class="d-none d-sm-block">About this tool </span><i class="fas fa-question d-sm-none"></i></p>
           
           <p v-if="panel == 'about'" @click="showViewer()" class="btn btn-back btn-copernicus pointer"><span class="d-none d-sm-block">Go to map viewer </span><i class="fas fa-desktop d-sm-none"></i></p>
@@ -219,16 +290,16 @@ module.exports = {
               <p class="mb-0"><b>To select your farm parcel, simply click on it</b>. To select more than one, hold the SHIFT key and click on each additional parcel.</p>
             </div>
             
-            <div class="card">
+            <div class="card bg-green">
               <div class="card-body p-3">
-                <img class="copernicus-img stamp" src="img/copernicus_logo.jpg">
+                <img class="copernicus-img stamp" src="img/copernicus_logo.png">
                 <p class="m-0"><b>Average Tree Cover Density</b> of your farm parcel(s)</p>
                 <div class="row">
-                  <div class="col-12 mb-4">
+                  <div class="col-12 mb-4 text-right">
                     <button class="my-2" @click="calculateAvg(gridSpacing)">Calculate</button>
                     <button class="my-2" @click="clearCalculateAvg()" :disabled="!runnedGridSpacing">Clear</button>
                     <template class="mb-2" v-for="layer in toggledLayers">
-                      <span v-if="'avgTCD' in layer" class="feature-element">
+                      <span v-if="'avgTCD' in layer" class="feature-element text-left">
                         <p class="feature-layer">{{ layer.name_en }}</p>
                         <p class="mb-0"><b>Farm:</b> {{layer.avgTCD?.toFixed(2) }}% TCD</p>
                         <div class="mb-0 feature-properties" v-for="selected in layer.selectedFeatures">
@@ -248,7 +319,7 @@ module.exports = {
                         step="1" 
                         style="width: 80px; margin-left: 8px;"
                       /><button class="ml-2 my-2" @click="calculateAvg(gridSpacing)" :disabled="gridSpacing == runnedGridSpacing">Re-calculate</button></label>
-                      <small>Smaller spacing = more detail, slower.<br>Larger spacing = less detail, faster.</small>
+                      <div><small>This is the smallest grid spacing used between all parcels.<br>Smaller spacing = more detail, slower.<br>Larger spacing = less detail, faster.</small></div>
                     </template>
                   </div>
                 </div>
@@ -256,7 +327,7 @@ module.exports = {
               </div>
             </div>
             <div class="mt-4 mb-2">
-              <a href="https://land.copernicus.eu/en/products" target="_blank" class="btn btn-copernicus d-none d-sm-block">Other <img class="copernicus-img" src="img/copernicus_logo.jpg"> datasets</a>
+              <a href="https://land.copernicus.eu/en/products" target="_blank" class="btn btn-copernicus d-none d-sm-block">Other <img class="copernicus-img" src="img/copernicus_logo.png"> datasets</a>
             </div>
           </div>
         </div>

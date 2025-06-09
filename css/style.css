@@ -757,6 +757,9 @@ estat-vis-tooltip-text,
   font-style: italic;
   padding-top: 2px;
 }
+.bg-green {
+  background-color: var(--south-alpha);
+}
 .map-elements .legend-element {
   line-height: 40%;
   font-size: 80%;
@@ -812,7 +815,7 @@ estat-vis-tooltip-text,
 }
 #basemaps img,
 .copernicus-img {
-  height: 22px;
+  height: 18px;
   width: auto;
 }
 .stamp {
