@@ -219,12 +219,13 @@ module.exports = {
           <i class="fa fa-home d-sm-none"></i>
         </router-link>
       </div>
-      <div class="col-8">
+      <div class="col-7">
         <h3 class="lpis-sustainability-compass-title text-center">
           LPIS Sustainability Compass
         </h3>
       </div>
-      <div class="col-2 text-center">
+      <div class="col-3 text-center">
+          <p class="btn btn-back btn-copernicus pointer"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfpRQTzxsG4rifDJK5qVnv1yfuQl1Gf5hqWRZZf962Nc5Y6zQ/viewform?usp=dialog" target="_blank">Submit Feedback & Ideas</a></p>
           <p @click="demo()" class="btn btn-back btn-copernicus pointer">Demonstration</p>
 
           <p v-if="panel == 'viewer'" @click="showAbout()" class="btn btn-back btn-copernicus pointer"><span class="d-none d-sm-block">About this tool </span><i class="fas fa-question d-sm-none"></i></p>
