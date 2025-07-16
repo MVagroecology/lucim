@@ -1,77 +1,28 @@
 <script>
 module.exports = {
     name: "layer-tilexyz",
-    props: [ 'layerProps' ],
+    mixins: [ layer_mixin ],
+    props: [ 'layer_id', 'layer_props' ],
 	data() {
-		return {
-            layer: null,
-            featureIndex: {},
-		}
+        this.$set(this.layer_props, "layer", null)
+        this.$set(this.layer_props, "selectedFeatures", [])
+        this.$set(this.layer_props, "selectedLegendElements", [])
+        this.layer_props.olLayerType = 'Tile'
+        this.layer_props.olSourceType = 'XYZ'
+        this.layer_props.eventResource = 'tile'
+        
+		return this.layer_props
 	},
-    created() {
-        this.createLayer()
-    },
-    mounted() {
-        var _this = this
-
-        VueBus.$on('hideBaselayers', function(id) {
-            if (_this.layerProps.id == id) {
-                return // ignore
-            } else if (_this.layerProps.baselayer) {
-                _this.show = false
-            }
-        })
-        VueBus.$on('toggleLayer', function(id, toShow) {
-            if (_this.layerProps.id == id) {
-                _this.show = toShow
-            }
-        })
-    },
     computed: {
-        show: {
-            get() {
-				return this.layerProps.show
-			},
-			set(toShow) {
-				this.$set(this.layerProps, 'show', toShow)
-                if (this.layer) {
-                    this.layer.setVisible(toShow)
-                    if (this.layerProps.baselayer && toShow) {
-                        VueBus.$emit('hideBaselayers', this.layerProps.id)
-                    }
-                }
-			}
-        },
-        map() {
-            return this.$parent.$data.map
-        },
+        url() {
+            return this.source_url
+        }
     },
     methods: {
-        createLayer() {
-            var _this = this
-                
-            this.layer = new ol.layer.Tile({
-                my_layer_id: this.layerProps.id,
-                source: this.layerProps.source,
-                opacity: this.layerProps.opacity,
-                zIndex: this.layerProps.zIndex
-            });
-            this.map.addLayer(this.layer);
-            this.show = this.layerProps.show
-
-            this.layerProps.source.on('tileloadstart', function () {
-                _this.$set(_this.layerProps, 'isLoading', true)
-            });
-
-            this.layerProps.source.on('tileloadend', function () {
-                _this.$set(_this.layerProps, 'isLoading', false)
-            });
-
-            this.layerProps.source.on('tileloaderror', function () {
-                // TODO What error? Display message?
-                _this.$set(_this.layerProps, 'isLoading', false)
-            });
-        },
+        addClickListener() {
+            // no need for now
+            return
+        }
     }
 }
 </script>
@@ -79,9 +30,9 @@ module.exports = {
 <template>
     <div class="form-check ml-2">
         <input class="form-check-input" type="checkbox"
-            :disabled="layerProps.disabled"
-            :value="layerProps.id"
+            :disabled="disabled"
+            @change="setShow($event.target.checked)"
             v-model="show">
-        <label class="form-check-label">{{ layerProps.name_en }}</label>
+        <label class="form-check-label">{{ name_en }}</label>
     </div>
 </template>

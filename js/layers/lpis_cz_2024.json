@@ -1,0 +1,123 @@
+{
+  "_comment": "https://mze.gov.cz/public/portal/-a20344---q65sdr4J/popis-atributu-ve-verejnych-exportech-dat-lpis?_linka=a492260",
+  "id": "lpis_cz_2024",
+  "name": "LPIS CZ - 2024",
+  "name_en": "LPIS CZ - 2024",
+  "attributions": "Source: Česká informační agentura životního prostředí",
+  "type": "WFS",
+  "show": true,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "clc2024_lpis",
+  "layer_name_detail": "lpis_2024",
+  "layer_projection": "EPSG:5514",
+  "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+      { "name": "Code", "key": "NKOD_DPB" },
+      { "name": "Area (ha)", "key": "VYMERA" },
+      { "name": "Crop name", "key": "KULTURANAZ" }
+  ],
+  "feature_identifier": "NKOD_DPB",
+  "feature_legend_identifier": "KULTURA",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "2": {
+      "label": "orná půda",
+      "label_en": "Arable Land",
+      "color": "#f8d568"
+    },
+    "3": {
+      "label": "chmelnice",
+      "label_en": "Hop Field",
+      "color": "#ffcc66"
+    },
+    "4": {
+      "label": "vinice",
+      "label_en": "Vineyard",
+      "color": "#dda027"
+    },
+    "5": {
+      "label": "jiná trvalá kultura",
+      "label_en": "Other Permanent Crops",
+      "color": "#e7ad4a"
+    },
+    "6": {
+      "label": "ovocný sad",
+      "label_en": "Fruit Orchard",
+      "color": "#ffcc66"
+    },
+    "7": {
+      "label": "travní porost",
+      "label_en": "Permanent Grassland",
+      "color": "#7ec850"
+    },
+    "9": {
+      "label": "jiná kultura",
+      "label_en": "Other Crops",
+      "color": "#e2c96d"
+    },
+    "10": {
+      "label": "úhor",
+      "label_en": "Fallow Land",
+      "color": "#d6b76f"
+    },
+    "11": {
+      "label": "travní porost (na orné půdě)",
+      "label_en": "Grassland (on Arable Land)",
+      "color": "#96dc7b"
+    },
+    "12": {
+      "label": "mimoprodukční plocha",
+      "label_en": "Non-productive Area",
+      "color": "#bfbf9d"
+    },
+    "13": {
+      "label": "plocha s víceletými produkčními plodinami",
+      "label_en": "Area with Multiannual Productive Crops",
+      "color": "#ffdf8d"
+    },
+    "14": {
+      "label": "plocha s lanýži",
+      "label_en": "Truffle Cultivation Area",
+      "color": "#b37d4d"
+    },
+    "15": {
+      "label": "plocha s kontejnery",
+      "label_en": "Area with Containers",
+      "color": "#4caf50"
+    },
+    "91": {
+      "label": "školka",
+      "label_en": "Nursery",
+      "color": "#4caf50"
+    },
+    "92": {
+      "label": "zelinářská zahrada",
+      "label_en": "Vegetable Garden",
+      "color": "#ffdf8d"
+    },
+    "97": {
+      "label": "rybník",
+      "label_en": "Pond",
+      "color": "#4da6ff"
+    },
+    "98": {
+      "label": "porost RRD",
+      "label_en": "Short Rotation Coppice",
+      "color": "#f5b642"
+    },
+    "99": {
+      "label": "zalesněná půda",
+      "label_en": "Forested Land",
+      "color": "#267300"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

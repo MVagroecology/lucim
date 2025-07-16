@@ -63,17 +63,21 @@
 	<script type="text/javascript" src="js/libraries/eurostatmap.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@main/dist/en/v6.15.1/build/ol.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ol-geocoder/dist/ol-geocoder.js"></script>
+	<script type="text/javascript"  src="https://cdn.jsdelivr.net/npm/geotiff"></script>
 	<script type="text/javascript" src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.15.0/proj4.js"></script>
 	<script>
 	proj4.defs("EPSG:5514", "+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972222222 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +towgs84=570.69,85.69,462.84,4.99821,1.58676,5.2611,3.56 +units=m +no_defs");
+	proj4.defs('EPSG:3035', '+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs +axis=enu');
 	ol.proj.proj4.register(proj4);
 	</script>
 	<script type="text/javascript" src="js/libraries/vue.js"></script>
 	<script type="text/javascript" src="js/libraries/vue-router.js"></script>
 	<script type="text/javascript" src="js/libraries/httpVueLoader.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
-	<script type="text/javascript" src="js/layers.js"></script>
+	<script type="text/javascript" src="js/layers/layers_list.js"></script>
+	<!--script type="text/javascript" src="js/modules/modules_list.js"></script-->
+	<script type="text/javascript" src="vue/layer_mixin.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript">
 	function googleTranslateElementInit() {

@@ -1,0 +1,15 @@
+{
+  "_comment": "",
+  "id": "esri_world_imagery",
+  "name": "ESRI World Imagery",
+  "name_en": "ESRI World Imagery",
+  "attributions": "Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community",
+  "type": "tileXYZ",
+  "show": true,
+  "disabled": false,
+  "baselayer": true,
+  "zIndex": 0,
+  "opacity": 1,
+  "layer_projection": "EPSG:3857",
+  "source_url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+}

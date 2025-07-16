@@ -1,0 +1,53 @@
+{
+  "_comment": "loader() needed based on incorrect use of geometry property in json data. example data https://gis.cenia.cz/geoserver/mze_lpis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mze_lpis:agriculturalarea&maxFeatures=5&outputFormat=application%2Fjson",
+  "id": "lpis_cz_agriculturalarea",
+  "name": "LPIS CZ - Agricultural Area",
+  "name_en": "LPIS CZ - Agricultural Area",
+  "attributions": "Source: Česká informační agentura životního prostředí",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "mze_lpis",
+  "layer_name_detail": "agriculturalarea",
+  "layer_projection": "EPSG:5514",
+  "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+    { "name": "Agricultural Area ID", "key": "agriculturalAreaID" },
+    { "name": "Agricultural Area Type", "key": "agriculturalAreaType" },
+    { "name": "Area (ha)", "key": "agriculturalAreaArea" }
+  ],
+  "feature_identifier": "agriculturalAreaID",
+  "feature_legend_identifier": "agriculturalAreaType",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "Agroforestry": {
+      "label": "Agroforestry",
+      "label_en": "Agroforestry",
+      "color": "#2e8b57"
+    },
+    "ArableLand": {
+      "label": "Arable land",
+      "label_en": "Arable land",
+      "color": "#f8d568"
+    },
+    "PermanentGrassland": {
+      "label": "Permanent grassland",
+      "label_en": "Permanent grassland",
+      "color": "#7ec850"
+    },
+    "PermanentCrop": {
+      "label": "Permanent crop",
+      "label_en": "Permanent crop",
+      "color": "#e2c96d"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

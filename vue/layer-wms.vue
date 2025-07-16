@@ -1,329 +1,119 @@
 <script>
 module.exports = {
     name: "layer-wms",
-    props: [ 'layerProps' ],
+    mixins: [ layer_mixin ],
+    props: [ 'layer_id', 'layer_props' ],
 	data() {
-		return {
-            layer: null,
-            featureIndex: {},
-            TDCPointGridLayer: null,
-            MAX_TCD_POINTS: 100
-		}
+        this.$set(this.layer_props, "layer", null)
+        this.$set(this.layer_props, "lastCalledURL", null)
+        this.$set(this.layer_props, "selectedFeatures", [])
+        this.$set(this.layer_props, "selectedLegendElements", [])
+        this.layer_props.olLayerType = 'Tile'
+        this.layer_props.olSourceType = 'TileWMS'
+        this.layer_props.eventResource = 'tile'
+        
+		return this.layer_props
 	},
-    created() {
-        this.createLayer()
-    },
-    mounted() {
-        var _this = this
-
-        VueBus.$on('hideBaselayers', function(id) {
-            if (_this.layerProps.id == id) {
-                return // ignore
-            } else if (_this.layerProps.baselayer) {
-                _this.show = false
-            }
-        })
-        VueBus.$on('toggleLayer', function(id, toShow) {
-            if (_this.layerProps.id == id) {
-                _this.show = toShow
-            }
-        })
-
-        VueBus.$on('calculateAvg', function(gridSpacing) {
-            if (_this.layerProps.id == 'tree_cover_density_2021') {
-                _this.calculateAvg(gridSpacing)
-            }
-        })
-
-        VueBus.$on('clearCalculateAvg', this.clearTCDPointGrid)
-
-        VueBus.$on('toggleTDCPointGridLayer', this.toggleTDCPointGridLayer)
-    },
     computed: {
-        show: {
-            get() {
-				return this.layerProps.show
-			},
-			set(toShow) {
-				this.$set(this.layerProps, 'show', toShow)
-                if (this.layer) {
-                    this.layer.setVisible(toShow)
-                    if (this.layerProps.baselayer && toShow) {
-                        VueBus.$emit('hideBaselayers', this.layerProps.id)
-                    }
-                }
-			}
+        url() {
+            return this.source_url.split('?')[0].replaceAll('[layer_name]', this.layer_name).replaceAll('[layer_name_detail]', this.layer_name_detail).replaceAll('[layer_projection]', this.layer_projection)
         },
-        map() {
-            return this.$parent.$data.map
+        params() {
+            var url = this.source_url.replaceAll('[layer_name]', this.layer_name).replaceAll('[layer_name_detail]', this.layer_name_detail).replaceAll('[layer_projection]', this.layer_projection)
+            const urlSearchParams = new URLSearchParams(url.split('?')[1]);
+            const params = Object.fromEntries(urlSearchParams.entries());
+            return params
         },
-        TCDDetails() {
-            return this.$parent.$data.TCDDetails
+        serverType() {
+            if (this.source_url.toLowerCase().includes("geoserver")) {
+                return "geoserver"
+            } else if (this.source_url.toLowerCase().includes("mapserver")) {
+                return "mapserver"
+            }
         },
-        layers() {
-            return this.$parent.$data.layers
-        },
+        projection() {
+            return this.layer_projection
+        }
     },
     methods: {
-        createLayer() {
+        addClickListener() {
             var _this = this
-
-            this.layer = new ol.layer.Tile({
-                source: this.layerProps.source,
-                zIndex: this.layerProps.zIndex
-            });
-            this.map.addLayer(this.layer);
-            this.show = this.layerProps.show
-
+            
             this.map.on('singleclick', function (evt) {
+
+                if (!_this.layer.getVisible() || _this.layer_id == "jrc_gfc_2020_v2") {
+                    return
+                }
                 const viewResolution = _this.map.getView().getResolution();
                 const viewProjection = _this.map.getView().getProjection();
-                const source = _this.layer.getSource();
 
-                const url = source.getFeatureInfoUrl(evt.coordinate, viewResolution, viewProjection, {
-                    'INFO_FORMAT': 'application/json',
-                    'QUERY_LAYERS': 'HRL_TCF:TCD_S2021',
+                const url = _this.source.getFeatureInfoUrl(evt.coordinate, viewResolution, viewProjection, {
+                    'INFO_FORMAT': _this.feature_info_format,
+                    'QUERY_LAYERS': _this.feature_info_query,
                 });
 
-                if (!url) return;
+                if (!url) {
+                    console.log(_this.layer_id + " no url for click listener.")
+                    return;
+                }
 
                 fetch(url)
-                    .then(res => res.json())
-                    .then(function (data) {
-                    if (!data.features || data.features.length === 0) return;
-
-                    const feature = data.features[0];
-                    const idx = feature.properties?.PALETTE_INDEX;
-
-                    const newFeatureInfo = {
-                        layerId: _this.layerProps.id,
-                        layerName: _this.layerProps.name_en,
-                        legendId: _this.layerProps.getLegendId(idx),
-                        feature: data,
-                        info: _this.layerProps.infoFn(idx),
-                    };
-
-                    if (evt.originalEvent.shiftKey) {
-                        // Multi-selection mode
-                        if (!_this.layerProps.selectedFeatures) {
-                        _this.$set(_this.layerProps, 'selectedFeatures', []);
+                    .then(function(res) {
+                        if (["application/json", "application/geo+json"].includes(_this.feature_info_format)) {
+                            return res.json()
+                        } else {
+                            return res.text()
                         }
-
-                        const alreadySelected = _this.layerProps.selectedFeatures.some(f =>
-                            f.feature.features[0].id === feature.id
-                        );
-
-                        if (!alreadySelected) {
-                            _this.layerProps.selectedFeatures.push(newFeatureInfo);
-                        }
-                    } else {
-                        // Single selection mode
-                        _this.$set(_this.layerProps, 'selectedFeatures', [newFeatureInfo]);
-                    }
-                    return true;
                     })
-                    .catch(err => console.error(err));
-                });
+                    .then(function (data) {
+                        
+                        if (!data.features || data.features.length === 0) {
+                            _this.selectedFeatures = []
+                            return
+                        }
 
-            this.layerProps.source.on('tileloadstart', function () {
-                _this.$set(_this.layerProps, 'isLoading', true)
-            });
+                        const feature = data.features[0];
 
-            this.layerProps.source.on('tileloadend', function () {
-                _this.$set(_this.layerProps, 'isLoading', false)
-            });
-
-            this.layerProps.source.on('tileloaderror', function () {
-                // TODO What error? Display message?
-                _this.$set(_this.layerProps, 'isLoading', false)
-            });
-        },
-        toggleTDCPointGridLayer(toShow) {
-            this.TDCPointGridLayer?.setVisible(toShow);
-        },
-        clearTCDPointGrid() {
-            this.TDCPointGridLayer?.getSource().clear()
-            for (var layerID in this.layers) {
-                var layer = this.layers[layerID]
-                if ('avgTCD' in layer) {
-                    this.$delete(layer, 'avgTCD')
-                    for (var match of layer.selectedFeatures) {
-                        this.$delete(match.feature, 'avgTCD')
-                    }
-                }
-            }
-        },
-        calculateAvg(distance) {
-            if (!distance) {
-                distance = 10
-            }
-            var smallestNewDistance = distance
-
-            const _this = this;
-
-            const geojsonFormat = new ol.format.GeoJSON();
-
-            if (!this.TDCPointGridLayer) {
-                this.TDCPointGridLayer = new ol.layer.Vector({
-                    source: new ol.source.Vector(),
-                    visible: _this.TCDDetails,
-                    style: new ol.style.Style({
-                        image: new ol.style.Circle({
-                            radius: 3,
-                            fill: new ol.style.Fill({ color: 'red' }),
-                            stroke: new ol.style.Stroke({ color: 'white', width: 1 })
+                        const newFeatureWrapper = {
+                            layerId:   _this.layer_id,
+                            layerName: _this.name_en,
+                            projection: _this.layer_projection,
+                            legendId:  _this.generateLegendKey(feature),
+                            info:      _this.generateInfo(feature),
+                            feature:   feature
+                        };
+                        
+                        _this.selectedFeatures = [newFeatureWrapper]
+                        _this.selectedLegendElements = _this.selectedFeatures.map(function(f) {
+                            return f.legendId
                         })
-                    }),
-                    zIndex: 1000
-                });
+                        return true;
+                    })
+                    .catch(err => console.error(_this.layer_id + " fetch error: " + err));
+            })
+        },
+        getFeatureProperty(f, prop) {
+            return f.properties[prop]
+        },
+        generateLegendKey(feature) {
+            const value = feature.properties[this.feature_identifier]
 
-                this.map.addLayer(this.TDCPointGridLayer);
-            }
-            
-            const pointGridSource = this.TDCPointGridLayer.getSource()
-            pointGridSource.clear()
-
-            let layerLevelPromises = [];
-            
-            for (var layerID in this.layers) {
-                var layer = this.layers[layerID]
-
-                if (!layer.show) {
-                    continue
-                }
-                
-                var matches = layer.selectedFeatures;
-
-                if (!matches || matches.length == 0) {
-                    continue
-                }
-    
-                for (var match of matches) {
-                    var feature = match.feature
-                    var newDistance = null
-                    
-                    const geojson = geojsonFormat.writeFeatureObject(feature, {
-                        featureProjection: 'EPSG:3857',
-                        dataProjection: 'EPSG:4326'
-                    });
-
-                    const geometry = geojson.geometry;
-                    if (!geometry) continue;
-
-                    const bbox = turf.bbox(geojson);
-                    var points = turf.pointGrid(bbox, distance, {
-                        mask: geojson,
-                        units: 'meters'
-                    });
-
-                    // console.log(points.features.length)
-
-                    if (points.features.length > this.MAX_TCD_POINTS) {
-                        const area = turf.area(geojson); // in square meters
-                        const desiredPointCount = 100;
-                        const cellArea = area / desiredPointCount;
-                        newDistance = Math.floor(Math.sqrt(cellArea)); // meters
-                        smallestNewDistance = Math.min(smallestNewDistance, newDistance)
-
-                        /*alert('Too many sample points at a ' + distance + 'm x ' + distance + 'm for parcel ' + layer.getIdentifier(feature) + '. Re-doing grid with ' + desiredPointCount + ' points, with a grid spacing of ' + newDistance + 'm x ' + newDistance + 'm.')*/
-
-                        points = turf.pointGrid(bbox, newDistance, {
-                            mask: geojson,
-                            units: 'meters'
-                        });
+            if ('transform' in this.feature_legend_identifier) {
+                if (this.feature_legend_identifier.transform == "intervals") {
+                    var idx = 0
+                    var interval_val = this.feature_legend_identifier.intervals[idx]
+                    while (value >= interval_val) {
+                        idx++
+                        interval_val = this.feature_legend_identifier.intervals[idx]
                     }
-                    
-                    const matchPointPromises = points.features.map(pt => {
-                        const olFeature = geojsonFormat.readFeature(pt, {
-                            featureProjection: 'EPSG:3857'
-                        });
-                        pointGridSource.addFeature(olFeature);
-
-                        const coord = pt.geometry.coordinates;
-                        return _this.getValueAt(coord, layer, match);
-                    });
-
-                    // Handle results per match
-                    const matchPromise = Promise.allSettled(matchPointPromises).then(results => {
-                        const valid = results
-                            .filter(r => r.status === "fulfilled" && r.value && r.value.value !== null)
-                            .map(r => r.value.value);
-
-                        const total = valid.reduce((a, b) => a + b, 0);
-                        const avg = valid.length > 0 ? total / valid.length : 0;
-
-                        var match = results[0].value.match
-                        var layer = results[0].value.layer
-                        _this.$set(match, 'avgTCD', avg);
-                        return { layer, match, avg };
-                    });
-
-                    layerLevelPromises.push(matchPromise);
+                    return this.feature_legend_identifier.intervals[idx-1].toString()
+                } else {
+                    console.log(this.layer_id + ': feature_legend_identifier with transform that\'s not yet implemented: ' + this.feature_legend_identifier.transform)
                 }
-            }
-
-            // When all match-level averages are ready, summarize per layer
-            Promise.allSettled(layerLevelPromises).then(results => {
-                const layerAvgs = {};
-
-                for (const res of results) {
-                    if (res.status !== "fulfilled" || !res.value) continue;
-                    const { layer, avg } = res.value;
-
-                    if (!layerAvgs[layer.id]) {
-                        layerAvgs[layer.id] = { total: 0, count: 0 };
-                    }
-
-                    layerAvgs[layer.id].total += avg;
-                    layerAvgs[layer.id].count += 1;
-                }
-
-                for (const id in layerAvgs) {
-                    const data = layerAvgs[id];
-                    const finalAvg = data.count > 0 ? data.total / data.count : 0;
-                    this.$set(this.layers[id], 'avgTCD', finalAvg);
-                }
-            });
-            
-            VueBus.$emit('updatedGridSpacing', newDistance == null ? distance : newDistance)
-            
-            // Fit view
-            if (pointGridSource.getFeatures().length > 0) {
-                const extent = pointGridSource.getExtent();
-                _this.map.getView().fit(extent, {
-                    padding: [50, 50, 50, 50],
-                    maxZoom: 19,
-                    duration: 1000
-                });
+            } else {
+                return value.toString()
             }
         },
-        getValueAt(coord, layer, match) {
-            const [lon, lat] = coord;
-            const delta = 0.01; // small bbox around the point
-            const bbox = `${lat - delta},${lon - delta},${lat + delta},${lon + delta}`;
-
-            const url = `https://geoserver.vlcc.geoville.com/geoserver/ows?` +
-                `service=WMS&version=1.3.0&request=GetFeatureInfo&` +
-                `layers=HRL_TCF:TCD_S2021&query_layers=HRL_TCF:TCD_S2021&` +
-                `info_format=application/json&crs=EPSG:4326&` +
-                `bbox=${bbox}&width=101&height=101&i=50&j=50`;
-
-            return fetch(url)
-                .then(res => {
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    return res.json();
-                })
-                .then(json => {
-                    var value = json.features?.[0]?.properties?.PALETTE_INDEX;
-                    value = value !== undefined ? parseFloat(value) : null
-                    value = (value !== null && !isNaN(value)) ? value : null;
-                    return { layer, match, value };
-                })
-                .catch(err => {
-                    console.error("GetFeatureInfo error:", err);
-                    return null;
-                });
-        }
     }
 }
 </script>
@@ -331,9 +121,9 @@ module.exports = {
 <template>
     <div class="form-check ml-2">
         <input class="form-check-input" type="checkbox"
-            :disabled="layerProps.disabled"
-            :value="layerProps.id"
+            :disabled="disabled"
+            @change="setShow($event.target.checked)"
             v-model="show">
-        <label class="form-check-label">{{ layerProps.name_en }} <img src="img/copernicus_logo.png"></label>
+        <label class="form-check-label">{{ name_en }} <img v-if="layer_groups.includes('copernicus')" src="img/copernicus_logo.png"><img v-if="layer_groups.includes('jrc')" src="img/jrc.jpg"></label>
     </div>
 </template>

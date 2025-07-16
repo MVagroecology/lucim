@@ -1,0 +1,335 @@
+{
+  "_comment": "https://www.ifap.pt/isip/ows/isip.data/wfs?service=wfs&request=getcapabilities",
+  "id": "lpis_pt_ocupacaosolo_2024",
+  "name": "LPIS PT - Ocupação de Solo 2024",
+  "name_en": "LPIS PT - Land cover 2024",
+  "attributions": "Source: Informação geográfica do IFAP",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 15,
+  "zIndex": 2,
+  "opacity": 0.9,
+  "layer_name": "isip.data",
+  "layer_name_detail": "ocupacoes.solo.2024jun10",
+  "layer_projection": "EPSG:4326",
+  "source_url": "https://www.ifap.pt/isip/ows/[layer_name]/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=[layer_name]:[layer_name_detail]&outputFormat=application/json&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+    { "name": "Parcel ID", "key": "PAR_ID" },
+    { "name": "Sub-Parcel number", "key": "OSA_ID" },
+    {
+      "name": "Land-use",
+      "keys": ["CLA_OCU_SIGLA", "CLA_OCU_DESCR"],
+      "transform": "concatenate"
+    },
+    { "name": "Area (ha)", "key": "OSA_AREA", "transform": "square_m_to_ha" }
+  ],
+  "feature_identifier": "OSA_ID",
+  "feature_legend_identifier": "CLA_OCU_SIGLA",
+  "feature_legend_text": "CLA_OCU_DESCR_en",
+  "layer_legend": {
+    "CTP-CA": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "CTP-CA",
+      "CLA_OCU_DESCR": "Culturas Temporárias",
+      "CLA_OCU_DESCR_en": "Temporary Crops",
+      "color": "#f8d568"
+    },
+    "TCR-FL": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "TCR-FL",
+      "CLA_OCU_DESCR": "Talhadia de Curta Duração",
+      "CLA_OCU_DESCR_en": "Short Rotation Coppice",
+      "color": "#f5b642"
+    },
+    "PPE-PP": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-PP",
+      "CLA_OCU_DESCR": "Prado e Pastagem Permanente",
+      "CLA_OCU_DESCR_en": "Permanent Pasture",
+      "color": "#7ec850"
+    },
+    "PPE-QU": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-QU",
+      "CLA_OCU_DESCR": "Pastagem Permanente sob Quercíneas",
+      "CLA_OCU_DESCR_en": "Permanent Pasture under Oaks",
+      "color": "#68a838"
+    },
+    "PPE-PM": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-PM",
+      "CLA_OCU_DESCR": "Pastagem Permanente sob Pinheiro Manso ou Castanheiro",
+      "CLA_OCU_DESCR_en": "Permanent Pasture under Stone Pine or Chestnut",
+      "color": "#6bbf4d"
+    },
+    "PPE-OL": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-OL",
+      "CLA_OCU_DESCR": "Pastagem Permanente sob Olival",
+      "CLA_OCU_DESCR_en": "Permanent Pasture under Olives",
+      "color": "#5faa3b"
+    },
+    "PPE-MX": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-MX",
+      "CLA_OCU_DESCR": "Pastagem Permanente sob Árvores Mistas",
+      "CLA_OCU_DESCR_en": "Permanent Pasture under Mixed Trees",
+      "color": "#60ba42"
+    },
+    "PPE-AR": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-AR ",
+      "CLA_OCU_DESCR": "Prado e Pastagem Permanente Arbustiva",
+      "CLA_OCU_DESCR_en": "Shrubby Permanent Pasture",
+      "color": "#87c965"
+    },
+    "PPE-PL": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PPE-PL",
+      "CLA_OCU_DESCR": " Prado e Pastagem Permanente Prática Local",
+      "CLA_OCU_DESCR_en": "Local Practice Permanent Pasture",
+      "color": "#96dc7b"
+    },
+    "POM-PM": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "POM-PM",
+      "CLA_OCU_DESCR": "Culturas Frutícolas",
+      "CLA_OCU_DESCR_en": "Fruit Crops",
+      "color": "#ffcc66"
+    },
+    "VIN-VN": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "VIN-VN",
+      "CLA_OCU_DESCR": "Vinha",
+      "CLA_OCU_DESCR_en": "Vineyard",
+      "color": "#dda027"
+    },
+    "OLI-OL": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "OLI-OL",
+      "CLA_OCU_DESCR": "Olival",
+      "CLA_OCU_DESCR_en": "Olive Grove",
+      "color": "#c2b266"
+    },
+    "MXP-MX": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "MXP-MX",
+      "CLA_OCU_DESCR": "Misto de Culturas Permanentes",
+      "CLA_OCU_DESCR_en": "Mixed Permanent Crops",
+      "color": "#e2c96d"
+    },
+    "OUT-PE": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "OUT-PE",
+      "CLA_OCU_DESCR": "Outras Culturas Permanentes",
+      "CLA_OCU_DESCR_en": "Other Permanent Crops",
+      "color": "#e7ad4a"
+    },
+    "SOB-CO": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "SOB-CO",
+      "CLA_OCU_DESCR": "Sobreiros para Cortiça",
+      "CLA_OCU_DESCR_en": "Cork oaks for cork production",
+      "color": "#b37d4d"
+    },
+    "CAB-CP": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "CAB-CP",
+      "CLA_OCU_DESCR": "Cabeceiras de Culturas Permanentes",
+      "CLA_OCU_DESCR_en": "Permanent Crop Headlands",
+      "color": "#d6b76f"
+    },
+    "CPR-OA": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "CPR-OA",
+      "CLA_OCU_DESCR": "Culturas Protegidas",
+      "CLA_OCU_DESCR_en": "Protected Crops",
+      "color": "#ffdf8d"
+    },
+    "PEQ-FR": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "PEQ-FR",
+      "CLA_OCU_DESCR": "Pequenos Frutos",
+      "CLA_OCU_DESCR_en": "Berry Fruits",
+      "color": "#7b5ea3"
+    },
+    "VIV-AG": {
+      "CAT_OCU_SIGLA": "SAG",
+      "CAT_OCU_DESCR": "Superfície Agrícola",
+      "CAT_OCU_DESCR_en": "Agricultural Area",
+      "CLA_OCU_SIGLA": "VIV-AG",
+      "CLA_OCU_DESCR": "Viveiros",
+      "CLA_OCU_DESCR_en": "Nurseries",
+      "color": "#4caf50"
+    },
+    "FFL-FL": {
+      "CAT_OCU_SIGLA": "SFL",
+      "CAT_OCU_DESCR": "Superfície Florestal",
+      "CAT_OCU_DESCR_en": "Forested Area",
+      "CLA_OCU_SIGLA": "FFL-FL",
+      "CLA_OCU_DESCR": "Espaço Florestal Arborizado",
+      "CLA_OCU_DESCR_en": "Forested Area",
+      "color": "#267300"
+    },
+    "SAR-FL": {
+      "CAT_OCU_SIGLA": "SFL",
+      "CAT_OCU_DESCR": "Superfície Florestal",
+      "CAT_OCU_DESCR_en": "Forested Area",
+      "CLA_OCU_SIGLA": "SAR-FL",
+      "CLA_OCU_DESCR": "Vegetação Arbustiva",
+      "CLA_OCU_DESCR_en": "Shrubland",
+      "color": "#4d9140"
+    },
+    "FBQ-FL": {
+      "CAT_OCU_SIGLA": "SFL",
+      "CAT_OCU_DESCR": "Superfície Florestal",
+      "CAT_OCU_DESCR_en": "Forested Area",
+      "CLA_OCU_SIGLA": "FBQ-FL",
+      "CLA_OCU_DESCR": "Bosquete",
+      "CLA_OCU_DESCR_en": "Grove",
+      "color": "#78ab78"
+    },
+    "ACE-ON": {
+      "CAT_OCU_SIGLA": "SFL",
+      "CAT_OCU_DESCR": "Superfície Florestal",
+      "CAT_OCU_DESCR_en": "Forested Area",
+      "CLA_OCU_SIGLA": "ACE-ON",
+      "CLA_OCU_DESCR": "Aceiros Florestais",
+      "CLA_OCU_DESCR_en": "Firebreaks",
+      "color": "#bfbf9d"
+    },
+    "ZPC-ON": {
+      "CAT_OCU_SIGLA": "SFL",
+      "CAT_OCU_DESCR": "Superfície Florestal",
+      "CAT_OCU_DESCR_en": "Forested Area",
+      "CLA_OCU_SIGLA": "ZPC-ON",
+      "CLA_OCU_DESCR": "Zonas de Proteção/Conservação",
+      "CLA_OCU_DESCR_en": "Protection/Conservation Zones",
+      "color": "#a0bf8d"
+    },
+    "FBQ-EP": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "FBQ-EP",
+      "CLA_OCU_DESCR": "ELP - Bosquete",
+      "CLA_OCU_DESCR_en": "LF - Grove",
+      "color": "#78ab78"
+    },
+    "GRP-EP": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "GRP-EP",
+      "CLA_OCU_DESCR": "ELP - Galeria Ripícola",
+      "CLA_OCU_DESCR_en": "LF - Riparian Gallery",
+      "color": "#88cbaa"
+    },
+    "LAG-EL": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "LAG-EL",
+      "CLA_OCU_DESCR": "ELP - Linha de Água",
+      "CLA_OCU_DESCR_en": "LF - Waterline",
+      "color": "#4da6ff"
+    },
+    "ORI-EL": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "ORI-EL",
+      "CLA_OCU_DESCR": "ELP - Orizicultura",
+      "CLA_OCU_DESCR_en": "LF - Rice Cultivation",
+      "color": "#b0d5e9"
+    },
+    "SEB-EL": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "SEB-EL",
+      "CLA_OCU_DESCR": "ELP - Sebes",
+      "CLA_OCU_DESCR_en": "LF - Hedges",
+      "color": "#7da87f"
+    },
+    "TLD-EL": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "TLD-EL",
+      "CLA_OCU_DESCR": "ELP - Talude",
+      "CLA_OCU_DESCR_en": "LF - Slope/Embankment",
+      "color": "#a4957d"
+    },
+    "PCA-EP": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "PCA-EP",
+      "CLA_OCU_DESCR": "ELP - Património cultural e arqueológico",
+      "CLA_OCU_DESCR_en": "LF - Cultural and Archaeological Heritage",
+      "color": "#c78ab8"
+    },
+    "CHL-EP": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "CHL-EP",
+      "CLA_OCU_DESCR": "ELP - Lagoas e charcas sem revestimento",
+      "CLA_OCU_DESCR_en": "LF - Unlined Ponds and Pools",
+      "color": "#84c2d6"
+    },
+    "VAL-EL": {
+      "CAT_OCU_SIGLA": "ELP",
+      "CAT_OCU_DESCR": "Elementos Lineares e da Paisagem",
+      "CAT_OCU_DESCR_en": "Linear and Landscape Elements",
+      "CLA_OCU_SIGLA": "VAL-EL",
+      "CLA_OCU_DESCR": "ELP - Vala de drenagem/rega sem revestimento",
+      "CLA_OCU_DESCR_en": "LF - Unlined Drainage/Irrigation Ditch",
+      "color": "#5a9bcf"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

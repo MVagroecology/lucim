@@ -1,0 +1,15 @@
+{
+  "_comment": "",
+  "id": "osm",
+  "name": "OSM",
+  "name_en": "OSM",
+  "attributions": "Source: OpenStreetMap",
+  "type": "tileXYZ",
+  "show": false,
+  "disabled": false,
+  "baselayer": true,
+  "zIndex": 0,
+  "opacity": 1,
+  "layer_projection": "EPSG:3857",
+  "source_url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+}

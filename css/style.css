@@ -50,18 +50,50 @@ body {
   print-color-adjust: exact !important;
 }
 
-.text-smaller {
-  font-size: 85%;
+.content-wrap {
+  padding-bottom: 25px;
 }
 
-#app {
-  padding-bottom: 60px;
+.text-smaller {
+  font-size: 85%;
 }
 
 p.note {
   padding-left: 1rem;
   font-size: 0.6rem;
   width: 30rem;
+}
+
+@keyframes flashHighlight {
+  0% {
+    background-color: #ffff9c;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  60% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-change {
+  animation: flashHighlight 0.8s ease;
 }
 
 .pointer {
@@ -408,7 +440,6 @@ h2 {
   height: 20rem;
 }
 
-.fixed-bottom,
 .sticky-top {
   font-size: 0.8rem;
   height: 60px;
@@ -416,10 +447,13 @@ h2 {
   background-color: white;
 }
 .fixed-bottom {
-  height: 40px;
+  font-size: 0.8rem;
+  height: 20px;
+  border-top: 1px solid #dee2e6;
+  background-color: white;
 }
 .fixed-bottom > div {
-  margin-top: 12px;
+  margin-top: 2px;
 }
 .fixed-bottom p,
 .sticky-top p {
@@ -760,6 +794,17 @@ estat-vis-tooltip-text,
 .bg-green {
   background-color: var(--south-alpha);
 }
+.map-elements .nav-tabs {
+  margin-top: 2rem;
+}
+.map-elements .card {
+  border-top: none;
+  border-radius: 0;
+}
+.map-elements .nav-link {
+  padding: .375rem .75rem;
+  cursor: pointer;
+}
 .map-elements .legend-element {
   line-height: 40%;
   font-size: 80%;
@@ -767,10 +812,16 @@ estat-vis-tooltip-text,
 .feature-element .feature-layer {
   font-style: italic;
   margin-top: 10px;
-  
 }
 .feature-element .feature-properties {
   font-size: 80%
+}
+.feature-properties .table th,
+.feature-properties .table td {
+  padding: 0.1rem;
+}
+.feature-properties .table td {
+  text-align: center;
 }
 .map-elements .legend-element.selected {
   background-color: yellow;
@@ -780,6 +831,14 @@ estat-vis-tooltip-text,
   width: 12px;
   height: 12px;
   margin-right: 4px;
+}
+.map-elements .legend .square.no-data:after {
+    content: "X";
+    color: darkgray;
+    line-height: 100%;
+    text-align: center;
+    display: block;
+    border: 0.5px solid darkgray;
 }
 .map-elements .legend p {
   display: inline-block;
@@ -802,7 +861,7 @@ estat-vis-tooltip-text,
 #basemaps {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;
@@ -814,7 +873,8 @@ estat-vis-tooltip-text,
   padding-left: 5px;
 }
 #basemaps img,
-.copernicus-img {
+.copernicus-img,
+.jrc-img {
   height: 18px;
   width: auto;
 }
@@ -826,7 +886,7 @@ estat-vis-tooltip-text,
 #zoom {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;

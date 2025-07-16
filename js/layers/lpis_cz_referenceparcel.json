@@ -1,0 +1,37 @@
+{
+  "_comment": "ReferenceParcelArea_uom as feature_legend_identifier as a work around. loader() needed based on incorrect use of geometry property in json data.",
+  "id": "lpis_cz_referenceparcel",
+  "name": "LPIS CZ - Reference Parcel",
+  "name_en": "LPIS CZ - Reference Parcel",
+  "attributions": "Source: Česká informační agentura životního prostředí",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "mze_lpis",
+  "layer_name_detail": "referenceparcel",
+  "layer_projection": "EPSG:5514",
+  "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+      { "name": "Reference Parcel ID", "key": "referenceParcelId" },
+      { "name": "Area (ha)", "key": "ReferenceParcelArea" }
+  ],
+  "feature_identifier": "referenceParcelId",
+  "feature_legend_identifier": "ReferenceParcelArea_uom",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "ha": {
+      "label": "Reference Parcel",
+      "label_en": "Reference Parcel",
+      "color": "#FFFFFF80"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "_comment": "https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0 https://image.discomap.eea.europa.eu/arcgis/services/Corine/CLC2018_WM/MapServer/WMSServer?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&FORMAT=image%2Fpng&TRANSPARENT=true&QUERY_LAYERS=13&LAYERS=13&STYLES=&INFO_FORMAT=application%2Fgeo%2Bjson&I=223&J=236&WIDTH=256&HEIGHT=256&CRS=EPSG%3A3857&BBOX=1619242.0071931742%2C6442724.240100937%2C1624133.9770034256%2C6447616.209911188",
+  "id": "clc_2018",
+  "name": "Corine Land Cover 2018",
+  "name_en": "Corine Land Cover 2018",
+  "attributions": "",
+  "type": "WMS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 4,
+  "opacity": 0.9,
+  "layer_groups": [ "copernicus" ],
+  "layer_name": "CLC2018_WM",
+  "layer_name_detail": "13",
+  "layer_projection": "CRS:84",
+  "source_url": "https://image.discomap.eea.europa.eu/arcgis/services/Corine/[layer_name]/MapServer/WMSServer?SERVICE=WMS&VERSION=1.3.0&LAYERS=[layer_name_detail]&STYLES=&FORMAT=image/png&TRANSPARENT=true",
+  "feature_infos": [
+      { "name": "CLC Code", "key": "Code_18" }
+  ],
+  "feature_info_format": "application/geo+json",
+  "feature_info_query": "13",
+  "feature_identifier": "Code_18",
+  "feature_legend_identifier": { "key": "Code_18" },
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "111": { "label_en": "Continuous urban fabric", "color": "#e31a1c" },
+    "112": { "label_en": "Discontinuous urban fabric", "color": "#fb9a99" },
+    "121": { "label_en": "Industrial or commercial units", "color": "#b15928" },
+    "122": { "label_en": "Road and rail networks and associated land", "color": "#fdbf6f" },
+    "123": { "label_en": "Port areas", "color": "#cab2d6" },
+    "124": { "label_en": "Airports", "color": "#ffff99" },
+    "131": { "label_en": "Mineral extraction sites", "color": "#a6cee3" },
+    "132": { "label_en": "Dump sites", "color": "#1f78b4" },
+    "133": { "label_en": "Construction sites", "color": "#b2df8a" },
+    "141": { "label_en": "Green urban areas", "color": "#33a02c" },
+    "142": { "label_en": "Sport and leisure facilities", "color": "#fb9a99" },
+
+    "211": { "label_en": "Non-irrigated arable land", "color": "#ffffb2" },
+    "212": { "label_en": "Permanently irrigated land", "color": "#fecc5c" },
+    "213": { "label_en": "Rice fields", "color": "#fd8d3c" },
+    "221": { "label_en": "Vineyards", "color": "#e31a1c" },
+    "222": { "label_en": "Fruit trees and berry plantations", "color": "#fb9a99" },
+    "223": { "label_en": "Olive groves", "color": "#b15928" },
+
+    "231": { "label_en": "Pastures", "color": "#a6cee3" },
+    "241": { "label_en": "Annual crops associated with permanent crops", "color": "#1f78b4" },
+    "242": { "label_en": "Complex cultivation patterns", "color": "#b2df8a" },
+    "243": { "label_en": "Land principally occupied by agriculture, with significant areas of natural vegetation", "color": "#33a02c" },
+    "244": { "label_en": "Agro-forestry areas", "color": "#fb9a99" },
+
+    "311": { "label_en": "Broad-leaved forest", "color": "#1f78b4" },
+    "312": { "label_en": "Coniferous forest", "color": "#b2df8a" },
+    "313": { "label_en": "Mixed forest", "color": "#33a02c" },
+
+    "321": { "label_en": "Natural grasslands", "color": "#fb9a99" },
+    "322": { "label_en": "Moors and heathland", "color": "#e31a1c" },
+    "323": { "label_en": "Sclerophyllous vegetation", "color": "#b15928" },
+    "324": { "label_en": "Transitional woodland-shrub", "color": "#fdbf6f" },
+
+    "331": { "label_en": "Beaches, dunes, and sand", "color": "#ffff99" },
+    "332": { "label_en": "Bare rocks", "color": "#a6cee3" },
+    "333": { "label_en": "Sparsely vegetated areas", "color": "#1f78b4" },
+    "334": { "label_en": "Burnt areas", "color": "#b2df8a" },
+
+    "411": { "label_en": "Inland marshes", "color": "#33a02c" },
+    "412": { "label_en": "Peat bogs", "color": "#fb9a99" },
+
+    "421": { "label_en": "Salt marshes", "color": "#e31a1c" },
+    "422": { "label_en": "Salines", "color": "#b15928" },
+    "423": { "label_en": "Intertidal flats", "color": "#fdbf6f" },
+
+    "511": { "label_en": "Water courses", "color": "#1f78b4" },
+    "512": { "label_en": "Water bodies", "color": "#b2df8a" },
+    "513": { "label_en": "Coastal lagoons", "color": "#33a02c" },
+    "514": { "label_en": "Estuaries", "color": "#fb9a99" },
+    "515": { "label_en": "Sea and ocean", "color": "#e31a1c" }
+  }
+}

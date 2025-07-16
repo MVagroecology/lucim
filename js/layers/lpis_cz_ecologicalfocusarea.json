@@ -1,0 +1,63 @@
+{
+  "_comment": "loader() needed based on incorrect use of geometry property in json data. example data https://gis.cenia.cz/geoserver/mze_lpis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mze_lpis:ecologicalfocusarea&maxFeatures=5&outputFormat=application%2Fjson",
+  "id": "lpis_cz_ecologicalfocusarea",
+  "name": "LPIS CZ - Ecological Focus Area",
+  "name_en": "LPIS CZ - Ecological Focus Area",
+  "attributions": "Source: Česká informační agentura životního prostředí",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "mze_lpis",
+  "layer_name_detail": "ecologicalfocusarea",
+  "layer_projection": "EPSG:5514",
+  "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+    { "name": "Ecological Focus Area ID", "key": "ecologicalFocusAreaId" },
+    { "name": "Ecological Focus Area Type", "key": "ecologicalFocusAreaType" },
+    { "name": "Area (ha)", "key": "convertedArea" }
+  ],
+  "feature_identifier": "ecologicalFocusAreaId",
+  "feature_legend_identifier": "ecologicalFocusAreaType",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "hectaresOfArgoForestry": {
+      "label": "hectaresOfArgoForestry",
+      "label_en": "Agroforestry",
+      "color": "#2e8b57"
+    },
+    "terraces": {
+      "label": "terraces",
+      "label_en": "Terraces",
+      "color": "#a97451"
+    },
+    "landscapeFeatureIsolatedTree": {
+      "label": "landscapeFeatureIsolatedTree",
+      "label_en": "LF - Isolated Tree",
+      "color": "#5c9e4d"
+    },
+    "landscapeFeatureGroupOfTrees": {
+      "label": "landscapeFeatureGroupOfTrees",
+      "label_en": "LF - Group of Trees",
+      "color": "#78ab78"
+    },
+    "landscapeFeatureTreesinLine": {
+      "label": "landscapeFeatureTreesinLine",
+      "label_en": "LF - Trees in Line",
+      "color": "#7da87f"
+    },
+    "landscapeFeaturesHedgesWoodedStrips": {
+      "label": "landscapeFeaturesHedgesWoodedStrips",
+      "label_en": "LF - Hedges / Wooded Strips",
+      "color": "#7da87f"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

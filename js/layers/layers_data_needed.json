@@ -1,0 +1,42 @@
+{
+  "_comment": "",
+  "id": "",
+  "name": "",
+  "name_en": "",
+  "attributions": "",
+  "type": "WFS, WMS, tileXYZ",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 12,
+  "zIndex": 1,
+  "opacity": 1,
+  "layer_groups": [ "copernicus" ],
+  "layer_name": "",
+  "layer_name_detail": "",
+  "layer_projection": "",
+  "layer_origin_x": 0,
+  "layer_origin_y": 0,
+  "layer_resolution": 0,
+  "source_url": "[extent], [layer_name], [layer_name_detail], [layer_projection]",
+  "feature_infos": [
+      { "name": "", "key": "" },
+      { "name": "", "key": "" }
+  ],
+  "feature_identifier": "",
+  "feature_legend_identifier": "",
+  "feature_legend_text": "",
+  "layer_legend": {
+    "key": {
+      "label": "",
+      "label_en": "",
+      "color": null
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": null,
+    "selected_stroke_color": null,
+    "fill_color": null,
+    "stroke_color": null
+  }
+}

@@ -1,9 +1,11 @@
 httpVueLoader.register(Vue, 'vue/bottom.vue');
 httpVueLoader.register(Vue, 'vue/top.vue');
-httpVueLoader.register(Vue, 'vue/toggle-layer.vue');
 httpVueLoader.register(Vue, 'vue/layer-wfs.vue');
 httpVueLoader.register(Vue, 'vue/layer-wms.vue');
 httpVueLoader.register(Vue, 'vue/layer-tilexyz.vue');
+
+const TURF_PROJECTION = "EPSG:4326"
+const MAP_PROJECTION = 'EPSG:3857'
 
 Object.filter = function(obj, predicate) {
 	let result = {}, key;
@@ -57,6 +59,17 @@ const router = new VueRouter({
 	}
 })
 
+Vue.directive('animate-on-update', {
+  update(el, binding) {
+    el.classList.remove('animate-change');
+
+    // Force reflow
+    void el.offsetWidth;
+
+    el.classList.add('animate-change');
+  }
+});
+
 var VueBus = new Vue();
 
 var app = '';
@@ -72,8 +85,27 @@ app = new Vue({
 	},
 	methods: {
 		loadData() {
-      		var _this = this
-			this.loaded = true
+			var _this = this
+			var requests = []
+
+			for (var i = 0; i < LAYERS_LIST.length; i++) {
+				var layer_code = LAYERS_LIST[i]
+				MAP_LAYERS[layer_code] = {}
+				requests.push($.getJSON('js/layers/' + layer_code + '.json', function(layer) {
+					MAP_LAYERS[layer.id] = layer
+				}))
+			}
+			/*for (var i = 0; i < MODULES_LIST.length; i++) {
+				var module_code = MODULES_LIST[i]
+				MAP_MODULES[module_code] = {}
+				requests.push($.getJSON('js/modules/' + module_code + '.json', function(module) {
+					MAP_MODULES[module.id] = module
+				}))
+			}*/		
+
+			Promise.allSettled(requests).then(function() {
+				_this.loaded = true
+			})
 		}
 	}
 });

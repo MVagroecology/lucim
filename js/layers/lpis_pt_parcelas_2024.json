@@ -1,0 +1,36 @@
+{
+  "_comment": "LPIS Portugal - https://www.ifap.pt/isip/ows/isip.data/wfs?service=wfs&request=getcapabilities",
+  "id": "lpis_pt_parcelas_2024",
+  "name": "LPIS PT - Parcelas 2024",
+  "name_en": "LPIS PT - Parcels 2024",
+  "attributions": "Source: Informação geográfica do IFAP",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "minZoom": 15,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "isip.data",
+  "layer_name_detail": "parcelas.2024jun10",
+  "layer_projection": "EPSG:4326",
+  "source_url": "https://www.ifap.pt/isip/ows/[layer_name]/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=[layer_name]:[layer_name_detail]&outputFormat=application/json&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "feature_infos": [
+      { "name": "Parcel ID", "key": "PAR_ID" },
+      { "name": "Parcel number", "key": "PAR_NUM" }
+  ],
+  "feature_identifier": "PAR_ID",
+  "feature_legend_identifier": "PAR_CAMPANHA",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "2024": {
+      "label": "Parcela 2024",
+      "label_en": "Parcel 2024",
+      "color": "#FFFFFF80"
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}
