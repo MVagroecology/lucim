@@ -18,7 +18,7 @@
   "feature_infos": [
       { "name": "Code", "key": "NKOD_DPB" },
       { "name": "Area (ha)", "key": "VYMERA" },
-      { "name": "Crop name", "key": "KULTURANAZ" }
+      { "name": "Crop name", "key": "KULTURA", "transform": "get_from_legend", "alternate_key": "label_en" }
   ],
   "feature_identifier": "NKOD_DPB",
   "feature_legend_identifier": "KULTURA",
