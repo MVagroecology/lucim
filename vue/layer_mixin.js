@@ -92,7 +92,7 @@ var layer_mixin = {
         },
         generateInfo(feature) {
             var info = []
-            for (legend_key_obj of this.feature_infos) {
+            for (var legend_key_obj of this.feature_infos) {
                 var value = ""
                 if ('keys' in legend_key_obj) {
                     if ('transform' in legend_key_obj) {
@@ -111,6 +111,10 @@ var layer_mixin = {
                     if ('transform' in legend_key_obj) {
                         if (legend_key_obj.transform == "square_m_to_ha") {
                             value = (this.getFeatureProperty(feature, legend_key_obj.key)/10000).toFixed(2)
+                        } else if (legend_key_obj.transform == "get_from_legend") {
+                            var legend_value = this.getFeatureProperty(feature, legend_key_obj.key)
+                            var legend_key = legend_key_obj.alternate_key
+                            value = this.layer_legend[legend_value][legend_key]
                         } else {
                             console.log(this.layer_id + ': key with transform that\'s not yet implemented: ' + legend_key_obj.transform)
                         }

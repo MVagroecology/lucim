@@ -17,7 +17,8 @@
   "layer_projection": "CRS:84",
   "source_url": "https://image.discomap.eea.europa.eu/arcgis/services/Corine/[layer_name]/MapServer/WMSServer?SERVICE=WMS&VERSION=1.3.0&LAYERS=[layer_name_detail]&STYLES=&FORMAT=image/png&TRANSPARENT=true",
   "feature_infos": [
-      { "name": "CLC Code", "key": "Code_18" }
+      { "name": "CLC Code", "key": "Code_18" },
+      { "name": "CLC", "key": "Code_18", "transform": "get_from_legend", "alternate_key": "label_en" }
   ],
   "feature_info_format": "application/geo+json",
   "feature_info_query": "13",

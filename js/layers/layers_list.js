@@ -7,10 +7,11 @@ var LAYERS_LIST = [
   "lpis_cz_referenceparcel",
   "lpis_cz_agriculturalarea",
   "lpis_cz_ecologicalfocusarea",
+  "jrc_gfc_2020_v2",
   "tree_cover_density_2021",
-  "clc_2018",
   "grassland_2021",
-  "jrc_gfc_2020_v2"
+  "cropland_croptypes_2021",
+  "clc_2018",
 ]
 
 var MAP_LAYERS = {}
