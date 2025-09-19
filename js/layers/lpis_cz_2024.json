@@ -3,6 +3,7 @@
   "id": "lpis_cz_2024",
   "name": "LPIS CZ - 2024",
   "name_en": "LPIS CZ - 2024",
+  "country_code": "CZ",
   "attributions": "Source: Česká informační agentura životního prostředí",
   "type": "WFS",
   "show": true,

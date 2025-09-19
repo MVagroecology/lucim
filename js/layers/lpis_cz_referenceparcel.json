@@ -4,6 +4,7 @@
   "name": "LPIS CZ - Reference Parcel",
   "name_en": "LPIS CZ - Reference Parcel",
   "attributions": "Source: Česká informační agentura životního prostředí",
+  "country_code": "CZ",
   "type": "WFS",
   "show": false,
   "disabled": false,

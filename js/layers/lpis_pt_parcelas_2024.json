@@ -4,6 +4,7 @@
   "name": "LPIS PT - Parcelas 2024",
   "name_en": "LPIS PT - Parcels 2024",
   "attributions": "Source: Informação geográfica do IFAP",
+  "country_code": "PT",
   "type": "WFS",
   "show": false,
   "disabled": false,

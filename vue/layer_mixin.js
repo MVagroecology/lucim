@@ -35,10 +35,17 @@ var layer_mixin = {
             opacity: _this.opacity
         });
         
-        
         this.map.addLayer(this.layer);
         
-        this.setShow(this.show)
+        if (this.$router.currentRoute.query.layers) {
+            if (this.$router.currentRoute.query.layers.includes(this.layer_id)) {
+                this.setShow(true)
+            } else {
+                this.setShow(false)
+            }
+        } else {
+            this.setShow(this.show)
+        }
         
         // toggle events
         
@@ -84,9 +91,30 @@ var layer_mixin = {
         setShow(toShow) {
             if (this.layer) {
                 this.layer.setVisible(toShow)
-                this.$set(this.layer, "show", toShow)
+                this.show = toShow
+
                 if (this.baselayer && toShow) {
                     VueBus.$emit('hideBaselayers', this.layer_id)
+                }
+
+                // Update layers in router query
+                if (this.$router) {
+                    // Get current layers from query
+                    let layers = (this.$router.currentRoute.query.layers || '').split(',')
+                    if (toShow) {
+                        if (!layers.includes(this.layer_id)) layers.push(this.layer_id);
+                    } else {
+                        layers = layers.filter(l => l !== this.layer_id);
+                    }
+                    const newLayers = layers.join(',');
+                    if (this.$router.currentRoute.query.layers !== newLayers) {
+                        this.$router.replace({
+                            query: {
+                                ...this.$router.currentRoute.query,
+                                layers: newLayers
+                            }
+                        });
+                    }
                 }
             }
         },

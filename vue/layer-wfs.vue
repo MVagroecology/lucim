@@ -203,7 +203,7 @@ module.exports = {
 </script>
 
 <template>
-    <div class="form-check ml-2">
+    <div class="form-check">
         <input class="form-check-input" type="checkbox"
             :disabled="disabled"
             @change="setShow($event.target.checked)"

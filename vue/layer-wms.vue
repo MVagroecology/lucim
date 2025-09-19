@@ -119,11 +119,11 @@ module.exports = {
 </script>
 
 <template>
-    <div class="form-check ml-2">
+    <div class="form-check">
         <input class="form-check-input" type="checkbox"
             :disabled="disabled"
             @change="setShow($event.target.checked)"
             v-model="show">
-        <label class="form-check-label">{{ name_en }} <img v-if="layer_groups.includes('copernicus')" src="img/copernicus_logo.png"><img v-if="layer_groups.includes('jrc')" src="img/jrc.jpg"></label>
+        <label class="form-check-label">{{ name_en }} <img class="layer-logo" v-if="layer_groups.includes('copernicus')" src="img/copernicus_logo.png"><img class="layer-logo" v-if="layer_groups.includes('jrc')" src="img/jrc.jpg"></label>
     </div>
 </template>

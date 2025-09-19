@@ -3,6 +3,7 @@ httpVueLoader.register(Vue, 'vue/top.vue');
 httpVueLoader.register(Vue, 'vue/layer-wfs.vue');
 httpVueLoader.register(Vue, 'vue/layer-wms.vue');
 httpVueLoader.register(Vue, 'vue/layer-tilexyz.vue');
+httpVueLoader.register(Vue, 'vue/compass-header.vue');
 
 const TURF_PROJECTION = "EPSG:4326"
 const MAP_PROJECTION = 'EPSG:3857'
@@ -42,6 +43,21 @@ const router = new VueRouter({
 			path: '/lpis-sustainability-compass',
 			name: 'lpis-sustainability-compass',
 			component: httpVueLoader('vue/lpis-sustainability-compass.vue')
+		},
+		{
+			path: '/lpis-sustainability-compass/about',
+			name: 'lpis-sustainability-compass-about',
+			component: httpVueLoader('vue/compass-about.vue')
+		},
+		{
+			path: '/lpis-sustainability-compass/log',
+			name: 'lpis-sustainability-compass-log',
+			component: httpVueLoader('vue/compass-log.vue')
+		},
+		{
+			path: '/lpis-sustainability-compass/layer-status',
+			name: 'lpis-sustainability-compass-layer-status',
+			component: httpVueLoader('vue/compass-layer-status.vue')
 		},
 		{
 			path: '/tree-deserts',
