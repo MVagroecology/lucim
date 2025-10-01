@@ -27,6 +27,10 @@ module.exports = {
               <div class="col-3"><p><em>2025-09-19</em></p></div>
               <div class="col-9"><p>Improved layer list display; LPIS layers filtered by countries currently in view; map center, zoom and active layers in the url query params; implemented layer status checker at <router-link to="/lpis-sustainability-compass/layer-status">/lpis-sustainability-compass/layer-status</router-link></p></div>
             </div>
+            <div class="row">
+              <div class="col-3"><p><em>2025-10-01</em></p></div>
+              <div class="col-9"><p>Improved panels display; selected features, selected tabs in the url query params; improved layer status checker; added scale and 'go to my location' to the map; added missing "Landscape Feature CZ" layer</p></div>
+            </div>
           </div>
         </div>
       </div>
