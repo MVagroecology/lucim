@@ -1,9 +1,13 @@
 {
-  "_comment": "",
+  "_comment": [
+    "OpenStreetMap https://www.openstreetmap.org/",
+    "Tile service available at https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "Usage policy available at https://operations.osmfoundation.org/policies/tiles/"
+  ],
   "id": "osm",
   "name": "OSM",
   "name_en": "OSM",
-  "attributions": "Source: OpenStreetMap",
+  "attributions": "Source: OpenStreetMap contributors",
   "type": "tileXYZ",
   "show": false,
   "disabled": false,

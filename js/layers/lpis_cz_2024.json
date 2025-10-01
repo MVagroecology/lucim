@@ -1,5 +1,9 @@
 {
-  "_comment": "https://mze.gov.cz/public/portal/-a20344---q65sdr4J/popis-atributu-ve-verejnych-exportech-dat-lpis?_linka=a492260",
+  "_comment": [
+    "INSPIRE portal link https://inspire-geoportal.ec.europa.eu/srv/eng/catalog.search#/metadata/665f5127-fb9c-4d6f-8ce5-39747dc0a8017c",
+    "WFS service available at https://gis.cenia.cz/geoserver/mze_lpis/wfs?service=WFS&request=GetCapabilities",
+    "Field description https://mze.gov.cz/public/portal/mze/-q335337---HfdnlAXR/popis-atributu"
+  ],
   "id": "lpis_cz_2024",
   "name": "LPIS CZ - 2024",
   "name_en": "LPIS CZ - 2024",
@@ -9,7 +13,7 @@
   "show": true,
   "disabled": false,
   "baselayer": false,
-  "minZoom": 12,
+  "minZoom": 10,
   "zIndex": 1,
   "opacity": 0.9,
   "layer_name": "clc2024_lpis",

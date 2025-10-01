@@ -1,5 +1,9 @@
 {
-  "_comment": "LPIS Portugal - https://www.ifap.pt/isip/ows/isip.data/wfs?service=wfs&request=getcapabilities",
+  "_comment": [
+    "LPIS Portugal (iSIP - Sistema de Identificação Parcelar). General information available at https://www.ifap.pt/portal/sip-informacao-basica",
+    "Public viewer available at https://publico-isip.ifap.pt/",
+    "WMS/WFS, metadata and download options available at https://www.ifap.pt/isip/ows/. WMS available at https://www.ifap.pt/isip/ows/isip.data/wms?service=wms&request=getcapabilities"
+  ],
   "id": "lpis_pt_parcelas_2024",
   "name": "LPIS PT - Parcelas 2024",
   "name_en": "LPIS PT - Parcels 2024",
@@ -8,7 +12,7 @@
   "type": "WFS",
   "show": false,
   "disabled": false,
-  "minZoom": 15,
+  "minZoom": 10,
   "zIndex": 1,
   "opacity": 0.9,
   "layer_name": "isip.data",

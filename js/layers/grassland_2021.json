@@ -1,14 +1,17 @@
 {
-  "_comment": "https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2021-raster-10-m-100-m-europe-yearly https://geoserver.vlcc.geoville.com/geoserver/ows?service=WMS&version=1.3.0&request=GetCapabilities",
+  "_comment": [
+    "Grassland 2021 (raster 10 m) - Copernicus Land Monitoring Service. General information available at https://doi.org/10.2909/0b6254bb-4c7d-41d9-8eae-c43b05ab2965 and https://land.copernicus.eu/en/products/high-resolution-layer-grasslands/grassland-2021-raster-10-m-100-m-europe-yearly",
+    "Full metadata available at https://sdi.eea.europa.eu/catalogue/srv/api/records/0b6254bb-4c7d-41d9-8eae-c43b05ab2965/formatters/xsl-view?output=pdf&language=eng&approved=true",
+    "WMS service at https://geoserver.vlcc.geoville.com/geoserver/ows?service=WMS&version=1.3.0&request=GetCapabilities"
+  ],
   "id": "grassland_2021",
   "name": "Grassland 2021",
   "name_en": "Grassland 2021",
-  "attributions": "",
+  "attributions": "Grassland 2021 (raster 10 m) - Copernicus Land Monitoring Service https://doi.org/10.2909/0b6254bb-4c7d-41d9-8eae-c43b05ab2965",
   "type": "WMS",
   "show": false,
   "disabled": false,
   "baselayer": false,
-  "minZoom": 12,
   "zIndex": 4,
   "opacity": 0.9,
   "layer_groups": ["copernicus"],

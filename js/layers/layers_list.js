@@ -7,6 +7,7 @@ var LAYERS_LIST = [
   "lpis_cz_referenceparcel",
   "lpis_cz_agriculturalarea",
   "lpis_cz_ecologicalfocusarea",
+  "lpis_cz_landscapefeature",
   "jrc_gfc_2020_v2",
   "tree_cover_density_2021",
   "grassland_2021",

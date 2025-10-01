@@ -1,5 +1,9 @@
 {
-  "_comment": "loader() needed based on incorrect use of geometry property in json data. example data https://gis.cenia.cz/geoserver/mze_lpis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mze_lpis:agriculturalarea&maxFeatures=5&outputFormat=application%2Fjson",
+  "_comment": [
+    "Agricultural Area of Czech Republic. An Agricultural area of Reference parcel is defined as continuous area of agricultural land with a minimum area of 0.01 hectare with define culture (arable land, permanent grassland and permanent crop). The boundaries of Reference parcel should be identifiable in terrain. The physical or legal entity should carry out the agricultural activity on a given Reference parcel under its own name and responsibility. And the Reference parcel is represented by continuous piece of one type of agricultural cover/culture (defined in details by National Regulation 307/2014 Coll.) or landscape feature. General information available at https://www.agrihub.cz/micka/en/record/basic?url=https%3A%2F%2Fgeoportal.gov.cz%2Fphp%2Fmicka%2Fcsw%2F%3FSERVICE%3DCSW%26REQUEST%3DGetRecordById%26ID%3D662a36ea-db20-4858-ac46-249e13c0a8017c%23_662a36ea-db20-4858-ac46-249e13c0a8017c",
+    "WFS available at https://gis.cenia.cz/geoserver/mze_lpis/wfs?service=WFS&request=GetCapabilities layer agriculturalarea"
+  ],
+  "_implementation_notes": "loader() needed based on incorrect use of geometry property in json data. example data https://gis.cenia.cz/geoserver/mze_lpis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mze_lpis:agriculturalarea&maxFeatures=5&outputFormat=application%2Fjson",
   "id": "lpis_cz_agriculturalarea",
   "name": "LPIS CZ - Agricultural Area",
   "name_en": "LPIS CZ - Agricultural Area",
@@ -9,13 +13,14 @@
   "show": false,
   "disabled": false,
   "baselayer": false,
-  "minZoom": 12,
+  "minZoom": 10,
   "zIndex": 1,
   "opacity": 0.9,
   "layer_name": "mze_lpis",
   "layer_name_detail": "agriculturalarea",
   "layer_projection": "EPSG:5514",
   "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "needs_loader": true,
   "feature_infos": [
     { "name": "Agricultural Area ID", "key": "agriculturalAreaID" },
     { "name": "Agricultural Area Type", "key": "agriculturalAreaType" },

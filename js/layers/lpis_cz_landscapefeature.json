@@ -1,0 +1,59 @@
+{
+  "_comment": [
+    "Landscape Feature of Czech Republic. The Landscape feature dataset is created by merging the four categories of woody, stony, wet and grassy features from the feature classes in the Ecological Focus Area dataset. The types of Ecological focus area elements are defined in National Regulation 307/2014 Coll. Temporal extent: 2015-01-01 to 2024-08-01. General information available at https://www.agrihub.cz/micka/en/record/basic?url=https%3A%2F%2Fgeoportal.gov.cz%2Fphp%2Fmicka%2Fcsw%2F%3FSERVICE%3DCSW%26REQUEST%3DGetRecordById%26ID%3D660eae12-b7d4-4b6f-9fb2-191a47c0a8017c%23_660eae12-b7d4-4b6f-9fb2-191a47c0a8017c",
+    "WFS available at https://gis.cenia.cz/geoserver/mze_lpis/wfs?service=WFS&request=GetCapabilities layer landscapefeature"
+  ],
+  "_implementation_notes": "loader() needed based on incorrect use of geometry property in json data. example data https://gis.cenia.cz/geoserver/mze_lpis/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=mze_lpis:ecologicalfocusarea&maxFeatures=5&outputFormat=application%2Fjson",
+  "id": "lpis_cz_landscapefeature",
+  "name": "LPIS CZ - Landscape Feature",
+  "name_en": "LPIS CZ - Landscape Feature",
+  "attributions": "Source: Česká informační agentura životního prostředí",
+  "country_code": "CZ",
+  "type": "WFS",
+  "show": false,
+  "disabled": false,
+  "baselayer": false,
+  "minZoom": 10,
+  "zIndex": 1,
+  "opacity": 0.9,
+  "layer_name": "mze_lpis",
+  "layer_name_detail": "landscapefeature",
+  "layer_projection": "EPSG:5514",
+  "source_url": "https://gis.cenia.cz/geoserver/[layer_name]/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=[layer_name]:[layer_name_detail]&outputFormat=application%2Fjson&srsname=[layer_projection]&bbox=[extent],[layer_projection]",
+  "needs_loader": true,
+  "feature_infos": [
+    { "name": "Landscape Feature ID", "key": "landscapeFeatureID" },
+    { "name": "Landscape Feature Type", "key": "landscapeFeatureType" },
+    { "name": "Area (ha)", "key": "convertedArea" }
+  ],
+  "feature_identifier": "landscapeFeatureId",
+  "feature_legend_identifier": "landscapeFeatureType",
+  "feature_legend_text": "label_en",
+  "layer_legend": {
+    "grassy": {
+      "label": "grassy",
+      "label_en": "Grassy",
+      "color": "#9acd32" 
+    },
+    "woody": {
+      "label": "woody",
+      "label_en": "Woody",
+      "color": "#556b2f" 
+    },
+    "wet": {
+      "label": "wet",
+      "label_en": "Wet",
+      "color": "#4682b4" 
+    },
+    "stony": {
+      "label": "stony",
+      "label_en": "Stony",
+      "color": "#8b8682" 
+    }
+  },
+  "layer_style": {
+    "selected_fill_color": "yellow",
+    "selected_stroke_color": "black",
+    "stroke_color": "black"
+  }
+}

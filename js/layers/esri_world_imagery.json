@@ -1,5 +1,8 @@
 {
-  "_comment": "",
+  "_comment": [
+    "ESRI World Imagery. General information available at https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9",
+    "Tile service available at https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+  ],
   "id": "esri_world_imagery",
   "name": "ESRI World Imagery",
   "name_en": "ESRI World Imagery",

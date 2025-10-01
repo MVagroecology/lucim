@@ -6,7 +6,8 @@ module.exports = {
     return {
       layers: [], // Will be filled from parent or imported
       pingResults: {}, // { layer_id: 'OK' | 'FAIL' | '...' }
-      pingURLs: {} // { layer_id: 'url' }
+      pingURLs: {}, // { layer_id: 'url' }
+      pingPreview: {}
     }
   },
   mounted() {
@@ -16,8 +17,8 @@ module.exports = {
   methods: {
     getBogusTransformedExtent(countryCode) {
       const extents = {
-        PT: "-8.527690206713487,40.933804668527586,-8.510509763917733,40.94039663564075",
-        CZ: "739045.375671455,-1059667.7755058946,-728606.277951264,-1053395.8028445581",
+        PT: "-7.116183121792107,41.81546759475739,-7.115109344117372,41.81588805806942",
+        CZ: "-733426.0754281293,-1057198.753020176,-730811.0009606997,-1055588.992125351",
       };
       return extents[countryCode] || [0, 0, 0, 0];
     },
@@ -25,9 +26,66 @@ module.exports = {
       try {
         const response = await fetch(url, { method: 'GET' });
         this.$set(this.pingResults, id, response.ok ? 'OK' : 'FAIL');
+        if (response.ok) {
+          const contentType = response.headers.get('content-type');
+          let preview = '';
+          if (contentType && contentType.includes('application/json')) {
+            const json = await response.json();
+            preview = JSON.stringify(json, null, 2).substring(0, 100) + '...';
+          } else {
+            const text = await response.text();
+            preview = text.substring(0, 100) + '...';
+          }
+          this.$set(this.pingPreview, id, preview);
+        } else {
+          this.$set(this.pingPreview, id, 'Failed to load');
+        }
       } catch (e) {
         this.$set(this.pingResults, id, 'FAIL');
       }
+    },
+    parseUrlToObject(url) {
+      const u = new URL(url);
+      const params = {};
+      u.searchParams.forEach((value, key) => {
+        params[key] = value;
+      });
+      return {
+        baseUrl: u.origin + u.pathname,
+        params
+      };
+    },
+    getWMSURL(layer, urlObj) {
+      // Default params
+      const defaultParams = {
+        request: 'GetMap',
+        bbox: "1622910.9845508635,6441501.247648373,1624133.9770034263,6442724.240100936",
+        width: 256,
+        height: 256,
+        crs: MAP_PROJECTION,
+        format: "image/png"
+      };
+
+      // Use params from urlObj if present, otherwise use default
+      const params = {};
+      Object.keys(defaultParams).forEach(key => {
+        const lowerKey = key.toLowerCase();
+        params[lowerKey] = urlObj.params[lowerKey] !== undefined ? urlObj.params[lowerKey] : defaultParams[key];
+      });
+
+      // Add any other params from urlObj that are not in defaultParams
+      Object.keys(urlObj.params).forEach(key => {
+        const lowerKey = key.toLowerCase();
+        if (!(lowerKey in params)) {
+          params[lowerKey] = urlObj.params[key];
+        }
+      });
+
+      // Build query string
+      const query = Object.entries(params)
+        .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
+        .join('&');
+      return `${urlObj.baseUrl}?${query}`;
     },
     testAllLayers() {
       Object.values(this.layers).forEach(layer => {
@@ -41,12 +99,21 @@ module.exports = {
         .replaceAll('{z}', 13)
         .replaceAll('{y}', 4426)
         .replaceAll('{x}', 2779)
-        this.$set(this.pingURLs, layer.id, url);
         
-        if (url) {
-          this.pingLayer(url, layer.id);
+        const urlObj = this.parseUrlToObject(url);
+        
+        if (layer.type == "WMS") {
+          url = this.getWMSURL(layer, urlObj);
+          this.$set(this.pingURLs, layer.id, url);
+          // Do NOT call pingLayer for WMS, let <img> handle it
+          this.$set(this.pingResults, layer.id, '...');
         } else {
-          this.$set(this.pingResults, layer.id, 'N/A');
+          this.$set(this.pingURLs, layer.id, url);
+          if (url) {
+            this.pingLayer(url, layer.id);
+          } else {
+            this.$set(this.pingResults, layer.id, 'N/A');
+          }
         }
       });
     },
@@ -66,13 +133,14 @@ module.exports = {
         <div class="card">
           <div class="card-body">
             <p class="text-center"><strong>Available layers current status</strong></p>
-            <table class="table table-bordered">
+            <table class="table table-bordered ping-table">
               <thead>
                 <tr>
-                  <th style="width:25%">Name</th>
-                  <th style="width:45%">URL</th>
-                  <th style="width:15%" class="text-center">Ping</th>
-                  <th style="width:15%" class="text-center">GitHub</th>
+                  <th style="width:20%" class="align-middle">Name</th>
+                  <th style="width:35%" class="align-middle">URL</th>
+                  <th style="width:15%" class="text-center align-middle">Preview</th>
+                  <th style="width:15%" class="text-center align-middle">Ping</th>
+                  <th style="width:15%" class="text-center align-middle">GitHub</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,6 +148,27 @@ module.exports = {
                   <td>{{ layer.name || layer.id }}</td>
                   <td class="wrap-url text-smaller">
                     <a :href="pingURLs[layer.id]" target="_blank">{{ pingURLs[layer.id] }}</a>
+                  </td>
+                  <td class="preview text-smaller text-center">
+                    <template v-if="layer.type === 'WMS'">
+                      <img
+                        :src="pingURLs[layer.id]"
+                        alt="WMS preview"
+                        style="max-width:100px; margin-top:4px;"
+                        @load="pingResults[layer.id] = 'OK'"
+                        @error="pingResults[layer.id] = 'FAIL'"
+                      />
+                    </template>
+                    <template v-if="layer.type === 'tileXYZ'">
+                      <img
+                        :src="pingURLs[layer.id]"
+                        alt="tileXYZ preview"
+                        style="max-width:100px; margin-top:4px;"
+                      />
+                    </template>
+                    <template v-if="layer.type === 'WFS'">
+                      <p>{{ pingPreview[layer.id] }}</p>
+                    </template>
                   </td>
                   <td class="text-center">
                     <span v-if="pingResults[layer.id] == 'OK'" class="text-success"><i class="fas fa-check-square"></i> {{ pingResults[layer.id] }}</span>

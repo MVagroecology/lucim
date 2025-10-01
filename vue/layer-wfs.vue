@@ -7,13 +7,43 @@ module.exports = {
         this.$set(this.layer_props, "layer", null)
         this.$set(this.layer_props, "selectedFeatures", [])
         this.$set(this.layer_props, "selectedLegendElements", [])
-        this.layer_props.olLayerType = 'Vector'
-        this.layer_props.olSourceType = 'Vector'
-        this.layer_props.olFormatType = 'GeoJSON'
-        this.layer_props.eventResource = 'features'
+        this.$set(this.layer_props, "olLayerType", 'Vector')
+        this.$set(this.layer_props, "olSourceType", 'Vector')
+        this.$set(this.layer_props, "olFormatType", 'GeoJSON')
+        this.$set(this.layer_props, "eventResource", 'features')
+        this.$set(this.layer_props, "isLoading", false)
         
 		return this.layer_props
 	},
+    mounted() {
+
+        this.source.on('change', () => {
+            if (this.source.getState() === 'ready' && this.source.getFeatures().length > 0) {
+                debugger
+                this.$set(this, "isLoading", false);
+            }
+        });
+        
+        if (this.$route.query.selected) {
+            // Parse selected features from query
+            const selectedLayers = this.$route.query.selected.split(';');
+            selectedLayers.forEach(sel => {
+                const [layerId, featIds] = sel.split(':');
+                if (this.layer_id == layerId && featIds) {
+                    const ids = featIds.split(',');
+                    this.source.on(this.eventResource + 'loadend', ev => {
+                        this.setSelectedFeaturesByIds(ids);
+                    });
+                }
+            });
+        }
+
+        VueBus.$on('updateSelectedFeaturesQuery', id => {
+            if (this.layer_id == id) {
+                this.updateSelectedFeaturesQuery()
+            }
+        })
+    },
     computed: {
         url() {
             var _this = this
@@ -26,9 +56,8 @@ module.exports = {
             }
         },
         format() {
-            var _this = this
-            return new ol.format[_this.olFormatType]({
-                dataProjection: _this.layer_projection, // Server data
+            return new ol.format[this.olFormatType]({
+                dataProjection: this.layer_projection, // Server data
                 featureProjection: MAP_PROJECTION // Map projection
             })
         },
@@ -186,11 +215,51 @@ module.exports = {
                         _this.layer.changed()
                     }
                 }
-                
+
                 _this.selectedLegendElements = _this.selectedFeatures.map(function(f) {
                     return f.legendId
                 })
+
+                _this.updateSelectedFeaturesQuery()
             });
+        },
+        setSelectedFeaturesByIds(ids) {
+            // Find features in the layer's source that match the IDs
+            const features = this.source.getFeatures().filter(f =>
+                ids.includes(String(f.get(this.feature_identifier)))
+            );
+            // Wrap features as in your click handler
+            this.selectedFeatures = features.map(clickedFeature => ({
+                layerId:   this.layer_id,
+                layerName: this.name_en,
+                projection: MAP_PROJECTION,
+                legendId:  this.generateLegendKey(clickedFeature),
+                info:      this.generateInfo(clickedFeature),
+                feature:   clickedFeature,
+            }));
+            this.selectedLegendElements = this.selectedFeatures.map(f => f.legendId);
+            this.layer.changed();
+        },
+        updateSelectedFeaturesQuery() {
+            // Get current selected features from query
+            var ids = this.selectedFeatures.map(f => f.feature.get(this.feature_identifier))
+
+            let selected = this.$route.query.selected || '';
+            let selectedLayers = selected ? selected.split(';') : [];
+            // Remove any previous entry for this layer
+            selectedLayers = selectedLayers.filter(sel => !sel.startsWith(this.layer_id + ':'));
+            // Add new entry
+            if (ids.length) {
+                selectedLayers.push(this.layer_id + ':' + ids.join(','));
+            }
+            const newSelected = selectedLayers.join(';');
+            const newQuery = {
+                ...this.$route.query,
+                selected: newSelected
+            };
+            if (this.$route.query.selected !== newSelected) {
+                this.$router.replace({ query: newQuery });
+            }
         },
         getFeatureProperty(f, prop) {
             return f.get(prop)
@@ -209,5 +278,6 @@ module.exports = {
             @change="setShow($event.target.checked)"
             v-model="show">
         <label class="form-check-label">{{ name_en }}</label>
+        <div class="spinner-border" v-show="isLoading" role="status"><span class="sr-only">Loading...</span></div>
     </div>
 </template>

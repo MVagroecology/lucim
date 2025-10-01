@@ -5,6 +5,7 @@ module.exports = {
     return {
       panel: 'viewer',
       middlePanel: 'layers',
+      rightPanel: 'help',
       map: null,
       layers: {},
       indicator_layers: [ 'tree_cover_density_2021', 'grassland_2021' ],
@@ -18,6 +19,13 @@ module.exports = {
   },
   mounted() {
     this.setupMap()
+
+    if (this.$route.query.middletab) {
+      this.middlePanel = this.$route.query.middletab;
+    }
+    if (this.$route.query.righttab) {
+      this.rightPanel = this.$route.query.righttab;
+    }
   },
   computed: {
     currentZoom() {
@@ -46,6 +54,7 @@ module.exports = {
             return true;
           } else if (x.show) {
             VueBus.$emit('updateLayerVisibility', x.id, false)
+            x.show = false
             return false;
           }
         }
@@ -103,7 +112,57 @@ module.exports = {
           constrainResolution: true // forces zoom levels to integers
         })
       });
+
+      // Scale
+      const scaleLineControl = new ol.control.ScaleLine();
+      this.map.addControl(scaleLineControl);
+
+      // Geocoder
+      var geocoder = new Geocoder('nominatim', {
+        provider: 'photon',
+        lang: 'en',
+        placeholder: 'Search for ...',
+        limit: 5,
+        debug: false,
+        autoComplete: true,
+        keepOpen: true,
+        preventMarker: true
+      });
+      this.map.addControl(geocoder);
+
+      // Custom control for "Go to my location"
+      const locateBtn = document.createElement('button');
+      locateBtn.className = 'ol-locate-btn';
+      locateBtn.title = 'Go to my location';
+      locateBtn.innerHTML = '<i class="fa-solid fa-location-crosshairs" alt="Locate"></i>';
+
+      locateBtn.onclick = () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(pos => {
+            const coords = ol.proj.fromLonLat([pos.coords.longitude, pos.coords.latitude], MAP_PROJECTION);
+            this.map.getView().animate({ center: coords, zoom: 15 });
+          }, err => {
+            alert("Could not get your location.");
+          });
+        } else {
+          alert("Geolocation is not supported by your browser.");
+        }
+      };
+
+      const locateInnerControlDiv = document.createElement('div');
+      locateInnerControlDiv.className = 'ol-control';
+      locateInnerControlDiv.appendChild(locateBtn);
+
+      const locateControlDiv = document.createElement('div');
+      locateControlDiv.className = 'ol-unselectable ol-custom-locate';
+      locateControlDiv.appendChild(locateInnerControlDiv);
+
+      const locateControl = new ol.control.Control({
+        element: locateControlDiv
+      });
+      this.map.addControl(locateControl);
       
+      // Create layer for pixels from calculations
       const layerSourceForPixelPoints = new ol.source.Vector();
       this.layerForPixelPoints = new ol.layer.Vector({
         source: layerSourceForPixelPoints,
@@ -117,6 +176,7 @@ module.exports = {
       });
       this.map.addLayer(this.layerForPixelPoints);
 
+      // Add countries limits layer
       const countriesSource = new ol.source.Vector({
         url: 'js/layers/europe_countries.geojson',
         format: new ol.format.GeoJSON()
@@ -130,21 +190,8 @@ module.exports = {
       countriesSource.on('change', () => {
         if (countriesSource.getState() === 'ready') {
           this.getVisibleCountries();
-          this.toggleLayers();
         }
       });
-
-      var geocoder = new Geocoder('nominatim', {
-        provider: 'osm',
-        lang: 'en',
-        placeholder: 'Search for ...',
-        limit: 5,
-        debug: false,
-        autoComplete: true,
-        keepOpen: true,
-        preventMarker: true
-      });
-      this.map.addControl(geocoder);
 
       this.map.on('moveend', () => {
         this.getVisibleCountries();
@@ -179,13 +226,24 @@ module.exports = {
       });
       this.visibleCountries = countries
     },
-    toggleLayers() {
-      // Restore shown layers from URL
-      if (this.$route.query.layers) {
-        const shownLayerIds = this.$route.query.layers.split(',');
-        for (const layer of Object.values(this.layers)) {
-          layer.show = shownLayerIds.includes(layer.id);
-        }
+    setMiddleTab(tabName) {
+      this.middlePanel = tabName;
+      const newQuery = {
+        ...this.$route.query,
+        middletab: tabName
+      };
+      if (this.$route.query.middletab !== tabName) {
+        this.$router.replace({ query: newQuery });
+      }
+    },
+    setRightTab(tabName) {
+      this.rightPanel = tabName;
+      const newQuery = {
+        ...this.$route.query,
+        righttab: tabName
+      };
+      if (this.$route.query.righttab !== tabName) {
+        this.$router.replace({ query: newQuery });
       }
     },
     clearStats() {
@@ -395,173 +453,168 @@ module.exports = {
 
 <template>
   <div class="lpis-sustainability-compass">
-    <div class="row">
+    <div class="row mx-1">
 
-      <div class="col-6"> <!-- LEFT SIDE -->
+      <div class="col-6 px-1"> <!-- LEFT SIDE -->
         <div id="map"></div>
         <div id="zoom"><p class="m-0">zoom: {{ currentZoom }}</p></div>
       </div>
 
-      <div class="col-6"> <!-- RIGHT SIDE -->
-        <div class="row">
-          <div class="col-7 pl-0 map-elements">
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link" :class="{ active: middlePanel == 'layers'}" @click="middlePanel = 'layers'">Layers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" :class="{ active: middlePanel == 'legend'}" @click="middlePanel = 'legend'">Legend</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" :class="{ active: middlePanel == 'indicators'}"  @click="middlePanel = 'indicators'">Indicators</a>
-              </li>
-              <!--li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li-->
-              <li class="nav-item">
-                <!--a class="nav-link" @click="demo()">Demo</a-->
-              </li>
-            </ul>
+      <div class="col-3 px-1 map-elements"> <!-- MIDDLE -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: middlePanel == 'layers'}" @click="setMiddleTab('layers')">Layers</a>
+          </li>
+        </ul>
 
-            <div v-show="middlePanel == 'layers'" class="card">
-              <div class="card-body">
-                <div class="mb-2 layers">
-                  <p class="mb-0"><b>Layers</b></p>
-                  <p class="mt-2 mb-1">LPIS</p>
-                  <div class="text-smaller" v-for="layer in lpislayers">
-                    <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
-                    <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
-                    <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
-                  </div>
-                  <div class="text-smaller" v-if="Object.keys(lpislayers).length == 0">
-                    <p>LPIS coverage is not yet supported for this location</p>
-                  </div>
-                  <p class="mt-2 mb-1">Other layers</p>
-                  <div class="text-smaller" v-for="layer in otherlayers">
-                    <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
-                    <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
-                    <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
-                  </div>
-                  <p class="mt-2 mb-1">Baselayers</p>
-                  <div class="text-smaller" v-for="layer in baselayers">
-                    <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
-                    <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
-                    <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
-                  </div>
-                </div>
+        <div v-show="middlePanel == 'layers'" class="card">
+          <div class="card-body">
+            <div class="mb-2 layers">
+              <p class="mb-0"><b>Layers</b></p>
+              <p class="mt-2 mb-1">LPIS</p>
+              <div class="text-smaller" v-for="layer in lpislayers">
+                <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
+                <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
+                <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
               </div>
-            </div>
-
-            <div v-show="middlePanel == 'legend'" class="card">
-              <div class="card-body">
-                <div class="mb-2 feature" v-if="anySelectedFeature">
-                  <div><p class="mb-0"><b>Selected features information</b></p></div>
-                  <div v-for="layer in layers" class="mb-3">
-                    <template v-if="layer.show && !layer.baselayer">
-                      <p class="mb-2">{{ layer.name_en }}</p>
-                      <div class="feature-element mb-2" v-for="(feature, idx) in layer.selectedFeatures" v-animate-on-update="feature">
-                        <template v-if="feature">
-                          <div class="feature-properties" v-for="(el, idx) in feature.info">
-                            <p><b>{{ el.name }}: </b>{{ el.value }}</p>
-                          </div>
-                        </template>
-                      </div>
-                    </template>
-                  </div>
-                </div>
-                <div class="mb-2 legend">
-                  <p class="mb-0"><b>Legend</b></p>
-                  <div v-for="layer in layers" class="mb-3">
-                    <template v-if="layer.show && !layer.baselayer">
-                      <div :key="layer.id">
-                        <p class="mb-0">{{ layer.name_en }} <div class="spinner-border" v-if="layer.isLoading" role="status">
-                          <span class="sr-only">Loading...</span>
-                        </div></p>
-                        <div class="legend-element" :class="{ selected: layer.selectedLegendElements?.includes(legendEl_id) }" v-for="legendEl, legendEl_id in layer.layer_legend">
-                          <div class="square" :class="{ 'no-data': legendEl.color === null }" :style="{ background: legendEl.color }"></div>
-                          <p>{{ legendEl[layer.feature_legend_text] }}</p>
-                        </div>
-                      </div>
-                    </template>
-                  </div>
-                </div>
+              <div class="text-smaller" v-if="Object.keys(lpislayers).length == 0">
+                <p>LPIS coverage is not yet supported for this location</p>
               </div>
-            </div>
-            
-            <div v-show="middlePanel == 'indicators'" class="card">
-              <div class="card-body">
-                <div class="mb-2">
-                  <p class="m-0"><b>Indicator statistics</b> of your farm parcel(s)</p>
-                  <button class="my-2" @click="calculateIndicators()">Calculate</button>
-                  <button class="my-2" @click="clearStats()">Clear</button>
-                  <div v-for="layer in layers" class="mb-3 text-left">
-                    <template v-if="layer.type == 'WFS' && layer.show && !layer.baselayer && layer.selectedFeatures?.length > 0">
-                      <p class="mb-2">{{ layer.name_en }}</p>
-                      <div class="feature-element mb-2" v-for="(selectedFeature, idx) in layer.selectedFeatures" v-animate-on-update="selectedFeature">
-                        <template v-if="selectedFeature">
-                          <div class="feature-properties table-responsive">
-                            <p><b>{{ layer.feature_identifier }}:</b> {{ selectedFeature.feature.get(layer.feature_identifier) }}</p>
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th scope="col"></th>
-                                  <th v-for="indicator_layer of indicator_layers" scope="col">{{ layers[indicator_layer].name }}</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">Sum</th>
-                                  <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_sum']?.toFixed(0) }}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Count</th>
-                                  <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_count']?.toFixed(0) }}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Average</th>
-                                  <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_avg']?.toFixed(2) }}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Max</th>
-                                  <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_max']?.toFixed(0) }}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Min</th>
-                                  <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_min']?.toFixed(0) }}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </template>
-                      </div>
-                    </template>
-                  </div>
-                  <a href="https://land.copernicus.eu/en/products" target="_blank" class="btn btn-copernicus d-none d-sm-block">Other <img class="copernicus-img" src="img/copernicus_logo.png"> datasets</a>
-                </div>
+              <p class="mt-2 mb-1">Other layers</p>
+              <div class="text-smaller" v-for="layer in otherlayers">
+                <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
+                <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
+                <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
               </div>
-            </div>
-
-          </div>
-          <div class="col-5 pl-0 insights text-center">
-            <div class="card">
-              <div class="card-body">
-                <div class="mb-4">
-                  <p class="mb-0">Look up your <b>farm's region</b> <img class="copernicus-img" src="img/search.png"> or go to one of DigitAF's Living Labs</p>
-                  <button class="btn border m-1 p-1" @click="goToLL('cz')">Czechia LL</button>
-                  <button class="btn border m-1 p-1" @click="goToLL('fi')">Finland LL</button>
-                  <button class="btn border m-1 p-1" @click="goToLL('de')">Germany LL</button>
-                  <button class="btn border m-1 p-1" @click="goToLL('it')">Italy LL</button>
-                  <button class="btn border m-1 p-1" @click="goToLL('nl')">Netherlands LL</button>
-                  <button class="btn border m-1 p-1" @click="goToLL('uk')">UK LL</button>
-                </div>
-                <div class="mb-4">
-                  <p class="mb-0"><b>To select your farm parcel, simply click on it</b>. To select more than one, hold the SHIFT key and click on each additional parcel.</p>
-                </div>
+              <p class="mt-2 mb-1">Baselayers</p>
+              <div class="text-smaller" v-for="layer in baselayers">
+                <layer-tilexyz :key="layer.id" v-if="layer.type == 'tileXYZ'" :layer_props="layer" :layer_id="layer.id"></layer-tilexyz>
+                <layer-wfs :key="layer.id" v-if="layer.type == 'WFS'" :layer_props="layer" :layer_id="layer.id"></layer-wfs>
+                <layer-wms :key="layer.id" v-if="layer.type == 'WMS'" :layer_props="layer" :layer_id="layer.id"></layer-wms>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="col-3 px-1 map-elements"> <!-- RIGHT SIDE -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: rightPanel == 'help'}" @click="setRightTab('help')">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: rightPanel == 'legend'}" @click="setRightTab('legend')">Legend</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" :class="{ active: rightPanel == 'indicators'}"  @click="setRightTab('indicators')">Indicators</a>
+          </li>
+        </ul>
+
+        <div v-show="rightPanel == 'help'" class="card">
+          <div class="card-body">
+            <div class="mb-4">
+              <p class="mb-0">Look up your <b>farm's region</b> <img class="copernicus-img" src="img/search.png"> or go to one of DigitAF's Living Labs</p>
+              <button class="btn border m-1 p-1" @click="goToLL('cz')">Czechia LL</button>
+              <button class="btn border m-1 p-1" @click="goToLL('fi')">Finland LL</button>
+              <button class="btn border m-1 p-1" @click="goToLL('de')">Germany LL</button>
+              <button class="btn border m-1 p-1" @click="goToLL('it')">Italy LL</button>
+              <button class="btn border m-1 p-1" @click="goToLL('nl')">Netherlands LL</button>
+              <button class="btn border m-1 p-1" @click="goToLL('uk')">UK LL</button>
+            </div>
+            <div class="mb-4">
+              <p class="mb-0"><b>To select your farm parcel, simply click on it</b>. To select more than one, hold the SHIFT key and click on each additional parcel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div v-show="rightPanel == 'legend'" class="card">
+          <div class="card-body">
+            <div class="mb-2 feature" v-if="anySelectedFeature">
+              <div><p class="mb-0"><b>Selected features information</b></p></div>
+              <div v-for="layer in layers" class="mb-3">
+                <template v-if="layer.show && !layer.baselayer">
+                  <p class="mb-2">{{ layer.name_en }}</p>
+                  <div class="feature-element mb-2" v-for="(feature, idx) in layer.selectedFeatures" v-animate-on-update="feature">
+                    <template v-if="feature">
+                      <div class="feature-properties" v-for="(el, idx) in feature.info">
+                        <p><b>{{ el.name }}: </b>{{ el.value }}</p>
+                      </div>
+                    </template>
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="mb-2 legend">
+              <p class="mb-0"><b>Legend</b></p>
+              <div v-for="layer in layers" class="mb-3">
+                <template v-if="layer.show && !layer.baselayer">
+                  <div :key="layer.id">
+                    <p class="mb-0">{{ layer.name_en }}</p>
+                    <div class="legend-element" :class="{ selected: layer.selectedLegendElements?.includes(legendEl_id) }" v-for="legendEl, legendEl_id in layer.layer_legend">
+                      <div class="square" :class="{ 'no-data': legendEl.color === null }" :style="{ background: legendEl.color }"></div>
+                      <p>{{ legendEl[layer.feature_legend_text] }}</p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div v-show="rightPanel == 'indicators'" class="card">
+          <div class="card-body">
+            <div class="mb-2">
+              <p class="m-0"><b>Indicator statistics</b> of your farm parcel(s)</p>
+              <button class="my-2" @click="calculateIndicators()">Calculate</button>
+              <button class="my-2" @click="clearStats()">Clear</button>
+              <div v-for="layer in layers" class="mb-3 text-left">
+                <template v-if="layer.type == 'WFS' && layer.show && !layer.baselayer && layer.selectedFeatures?.length > 0">
+                  <p class="mb-2">{{ layer.name_en }}</p>
+                  <div class="feature-element mb-2" v-for="(selectedFeature, idx) in layer.selectedFeatures" v-animate-on-update="selectedFeature">
+                    <template v-if="selectedFeature">
+                      <div class="feature-properties table-responsive">
+                        <p><b>{{ layer.feature_identifier }}:</b> {{ selectedFeature.feature.get(layer.feature_identifier) }}</p>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col"></th>
+                              <th v-for="indicator_layer of indicator_layers" scope="col">{{ layers[indicator_layer].name }}</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">Sum</th>
+                              <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_sum']?.toFixed(0) }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Count</th>
+                              <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_count']?.toFixed(0) }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Average</th>
+                              <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_avg']?.toFixed(2) }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Max</th>
+                              <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_max']?.toFixed(0) }}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Min</th>
+                              <td v-for="indicator_layer of indicator_layers">{{ selectedFeature[indicator_layer + '_min']?.toFixed(0) }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </template>
+                  </div>
+                </template>
+              </div>
+              <a href="https://land.copernicus.eu/en/products" target="_blank" class="btn btn-copernicus d-none d-sm-block">Other <img class="copernicus-img" src="img/copernicus_logo.png"> datasets</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>

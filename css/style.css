@@ -844,7 +844,7 @@ estat-vis-tooltip-text,
 .feature-element p {
   margin: 0;
 }
-.map-elements .legend .spinner-border {
+.spinner-border {
   height: 15px;
   width: 15px;
   vertical-align: middle;
@@ -885,6 +885,25 @@ estat-vis-tooltip-text,
   word-break: break-all;
   max-width: 250px; /* adjust as needed */
   white-space: normal;
+}
+
+.ping-table td {
+  vertical-align: middle;
+}
+
+/* Add to your CSS file or <style> block */
+.ol-custom-locate {
+  top: 7em !important; /* below the search bar */
+  left: .5em !important;
+  position: absolute !important;
+  z-index: 1000;
+}
+.ol-locate-btn {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+  cursor: pointer;
 }
 
 @media (min-width: 576px) { 

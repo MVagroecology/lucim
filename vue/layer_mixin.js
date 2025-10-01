@@ -21,7 +21,9 @@ var layer_mixin = {
             serverType: _this.serverType, // only for wms
         }
 
-        this.setLoaderIfNeeded(source_props)
+        if (this.needs_loader) {
+            source_props.loader = this.loader
+        }
 
         var source = new ol.source[_this.olSourceType](source_props)
         
@@ -60,37 +62,13 @@ var layer_mixin = {
                 _this.setShow(toShow)
             }
         })
-
-        // loading events
-
-        this.source.on(this.eventResource + 'loadstart', function(ev) {
-            _this.isLoading = true
-        });
-
-        this.source.on(this.eventResource + 'loadend', function(ev) {
-            _this.isLoading = false
-        });
-        
-        this.source.on(this.eventResource + 'loaderror', function(ev) {
-            console.log('loaderror: ' + _this.layer_id + ': ' + ev.error);
-            _this.isLoading = false;
-        });
-
         this.addClickListener()
     },
     methods: {
-        setLoaderIfNeeded(source_props) {
-            if ([
-                "lpis_cz_referenceparcel",
-                "lpis_cz_agriculturalarea",
-                "lpis_cz_ecologicalfocusarea"
-            ].includes(this.layer_id)) {
-                source_props.loader = this.loader
-            }
-        },
         setShow(toShow) {
             if (this.layer) {
                 this.layer.setVisible(toShow)
+                this.isLoading = toShow
                 this.show = toShow
 
                 if (this.baselayer && toShow) {
@@ -115,6 +93,12 @@ var layer_mixin = {
                             }
                         });
                     }
+                }
+
+                if (!toShow) {
+                    // Clear selection
+                    this.selectedFeatures = []
+                    VueBus.$emit('updateSelectedFeaturesQuery', this.layer_id)
                 }
             }
         },
